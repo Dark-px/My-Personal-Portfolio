@@ -1,28 +1,43 @@
+<div align="center">
+
 # Parsa Ghaei Portfolio
 
-A modern personal portfolio focused on game development, design, and learning progress.
-Built with React, TypeScript, Vite, and Tailwind CSS with smooth interactions and a custom UI style.
+### A modern, cinematic portfolio for a game developer journey
+
+[![React](https://img.shields.io/badge/React-19-20232A?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+</div>
 
 ---
 
-## Highlights
+## Preview
 
-- Bold single-page portfolio layout (Hero, Projects, Learning Path, About, Blog, Contact)
-- Smooth scrolling with `lenis`
-- Custom cursor + hover preview interactions
-- Scroll progress indicator
-- Responsive design for desktop and mobile
-- Clean component-based architecture for easy edits
+> Add your screenshot here after first deploy:
+>
+> `![Portfolio Preview](./docs/assets/preview.png)`
+
+## Why this project looks different
+
+- Sharp brutalist-inspired typography and layout
+- Smooth scroll experience powered by `lenis`
+- Custom cursor preview interactions
+- Scroll progress line for long-page feedback
+- Journey-focused content blocks (Projects, Learning Path, Blog, Contact)
+- Mobile-first responsive behavior
 
 ## Tech Stack
 
-- React 19 + TypeScript
-- Vite
-- Tailwind CSS
-- React Router
-- TanStack Query
-- Radix UI + shadcn-style components
-- Supabase SDK (optional integration points)
+| Layer | Tools |
+|---|---|
+| Frontend | React 19, TypeScript, Vite |
+| Styling | Tailwind CSS, custom animation system |
+| UI Primitives | Radix UI, shadcn-style components |
+| Data / Async | TanStack Query, Supabase SDK |
+| Routing | React Router |
 
 ## Quick Start
 
@@ -33,78 +48,75 @@ npm install
 npm run dev
 ```
 
-App runs on `http://localhost:8080` by default.
+Runs on `http://localhost:8080`.
 
-## Available Scripts
+## Scripts
 
-- `npm run dev` - start local dev server
-- `npm run typecheck` - run TypeScript checks
-- `npm run lint` - run ESLint
-- `npm run build` - typecheck + production build
-- `npm run preview` - preview production build locally
+```bash
+npm run dev        # start development server
+npm run typecheck  # TypeScript validation
+npm run lint       # ESLint
+npm run build      # production build
+npm run preview    # preview production output
+```
 
-## Environment Variables
-
-Create `.env` from `.env.example` and fill your own values:
+## Environment Setup
 
 ```bash
 cp .env.example .env
 ```
 
-Main keys used:
+Required variables:
 
-- `VITE_SUPABASE_URL`
-- `VITE_SUPABASE_PUBLISHABLE_KEY`
-- `VITE_API_URL`
-- `VITE_PROJECT_ID`
+```env
+VITE_SUPABASE_URL=
+VITE_SUPABASE_PUBLISHABLE_KEY=
+VITE_API_URL=
+VITE_PROJECT_ID=
+```
 
 ## Project Structure
 
 ```text
 src/
   components/
-    portfolio/      # Main portfolio sections and UI behavior
-    ui/             # Shared UI primitives
-  lib/              # Utilities (scroll helpers, etc.)
-  pages/            # Route pages (home, blog, not-found)
+    portfolio/      # Core sections: Hero, Projects, Journey, About, Contact
+    ui/             # Reusable UI building blocks
+  pages/            # Route pages
+  lib/              # Helpers (scroll, utils)
   hooks/            # Reusable hooks
-  data/             # Static content/data sources
-docs/               # Documentation
-public/             # Static assets
+  data/             # Static or structured content
+public/             # Static files
+docs/               # Project documentation
 ```
 
-## Customization Guide
+## Customize Your Version
 
-- Personal info and section content:
-  - `src/components/portfolio/Hero.tsx`
-  - `src/components/portfolio/About.tsx`
-  - `src/components/portfolio/Contact.tsx`
-- Projects list:
-  - `src/components/portfolio/Projects.tsx`
-- Learning roadmap:
-  - `src/components/portfolio/LearningJourney.tsx`
-- Theme, animations, utilities:
-  - `src/index.css`
+- Update identity/content in `src/components/portfolio/Hero.tsx`
+- Edit about text in `src/components/portfolio/About.tsx`
+- Update social/email in `src/components/portfolio/Contact.tsx`
+- Replace project cards in `src/components/portfolio/Projects.tsx`
+- Edit learning goals in `src/components/portfolio/LearningJourney.tsx`
+- Tune visual style and animations in `src/index.css`
 
-## Deployment
+## Deploy
 
-You can deploy this project on platforms like:
+Works well on:
 
 - Vercel
 - Netlify
 - Cloudflare Pages
 
-Standard flow:
+Production settings:
 
-1. Set environment variables in your hosting provider
-2. Build command: `npm run build`
-3. Output directory: `dist`
+- Build command: `npm run build`
+- Output folder: `dist`
 
-## Contact
+## Connect
 
 - GitHub: `https://github.com/<your-username>`
 - Email: `your-email@example.com`
 
 ---
 
-If you like this project, feel free to fork it and build your own version.
+If this repo helped you, give it a star and build your own version.
