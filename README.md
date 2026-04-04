@@ -116,7 +116,7 @@ Production settings:
 
 ## Connect
 
-- GitHub: `https://github.com/<your-username>`
+- GitHub: `https://github.com/Dark-px`
 - Email: `your-email@example.com`
 
 ---
