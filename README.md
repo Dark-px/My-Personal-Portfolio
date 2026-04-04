@@ -9,6 +9,7 @@
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-parsaghaei.dev-111111?logo=cloudflarepages&logoColor=F38020)](https://parsaghaei.dev)
 
 </div>
 
@@ -16,9 +17,9 @@
 
 ## Preview
 
-> Add your screenshot here after first deploy:
->
-> `![Portfolio Preview](./docs/assets/preview.png)`
+**Live Website:** [https://parsaghaei.dev](https://parsaghaei.dev)
+
+[![Portfolio Live Preview](https://parsaghaei.dev/og-image.jpg)](https://parsaghaei.dev)
 
 ## Why this project looks different
 
@@ -111,6 +112,7 @@ Production settings:
 
 - Build command: `npm run build`
 - Output folder: `dist`
+- Production URL: `https://parsaghaei.dev`
 
 ## Connect
 
