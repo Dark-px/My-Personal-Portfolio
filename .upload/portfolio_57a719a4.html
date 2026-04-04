@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Lead Engine Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --obsidian-deep: #050506;
+            --obsidian-matte: #0d0d0f;
+            --obsidian-milled: #161618;
+            --obsidian-edge: #222224;
+            --glass-sheen: rgba(255, 255, 255, 0.03);
+            --accent-white: #f0f0f0;
+            --accent-dim: #707070;
+            --glint: rgba(255, 255, 255, 0.4);
+            --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        body {
+            background-color: var(--obsidian-deep);
+            color: var(--accent-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+
+        /* --- Milled Obsidian Texture --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* --- Structural Layout --- */
+        .viewport {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+            gap: 20px;
+        }
+
+        /* --- Monolithic Components --- */
+        .milled-card {
+            background: var(--obsidian-matte);
+            border: 1px solid var(--obsidian-edge);
+            box-shadow:
+                inset 1px 1px 0px rgba(255,255,255,0.05),
+                20px 20px 40px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .milled-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, var(--glass-sheen) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .milled-card:hover::after {
+            transform: translateX(100%);
+        }
+
+        /* --- Sidebar Navigation --- */
+        nav {
+            grid-row: 1 / 4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+            border-right: 1px solid var(--obsidian-edge);
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -2px;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--accent-dim);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-white);
+        }
+
+        /* --- Main Content --- */
+        main {
+            grid-column: 2 / 4;
+            padding-left: 40px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 80px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 10rem);
+            font-weight: 900;
+            line-height: 0.85;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-title span {
+            display: block;
+            color: var(--obsidian-matte);
+            -webkit-text-stroke: 1px var(--obsidian-edge);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--obsidian-edge);
+            border: 1px solid var(--obsidian-edge);
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            background: var(--obsidian-deep);
+            padding: 30px;
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent-dim);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* --- Projects Grid --- */
+        .projects-section {
+            margin-top: 120px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+        }
+
+        .project-monolith {
+            height: 600px;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);
+        }
+
+        .project-info h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .project-tags {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-dim);
+        }
+
+        .project-small {
+            height: 280px;
+            margin-bottom: 40px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* --- Monospace Data Strip --- */
+        .data-strip {
+            grid-column: 1 / 4;
+            border-top: 1px solid var(--obsidian-edge);
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent-dim);
+            text-transform: uppercase;
+        }
+
+        /* --- Custom Cursor --- */
+        #cursor {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--accent-white);
+            position: fixed;
+            pointer-events: none;
+            z-index: 999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #cursor::after {
+            content: "";
+            width: 4px;
+            height: 4px;
+            background: var(--accent-white);
+        }
+
+        /* --- Animations --- */
+        @keyframes reveal {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .reveal {
+            animation: reveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .viewport {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            nav {
+                grid-row: auto;
+                flex-direction: row;
+                border-right: none;
+                border-bottom: 1px solid var(--obsidian-edge);
+                height: 60px;
+                width: 100%;
+                writing-mode: horizontal-tb;
+            }
+            .logo, .nav-links a {
+                writing-mode: horizontal-tb;
+                transform: rotate(0);
+            }
+            .nav-links { flex-direction: row; }
+            main { padding-left: 0; }
+            .projects-section { grid-template-columns: 1fr; }
+            .hero-title { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+
+    <div class="viewport">
+        <nav>
+            <div class="logo">OBSIDIAN_CORE</div>
+            <ul class="nav-links">
+                <li><a href="#work">Projects</a></li>
+                <li><a href="#lab">Lab</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="data-strip" style="writing-mode: vertical-rl; transform: rotate(180deg); border: none;">
+                v2.0.24 // STABLE
+            </div>
+        </nav>
+
+        <main>
+            <header class="reveal">
+                <div class="header-left">
+                    <h1 class="hero-title">
+                        ARCHITECTING<br>
+                        <span>VIRTUAL</span><br>
+                        REALMS.
+                    </h1>
+                </div>
+                <div class="header-right" style="text-align: right; font-family: 'JetBrains Mono'; max-width: 300px;">
+                    <p style="font-size: 0.8rem; color: var(--accent-dim);">
+                        Specializing in low-level engine optimization and procedural world generation systems.
+                    </p>
+                </div>
+            </header>
+
+            <section class="stats-grid reveal" style="animation-delay: 0.2s;">
+                <div class="stat-item">
+                    <span class="stat-label">Engines</span>
+                    <span class="stat-value">Custom C++, Unreal, Unity</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Optimization</span>
+                    <span class="stat-value">60FPS @ 4K Standard</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Exp</span>
+                    <span class="stat-value">08+ Solar Cycles</span>
+                </div>
+            </section>
+
+            <section class="projects-section" id="work">
+                <div class="milled-card project-monolith reveal" style="animation-delay: 0.4s; background-image: linear-gradient(to top, var(--obsidian-deep), transparent), url('https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&q=80&w=1000');">
+                    <div class="project-info">
+                        <span class="stat-label">Project 01</span>
+                        <h3>NEON_STRIDE</h3>
+                        <p class="project-tags">PHYSICS-BASED PARKOUR ENGINE / VULKAN</p>
+                    </div>
+                </div>
+
+                <div class="project-col">
+                    <div class="milled-card project-small reveal" style="animation-delay: 0.5s;">
+                        <span class="stat-label">Project 02</span>
+                        <div class="project-info">
+                            <h4 style="font-size: 1.5rem;">VOID_FLUX</h4>
+                            <p class="project-tags">PROCEDURAL FLUID SIMULATION</p>
+                        </div>
+                    </div>
+                    <div class="milled-card project-small reveal" style="animation-delay: 0.6s;">
+                        <span class="stat-label">Project 03</span>
+                        <div class="project-info">
+                            <h4 style="font-size: 1.5rem;">QUANTUM_SHADER</h4>
+                            <p class="project-tags">NON-EUCLIDEAN RENDERING PIPELINE</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="milled-card reveal" style="margin-top: 40px; padding: 60px; animation-delay: 0.7s;">
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">STRUCTURAL MANIFESTO</h2>
+                <p style="color: var(--accent-dim); max-width: 600px; font-size: 1.1rem;">
+                    I believe game development is the ultimate form of structuralism. Every line of code is a weight-bearing pillar. Every shader is a finish on a milled surface. My work focuses on the intersection of brutalist efficiency and organic visual fidelity.
+                </p>
+            </section>
+        </main>
+
+        <footer class="data-strip">
+            <div>LOCAL_TIME: <span id="clock">00:00:00</span></div>
+            <div>STATUS: READY_FOR_DEPLOYMENT</div>
+            <div>&copy; 2024 SYSTEM_ARCHITECT</div>
+        </footer>
+    </div>
+
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 20 + 'px';
+            cursor.style.top = e.clientY - 20 + 'px';
+        });
+
+        // Hover Effect for Cursor
+        const interactables = document.querySelectorAll('.milled-card, a, .stat-item');
+        interactables.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursor.style.backgroundColor = 'rgba(255,255,255,0.1)';
+            });
+            item.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.backgroundColor = 'transparent';
+            });
+        });
+
+        // Live Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString('en-GB', { hour12: false });
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Parallax Effect for Milled Cards
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.milled-card');
+            const x = (window.innerWidth / 2 - e.pageX) / 50;
+            const y = (window.innerHeight / 2 - e.pageY) / 50;
+
+            cards.forEach(card => {
+                card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+            });
+        });
+
+        // Scroll Reveal Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section, header').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

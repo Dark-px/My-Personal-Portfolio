@@ -1,0 +1,1186 @@
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+index 7e5b7d7..80c8292 100644
+--- a/.idea/.gitignore
++++ b/.idea/.gitignore
+@@ -1,8 +1,8 @@
+-﻿# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
++﻿# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+diff --git a/6+1 Hats Of Think b/6+1 Hats Of Think
+index 4852d84..3b240d3 160000
+--- a/6+1 Hats Of Think	
++++ b/6+1 Hats Of Think	
+@@ -1 +1 @@
+-Subproject commit 4852d845d1c9a674fa68cf8687257ef477febcaa
++Subproject commit 3b240d3088f0eb78a23366a4c22871d7bb243fa8-dirty
+diff --git a/My favorite movies/.idea/.gitignore b/My favorite movies/.idea/.gitignore
+index 7e5b7d7..80c8292 100644
+--- a/My favorite movies/.idea/.gitignore	
++++ b/My favorite movies/.idea/.gitignore	
+@@ -1,8 +1,8 @@
+-﻿# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
++﻿# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+diff --git a/My favorite movies/.idea/My favorite movies.iml b/My favorite movies/.idea/My favorite movies.iml
+index 24643cc..0b872d8 100644
+--- a/My favorite movies/.idea/My favorite movies.iml	
++++ b/My favorite movies/.idea/My favorite movies.iml	
+@@ -1,12 +1,12 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="WEB_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+-      <excludeFolder url="file://$MODULE_DIR$/temp" />
+-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
+ </module>
+\ No newline at end of file
+diff --git a/My favorite movies/.idea/modules.xml b/My favorite movies/.idea/modules.xml
+index 102dc2e..485ab01 100644
+--- a/My favorite movies/.idea/modules.xml	
++++ b/My favorite movies/.idea/modules.xml	
+@@ -1,8 +1,8 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/My favorite movies.iml" filepath="$PROJECT_DIR$/.idea/My favorite movies.iml" />
+-    </modules>
+-  </component>
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/My favorite movies.iml" filepath="$PROJECT_DIR$/.idea/My favorite movies.iml" />
++    </modules>
++  </component>
+ </project>
+\ No newline at end of file
+diff --git a/My favorite movies/src/index.html b/My favorite movies/src/index.html
+index 3d9b00d..ef3c1bf 100644
+--- a/My favorite movies/src/index.html	
++++ b/My favorite movies/src/index.html	
+@@ -1,42 +1,42 @@
+-﻿<!DOCTYPE html>
+-<html lang="en">
+-    <head>
+-        <meta charset="UTF-8">
+-        <title>my 3 favorite movies</title>
+-        <link href="https://fonts.googleapis.com/css2?family=IRANSans&amp;display=swap" rel="stylesheet">
+-        <style>
+-        body {
+-        font-family: 'IRANSans', sans-serif;
+-        }
+-        </style>
+-
+-    </head>
+-
+-        <body>
+-        <div style="text-align:center;"> <h1>My Favorite Movies</h1></div>
+-
+-        <table width="100%" border="0" cellpadding="10" cellspacing="0">
+-            <tr>
+-                <td width="33%" align="center">
+-                    <img src="matrix.jpg" alt="Matrix Movie poster" width="100%">
+-                    <hr>
+-                    <p> <b>
+-                        When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.
+-                    </b> </p>
+-                </td>
+-
+-                <td width="33%" align="center">
+-                    <img src="Blade_Runner_2049_Poster.webp" alt="Blade Runner 2049 Movie Poster" width="100%">
+-                    <hr>
+-                    <p> <b> Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years. </b> </p>
+-                </td>
+-                <td width="33%" align="center">
+-                    <img src="GhostInTheShell.jpg" alt="Ghost in the Shell Movie Poster" width="100%">
+-                    <hr>
+-                    <p> <b> In the near future, Major Mira Killian is the first of her kind: A human saved from a terrible crash, who is cyber-enhanced to be a perfect soldier devoted to stopping the world's most dangerous criminals. </b></p>
+-                </td>
+-            </tr>
+-        </table>
+-
+-        </body>
++﻿<!DOCTYPE html>
++<html lang="en">
++    <head>
++        <meta charset="UTF-8">
++        <title>my 3 favorite movies</title>
++        <link href="https://fonts.googleapis.com/css2?family=IRANSans&amp;display=swap" rel="stylesheet">
++        <style>
++        body {
++        font-family: 'IRANSans', sans-serif;
++        }
++        </style>
++
++    </head>
++
++        <body>
++        <div style="text-align:center;"> <h1>My Favorite Movies</h1></div>
++
++        <table width="100%" border="0" cellpadding="10" cellspacing="0">
++            <tr>
++                <td width="33%" align="center">
++                    <img src="matrix.jpg" alt="Matrix Movie poster" width="100%">
++                    <hr>
++                    <p> <b>
++                        When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.
++                    </b> </p>
++                </td>
++
++                <td width="33%" align="center">
++                    <img src="Blade_Runner_2049_Poster.webp" alt="Blade Runner 2049 Movie Poster" width="100%">
++                    <hr>
++                    <p> <b> Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years. </b> </p>
++                </td>
++                <td width="33%" align="center">
++                    <img src="GhostInTheShell.jpg" alt="Ghost in the Shell Movie Poster" width="100%">
++                    <hr>
++                    <p> <b> In the near future, Major Mira Killian is the first of her kind: A human saved from a terrible crash, who is cyber-enhanced to be a perfect soldier devoted to stopping the world's most dangerous criminals. </b></p>
++                </td>
++            </tr>
++        </table>
++
++        </body>
+ </html>
+\ No newline at end of file
+diff --git a/simple resume/.idea/.gitignore b/simple resume/.idea/.gitignore
+index 7e5b7d7..80c8292 100644
+--- a/simple resume/.idea/.gitignore	
++++ b/simple resume/.idea/.gitignore	
+@@ -1,8 +1,8 @@
+-﻿# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
++﻿# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+diff --git a/simple resume/.idea/modules.xml b/simple resume/.idea/modules.xml
+index dc3e816..aea2779 100644
+--- a/simple resume/.idea/modules.xml	
++++ b/simple resume/.idea/modules.xml	
+@@ -1,8 +1,8 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/simple resume.iml" filepath="$PROJECT_DIR$/.idea/simple resume.iml" />
+-    </modules>
+-  </component>
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/simple resume.iml" filepath="$PROJECT_DIR$/.idea/simple resume.iml" />
++    </modules>
++  </component>
+ </project>
+\ No newline at end of file
+diff --git a/simple resume/.idea/simple resume.iml b/simple resume/.idea/simple resume.iml
+index 24643cc..0b872d8 100644
+--- a/simple resume/.idea/simple resume.iml	
++++ b/simple resume/.idea/simple resume.iml	
+@@ -1,12 +1,12 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="WEB_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+-      <excludeFolder url="file://$MODULE_DIR$/temp" />
+-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
+ </module>
+\ No newline at end of file
+diff --git a/simple resume/src/index-en.html b/simple resume/src/index-en.html
+index 20f1a8e..42e1902 100644
+--- a/simple resume/src/index-en.html	
++++ b/simple resume/src/index-en.html	
+@@ -1,80 +1,80 @@
+-﻿<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Parsa Ghaei's Resume</title>
+-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+-
+-    <style>
+-        body {
+-            text-align: left;
+-            font-family: 'Roboto', sans-serif;
+-        }
+-    </style>
+-</head>
+-
+-<body>
+-<div
+-        style="text-align: center;">
+-    <img src="pg.png" width="640" height="360" alt="Parsa Ghaei's Logo">
+-</div>
+-<h1>
+-    Hello! I am Parsa Ghaei.
+-</h1>
+-
+-
+-
+-<hr>
+-<h2>
+-    About Me
+-</h2>
+-
+-<p>
+-    As far back as I can remember, my best friend since childhood was the computer. When I was using Windows XP, it was as if I was controlling the world with my fingers. I was in the fourth grade of elementary school when I surprised everyone by creating and presenting a PowerPoint; perhaps this was the beginning that paved my way to the world of computers and games.
+-</p>
+-
+-<h2>
+-    Education
+-</h2>
+-
+-<p>
+-    High School - Computer Science
+-</p>
+-<h2>
+-    Interests
+-</h2>
+-
+-<p>
+-    Technology
+-</p>
+-<p>
+-    The Cyberpunk World
+-</p>
+-<p>
+-    Video Games
+-</p>
+-<p>
+-    Video Game Development
+-</p>
+-<hr>
+-<h2>
+-    Contact with me
+-</h2>
+-<p> Email:
+-    <a href="mailto:parsa.ghaei.bio@gmail.com">
+-        parsa.ghaei.bio@gmail.com
+-    </a>
+-</p>
+-
+-<p>Phone:
+-    <a href="tel:+989908674754">
+-        +989908674754
+-    </a>
+-</p>
+-
+-<h1>
+-    Thanks For Watching This Resume :)
+-</h1>
+-</body>
+-
+-</html>
++﻿<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Parsa Ghaei's Resume</title>
++    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
++
++    <style>
++        body {
++            text-align: left;
++            font-family: 'Roboto', sans-serif;
++        }
++    </style>
++</head>
++
++<body>
++<div
++        style="text-align: center;">
++    <img src="pg.png" width="640" height="360" alt="Parsa Ghaei's Logo">
++</div>
++<h1>
++    Hello! I am Parsa Ghaei.
++</h1>
++
++
++
++<hr>
++<h2>
++    About Me
++</h2>
++
++<p>
++    As far back as I can remember, my best friend since childhood was the computer. When I was using Windows XP, it was as if I was controlling the world with my fingers. I was in the fourth grade of elementary school when I surprised everyone by creating and presenting a PowerPoint; perhaps this was the beginning that paved my way to the world of computers and games.
++</p>
++
++<h2>
++    Education
++</h2>
++
++<p>
++    High School - Computer Science
++</p>
++<h2>
++    Interests
++</h2>
++
++<p>
++    Technology
++</p>
++<p>
++    The Cyberpunk World
++</p>
++<p>
++    Video Games
++</p>
++<p>
++    Video Game Development
++</p>
++<hr>
++<h2>
++    Contact with me
++</h2>
++<p> Email:
++    <a href="mailto:parsa.ghaei.bio@gmail.com">
++        parsa.ghaei.bio@gmail.com
++    </a>
++</p>
++
++<p>Phone:
++    <a href="tel:+989908674754">
++        +989908674754
++    </a>
++</p>
++
++<h1>
++    Thanks For Watching This Resume :)
++</h1>
++</body>
++
++</html>
+diff --git a/simple resume/src/index-fa.html b/simple resume/src/index-fa.html
+index 0b02ada..c7cf9a3 100644
+--- a/simple resume/src/index-fa.html	
++++ b/simple resume/src/index-fa.html	
+@@ -1,101 +1,101 @@
+-﻿<!DOCTYPE html>
+-<html lang="fa" xmlns="http://www.w3.org/1999/html">
+-        <head>
+-            <meta charset="UTF-8">
+-            <title>رزومه پارسا غایی</title>
+-            <link href="https://fonts.googleapis.com/css2?family=IRANSans&display=swap" rel="stylesheet">
+-            <link rel="stylesheet" href="style.css">
+-            <style>
+-                body {
+-                    text-align: right;
+-                    font-family: 'IRANSans', sans-serif;
+-                }
+-            </style>
+-        </head>
+-
+-    <body>
+-    <header>
+-
+-
+-        <div
+-                style="text-align: center;">
+-                <img src="pg.png" width="640" height="360" alt="لوگو پارسا غایی">
+-        </div>
+-    </header>
+-        <div>
+-            <h1>
+-                سلام! من پارسا غایی هستم.
+-            </h1>
+-        </div>
+-
+-        <main>
+-            <hr>
+-            <article>
+-            <div>
+-            <h2>
+-                درباره من
+-            </h2>
+-
+-            <p>
+-                تا جایی که یادم میاد از بچگی بهترین دوستم کامپیوتر بود اون موقعی که با ویندوز اکس پی کار میکردم انگار با انگشت هام دنیا رو کنترل میکردم. کلاس چهارم دبستان بودم که با درست کردن پاورپوینت، و ارائه اون همه رو حیرت زده کردم، شاید اونجا شروع کار بود که راهم رو به دنیای کامپیوتر و بازی هاش روشن کرد
+-            </p>
+-            </div>
+-            </article>
+-
+-            <article>
+-            <div>
+-            <h2>
+-                تحصیلات
+-            </h2>
+-
+-            <p>
+-                متوسطه دوم - رشته کامپیوتر
+-            </p>
+-            </div>
+-            </article>
+-                <div>
+-                    <h2>
+-                علاقه‌مندی ها
+-            </h2>
+-
+-            <p>
+-                تکنولوژی
+-            </p>
+-            <p>
+-                دنیای سایبرپانک
+-            </p>
+-            <p>
+-                بازی های ویدیویی
+-            </p>
+-            <p>
+-                توسعه بازی های ویدیویی
+-            </p>
+-                </div>
+-            </article>
+-                <hr>
+-        <article>
+-            <h2>
+-            تماس با من
+-        </h2>
+-        <p> ایمیل:
+-            <a href="mailto:parsa.ghaei.bio@gmail.com">
+-                parsa.ghaei.bio@gmail.com
+-            </a>
+-        </p>
+-
+-        <p>شماره :
+-            <a href="tel:+989908674754">
+-                +989908674754
+-            </a>
+-        </p>
+-        </article>
+-
+-        <footer>
+-        <h1>
+-            :) ممنون از شما برای دیدن این رزومه
+-        </h1>
+-        </footer>
+-    </main>
+-    </body>
+-
++﻿<!DOCTYPE html>
++<html lang="fa" xmlns="http://www.w3.org/1999/html">
++        <head>
++            <meta charset="UTF-8">
++            <title>رزومه پارسا غایی</title>
++            <link href="https://fonts.googleapis.com/css2?family=IRANSans&display=swap" rel="stylesheet">
++            <link rel="stylesheet" href="style.css">
++            <style>
++                body {
++                    text-align: right;
++                    font-family: 'IRANSans', sans-serif;
++                }
++            </style>
++        </head>
++
++    <body>
++    <header>
++
++
++        <div
++                style="text-align: center;">
++                <img src="pg.png" width="640" height="360" alt="لوگو پارسا غایی">
++        </div>
++    </header>
++        <div>
++            <h1>
++                سلام! من پارسا غایی هستم.
++            </h1>
++        </div>
++
++        <main>
++            <hr>
++            <article>
++            <div>
++            <h2>
++                درباره من
++            </h2>
++
++            <p>
++                تا جایی که یادم میاد از بچگی بهترین دوستم کامپیوتر بود اون موقعی که با ویندوز اکس پی کار میکردم انگار با انگشت هام دنیا رو کنترل میکردم. کلاس چهارم دبستان بودم که با درست کردن پاورپوینت، و ارائه اون همه رو حیرت زده کردم، شاید اونجا شروع کار بود که راهم رو به دنیای کامپیوتر و بازی هاش روشن کرد
++            </p>
++            </div>
++            </article>
++
++            <article>
++            <div>
++            <h2>
++                تحصیلات
++            </h2>
++
++            <p>
++                متوسطه دوم - رشته کامپیوتر
++            </p>
++            </div>
++            </article>
++                <div>
++                    <h2>
++                علاقه‌مندی ها
++            </h2>
++
++            <p>
++                تکنولوژی
++            </p>
++            <p>
++                دنیای سایبرپانک
++            </p>
++            <p>
++                بازی های ویدیویی
++            </p>
++            <p>
++                توسعه بازی های ویدیویی
++            </p>
++                </div>
++            </article>
++                <hr>
++        <article>
++            <h2>
++            تماس با من
++        </h2>
++        <p> ایمیل:
++            <a href="mailto:parsa.ghaei.bio@gmail.com">
++                parsa.ghaei.bio@gmail.com
++            </a>
++        </p>
++
++        <p>شماره :
++            <a href="tel:+989908674754">
++                +989908674754
++            </a>
++        </p>
++        </article>
++
++        <footer>
++        <h1>
++            :) ممنون از شما برای دیدن این رزومه
++        </h1>
++        </footer>
++    </main>
++    </body>
++
+ </html>
+\ No newline at end of file
+diff --git a/simple resume/src/index.html b/simple resume/src/index.html
+index 9cbbd7a..b57e34c 100644
+--- a/simple resume/src/index.html	
++++ b/simple resume/src/index.html	
+@@ -1,35 +1,35 @@
+-﻿<!DOCTYPE html>
+-<html lang="en">
+-
+-<head>
+-    <meta charset="UTF-8">
+-    <title>Parsa Ghaei Resume</title>
+-    <link href="https://fonts.googleapis.com/css2?family=IRANSans&display=swap" rel="stylesheet">
+-    <style>
+-        body {
+-            font-family: 'IRANSans', sans-serif;
+-        }
+-    </style>
+-</head>
+-
+-<body>
+-<div style="text-align: center;">
+-    <h1>
+-    Please select your preferred language.
+-    </h1>
+-</div>
+-
+-    <div style="text-align: center;">
+-        <h2>
+-         لطفا زبان مدنظر خود را انتخاب کنید.
+-        </h2>
+-    </div>
+-
+-
+-<hr>
+-    <div style="text-align: center;"><a style ="text-align:center;" href ='index-en.html'> English</a></div>
+-    <div style="text-align: center;"><a style ="text-align:center;" href ='index-fa.html'> فارسی</a></div>
+-
+-</body>
+-
++﻿<!DOCTYPE html>
++<html lang="en">
++
++<head>
++    <meta charset="UTF-8">
++    <title>Parsa Ghaei Resume</title>
++    <link href="https://fonts.googleapis.com/css2?family=IRANSans&display=swap" rel="stylesheet">
++    <style>
++        body {
++            font-family: 'IRANSans', sans-serif;
++        }
++    </style>
++</head>
++
++<body>
++<div style="text-align: center;">
++    <h1>
++    Please select your preferred language.
++    </h1>
++</div>
++
++    <div style="text-align: center;">
++        <h2>
++         لطفا زبان مدنظر خود را انتخاب کنید.
++        </h2>
++    </div>
++
++
++<hr>
++    <div style="text-align: center;"><a style ="text-align:center;" href ='index-en.html'> English</a></div>
++    <div style="text-align: center;"><a style ="text-align:center;" href ='index-fa.html'> فارسی</a></div>
++
++</body>
++
+ </html>
+\ No newline at end of file
+diff --git a/simple resume/src/style.css b/simple resume/src/style.css
+index 544a339..e5cd7d0 100644
+--- a/simple resume/src/style.css	
++++ b/simple resume/src/style.css	
+@@ -1,4 +1,4 @@
+-﻿header {
+-    background-image: url(img/header.jpg);
+-    background-blend-mode: color-burn;
++﻿header {
++    background-image: url(img/header.jpg);
++    background-blend-mode: color-burn;
+ }
+\ No newline at end of file
+diff --git a/untitled/.idea/.gitignore b/untitled/.idea/.gitignore
+index 13566b8..1c2fda5 100644
+--- a/untitled/.idea/.gitignore
++++ b/untitled/.idea/.gitignore
+@@ -1,8 +1,8 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+diff --git a/untitled/.idea/modules.xml b/untitled/.idea/modules.xml
+index aeb7613..e613fc4 100644
+--- a/untitled/.idea/modules.xml
++++ b/untitled/.idea/modules.xml
+@@ -1,8 +1,8 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/untitled.iml" filepath="$PROJECT_DIR$/.idea/untitled.iml" />
+-    </modules>
+-  </component>
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/untitled.iml" filepath="$PROJECT_DIR$/.idea/untitled.iml" />
++    </modules>
++  </component>
+ </project>
+\ No newline at end of file
+diff --git a/untitled/.idea/untitled.iml b/untitled/.idea/untitled.iml
+index 24643cc..0b872d8 100644
+--- a/untitled/.idea/untitled.iml
++++ b/untitled/.idea/untitled.iml
+@@ -1,12 +1,12 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="WEB_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+-      <excludeFolder url="file://$MODULE_DIR$/temp" />
+-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
+ </module>
+\ No newline at end of file
+diff --git a/untitled1/.idea/.gitignore b/untitled1/.idea/.gitignore
+index 13566b8..1c2fda5 100644
+--- a/untitled1/.idea/.gitignore
++++ b/untitled1/.idea/.gitignore
+@@ -1,8 +1,8 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+diff --git a/untitled1/.idea/modules.xml b/untitled1/.idea/modules.xml
+index 18a6233..ba96357 100644
+--- a/untitled1/.idea/modules.xml
++++ b/untitled1/.idea/modules.xml
+@@ -1,9 +1,9 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/../untitled/.idea/untitled.iml" filepath="$PROJECT_DIR$/../untitled/.idea/untitled.iml" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/untitled1.iml" filepath="$PROJECT_DIR$/.idea/untitled1.iml" />
+-    </modules>
+-  </component>
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/../untitled/.idea/untitled.iml" filepath="$PROJECT_DIR$/../untitled/.idea/untitled.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/untitled1.iml" filepath="$PROJECT_DIR$/.idea/untitled1.iml" />
++    </modules>
++  </component>
+ </project>
+\ No newline at end of file
+diff --git a/untitled1/.idea/untitled1.iml b/untitled1/.idea/untitled1.iml
+index 78a672a..a748482 100644
+--- a/untitled1/.idea/untitled1.iml
++++ b/untitled1/.idea/untitled1.iml
+@@ -1,13 +1,13 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="WEB_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+-      <excludeFolder url="file://$MODULE_DIR$/temp" />
+-      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="module" module-name="untitled" />
+-  </component>
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="module" module-name="untitled" />
++  </component>
+ </module>
+\ No newline at end of file
+diff --git a/untitled1/src/test.html b/untitled1/src/test.html
+index cce4c11..c105fe8 100644
+--- a/untitled1/src/test.html
++++ b/untitled1/src/test.html
+@@ -1,22 +1,22 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-    <head>
+-
+-        <meta charset="UTF-8">
+-        <title>C# tutorial</title>
+-        <style>
+-            table ,th,td{
+-                border: 25px darkblue;
+-                border-collapse: collapse;
+-            }
+-        </style>
+-    </head>
+-    <body>
+-        <table>
+-            <tr>
+-
+-            </tr>
+-
+-        </table>
+-    </body>
++<!DOCTYPE html>
++<html lang="en">
++    <head>
++
++        <meta charset="UTF-8">
++        <title>C# tutorial</title>
++        <style>
++            table ,th,td{
++                border: 25px darkblue;
++                border-collapse: collapse;
++            }
++        </style>
++    </head>
++    <body>
++        <table>
++            <tr>
++
++            </tr>
++
++        </table>
++    </body>
+ </html>
+\ No newline at end of file
+diff --git a/untitled2/.idea/.gitignore b/untitled2/.idea/.gitignore
+index 13566b8..1c2fda5 100644
+--- a/untitled2/.idea/.gitignore
++++ b/untitled2/.idea/.gitignore
+@@ -1,8 +1,8 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+diff --git a/untitled2/.idea/LN-III.css b/untitled2/.idea/LN-III.css
+index a2e640f..b4a34bd 100644
+--- a/untitled2/.idea/LN-III.css
++++ b/untitled2/.idea/LN-III.css
+@@ -1,67 +1,67 @@
+-.amatic-sc-regular {
+-    font-family: "Amatic SC", sans-serif;
+-    font-weight: 400;
+-    font-style: normal;
+-    font-size: 48px;
+-}
+-
+-.amatic-sc-bold {
+-    font-family: "Amatic SC", sans-serif;
+-    font-weight: 700;
+-    font-style: normal;
+-    font-size: 80px;
+-    color: white;
+-}
+-
+-
+-body {
+-    background-image: url("wall.jpeg");
+-    background-size: cover;
+-    background-color: #303030;
+-    text-align: center;
+-}
+-
+-h1 {
+-    color: #333;
+-}
+-
+-
+-.gallery-container {
+-    display: flex;
+-    flex-wrap: wrap;
+-    justify-content: center;
+-    padding: 10px;
+-}
+-
+-.gallery-item {
+-
+-    margin: 10px;
+-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+-    width: 90%;
+-}
+-
+-.gallery-item img {
+-    width: 100%;
+-    display: block;
+-    border-radius: 15px;
+-    transition: all 0.3s ease;
+-}
+-
+-
+-.gallery-item img:hover {
+-    border: 2px solid #007BFF;
+-    transform: scale(1.05);
+-}
+-
+-
+-@media (min-width: 768px) {
+-    .gallery-item {
+-        width: 45%;
+-    }
+-}
+-
+-@media (min-width: 992px) {
+-    .gallery-item {
+-        width: 30%;
+-    }
++.amatic-sc-regular {
++    font-family: "Amatic SC", sans-serif;
++    font-weight: 400;
++    font-style: normal;
++    font-size: 48px;
++}
++
++.amatic-sc-bold {
++    font-family: "Amatic SC", sans-serif;
++    font-weight: 700;
++    font-style: normal;
++    font-size: 80px;
++    color: white;
++}
++
++
++body {
++    background-image: url("wall.jpeg");
++    background-size: cover;
++    background-color: #303030;
++    text-align: center;
++}
++
++h1 {
++    color: #333;
++}
++
++
++.gallery-container {
++    display: flex;
++    flex-wrap: wrap;
++    justify-content: center;
++    padding: 10px;
++}
++
++.gallery-item {
++
++    margin: 10px;
++    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
++    width: 90%;
++}
++
++.gallery-item img {
++    width: 100%;
++    display: block;
++    border-radius: 15px;
++    transition: all 0.3s ease;
++}
++
++
++.gallery-item img:hover {
++    border: 2px solid #007BFF;
++    transform: scale(1.05);
++}
++
++
++@media (min-width: 768px) {
++    .gallery-item {
++        width: 45%;
++    }
++}
++
++@media (min-width: 992px) {
++    .gallery-item {
++        width: 30%;
++    }
+ }
+\ No newline at end of file
+diff --git a/untitled2/.idea/index.html b/untitled2/.idea/index.html
+index 442e0c7..1a713c6 100644
+--- a/untitled2/.idea/index.html
++++ b/untitled2/.idea/index.html
+@@ -1,39 +1,39 @@
+-<!DOCTYPE html>
+-<html lang="fa" dir="rtl">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Little Nightmare Gallery</title>
+-    <link rel="stylesheet" href="LN-III.css">
+-
+-    <link rel="preconnect" href="https://fonts.googleapis.com">
+-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet">
+-</head>
+-<body>
+-<audio src="Little%20Nightmares%20III%20(Main%20Theme)%20(From%20the%20Game).m4a" autoplay loop></audio>
+-<h1 class="amatic-sc-bold">Little Nightmare III</h1>
+-
+-<div class="gallery-container">
+-    <div class="gallery-item">
+-        <img src="img1.png">
+-    </div>
+-    <div class="gallery-item">
+-        <img src="img2.png">
+-    </div>
+-    <div class="gallery-item">
+-        <img src="img3.png">
+-    </div>
+-    <div class="gallery-item">
+-        <img src="img4.png">
+-    </div>
+-    <div class="gallery-item">
+-        <img src="img5.png">
+-    </div>
+-    <div class="gallery-item">
+-        <img src="img6.png">
+-    </div>
+-</div>
+-
+-</body>
++<!DOCTYPE html>
++<html lang="fa" dir="rtl">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Little Nightmare Gallery</title>
++    <link rel="stylesheet" href="LN-III.css">
++
++    <link rel="preconnect" href="https://fonts.googleapis.com">
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet">
++</head>
++<body>
++<audio src="Little%20Nightmares%20III%20(Main%20Theme)%20(From%20the%20Game).m4a" autoplay loop></audio>
++<h1 class="amatic-sc-bold">Little Nightmare III</h1>
++
++<div class="gallery-container">
++    <div class="gallery-item">
++        <img src="img1.png">
++    </div>
++    <div class="gallery-item">
++        <img src="img2.png">
++    </div>
++    <div class="gallery-item">
++        <img src="img3.png">
++    </div>
++    <div class="gallery-item">
++        <img src="img4.png">
++    </div>
++    <div class="gallery-item">
++        <img src="img5.png">
++    </div>
++    <div class="gallery-item">
++        <img src="img6.png">
++    </div>
++</div>
++
++</body>
+ </html>
+\ No newline at end of file
+diff --git a/untitled5/index.html b/untitled5/index.html
+index 44cca43..42ef372 100644
+--- a/untitled5/index.html
++++ b/untitled5/index.html
+@@ -1,10 +1,14 @@
+-﻿<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-  <meta charset="UTF-8">
+-  <title>$Title$</title>
+-</head>
+-<body>
+-$END$
+-</body>
++﻿<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Array</title>
++    <script src="index.js"></script>
++</head>
++<body>
++<h1>Array</h1>
++<p>
++
++</p>
++</body>
+ </html>
+\ No newline at end of file

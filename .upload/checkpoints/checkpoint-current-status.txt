@@ -1,0 +1,94 @@
+AM ../.idea/.gitignore
+A  ../.idea/encodings.xml
+AM "../6+1 Hats Of Think"
+A  "../My favorite movies/.DS_Store"
+A  "../My favorite movies/.gitignore"
+AM "../My favorite movies/.idea/.gitignore"
+AM "../My favorite movies/.idea/My favorite movies.iml"
+A  "../My favorite movies/.idea/encodings.xml"
+AM "../My favorite movies/.idea/modules.xml"
+A  "../My favorite movies/package-lock.json"
+A  "../My favorite movies/package.json"
+A  "../My favorite movies/src/Blade_Runner_2049_Poster.webp"
+A  "../My favorite movies/src/GhostInTheShell.jpg"
+AM "../My favorite movies/src/index.html"
+A  "../My favorite movies/src/matrix.jpg"
+A  "../My favorite movies/tsconfig.json"
+A  ../index.js
+A  ../package.json
+A  "../simple resume/.DS_Store"
+A  "../simple resume/.gitignore"
+AM "../simple resume/.idea/.gitignore"
+A  "../simple resume/.idea/encodings.xml"
+AM "../simple resume/.idea/modules.xml"
+AM "../simple resume/.idea/simple resume.iml"
+A  "../simple resume/package-lock.json"
+A  "../simple resume/package.json"
+A  "../simple resume/src/font/IRANSansWeb.ttf"
+A  "../simple resume/src/font/IRANSansWeb.woff2"
+A  "../simple resume/src/img/header.jpg"
+AM "../simple resume/src/index-en.html"
+AM "../simple resume/src/index-fa.html"
+AM "../simple resume/src/index.html"
+A  "../simple resume/src/pg.png"
+AM "../simple resume/src/style.css"
+A  "../simple resume/tsconfig.json"
+A  ../untitled/.DS_Store
+A  ../untitled/.gitignore
+AM ../untitled/.idea/.gitignore
+AM ../untitled/.idea/modules.xml
+AM ../untitled/.idea/untitled.iml
+A  ../untitled/package-lock.json
+A  ../untitled/package.json
+A  ../untitled/qodana.yaml
+A  ../untitled/src/index.ts
+A  ../untitled/src/learning.html
+A  ../untitled/tsconfig.json
+A  ../untitled1/.DS_Store
+A  ../untitled1/.gitignore
+AM ../untitled1/.idea/.gitignore
+AM ../untitled1/.idea/modules.xml
+AM ../untitled1/.idea/untitled1.iml
+A  ../untitled1/package.json
+A  ../untitled1/src/index.ts
+AM ../untitled1/src/test.html
+A  ../untitled1/tsconfig.json
+AM ../untitled2/.idea/.gitignore
+AM ../untitled2/.idea/LN-III.css
+A  "../untitled2/.idea/Little Nightmares III (Main Theme) (From the Game).m4a"
+A  ../untitled2/.idea/img1.png
+A  ../untitled2/.idea/img2.png
+A  ../untitled2/.idea/img3.png
+A  ../untitled2/.idea/img4.png
+A  ../untitled2/.idea/img5.png
+A  ../untitled2/.idea/img6.png
+AM ../untitled2/.idea/index.html
+A  ../untitled2/.idea/wall.jpeg
+AM ../untitled5/index.html
+?? ../.idea/WebstormProjects.iml
+?? ../.idea/modules.xml
+?? ../.idea/vcs.xml
+?? "../6 Tinking Hats/"
+?? "../BMI Calculator/"
+?? ../Dashbord/
+?? ../GamerProfileCard/
+?? ../INFOGARPHIC/
+?? "../New folder/"
+?? "../Pixel Generator/"
+?? "../Simple Horizontal Navbar/"
+?? "../WE NEVER FADE AWAY/"
+?? "../for an exam/"
+?? ../my-portfolio-backup0.2.1/
+?? ./
+?? ../node_modules/
+?? ../pg/
+?? ../pixel-art-generator/
+?? "../price cards/"
+?? "../toss the coin/"
+?? ../untitled3/
+?? ../untitled4/
+?? ../untitled5/.idea/
+?? ../untitled5/index.js
+?? ../untitled5/package.json
+?? ../untitled6/
+?? ../untitled7/
