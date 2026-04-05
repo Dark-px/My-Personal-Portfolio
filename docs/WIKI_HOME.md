@@ -18,10 +18,10 @@ Welcome to the documentation hub.
 
 ## Supplemental Docs
 
-- [SEO + Medium FAQ](./SEO_MEDIUM_FAQ.md)
-- [SSR Hosting FAQ](./SSR_HOSTING_FAQ.md)
-- [SSR/SSG Guide](./SSR_SSG_GUIDE.md)
-- [Sound Effect Strategy](./SOUND_EFFECT_STRATEGY.md)
+- [SEO + Medium FAQ](fa/SEO_MEDIUM_FAQ.md)
+- [SSR Hosting FAQ](fa/SSR_HOSTING_FAQ.md)
+- [SSR/SSG Guide](fa/SSR_SSG_GUIDE.md)
+- [Sound Effect Strategy](fa/SOUND_EFFECT_STRATEGY.md)
 
 ## Persian Docs
 
