@@ -1,74 +1,76 @@
-# راهنماي شخصي سازي سريع (Customization Playbook)
+# Customization Playbook
 
-اگر مي خواهي سايت را با کمترين ريسک براي خودت شخصي سازي کني، اين چک ليست را به ترتيب برو.
+Persian version: `docs/fa/03-CUSTOMIZATION_PLAYBOOK.md`
 
-## مرحله 1: هويت برند
+Use this sequence to personalize the project with minimal risk.
 
-فايل هاي اصلي:
+## Step 1: Brand Identity
+
+Main files:
 
 - `src/components/portfolio/Hero.tsx`
 - `src/components/portfolio/About.tsx`
 - `src/components/portfolio/Footer.tsx`
 - `src/components/portfolio/Contact.tsx`
-- `index.html` (title, description, og tags)
+- `index.html` (title, description, OG tags)
 
-کارها:
-- نام و بيو
-- لينک شبکه هاي اجتماعي
-- ايميل تماس
-- متن هاي معرفي
+Update:
+- Name and bio
+- Social links
+- Contact email
+- Intro copy and role labels
 
-## مرحله 2: محتواي پروژه ها
+## Step 2: Project Content
 
-فايل اصلي:
+Main file:
 
 - `src/components/portfolio/Projects.tsx`
 
-کارها:
-- عنوان پروژه
-- توصيف
-- تکنولوژي
-- لينک GitHub/Itch
-- تصوير پروژه در `public/`
+Update:
+- Project names
+- Descriptions
+- Tech stack labels
+- GitHub/Itch links
+- Images in `public/`
 
-## مرحله 3: مسير يادگيري و داستان شخصي
+## Step 3: Learning Narrative
 
-فايل:
+Main file:
 
 - `src/components/portfolio/LearningJourney.tsx`
 
-کارها:
-- WHAT I KNOW
-- CURRENTLY LEARNING
-- NEXT GOALS
-- متن FUTURE VISION
+Update:
+- `WHAT I KNOW`
+- `CURRENTLY LEARNING`
+- `NEXT GOALS`
+- Future Vision paragraphs
 
-## مرحله 4: بلاگ و Medium
+## Step 4: Blog Integration
 
-فايل ها:
+Files:
 
 - `.env`
 - `src/lib/medium.ts`
 - `src/pages/BlogPage.tsx`
 
-کارها:
-- ست کردن `VITE_MEDIUM_USERNAME`
-- (اختياري) لينک پست هاي featured
-- تست صفحه `/blog`
+Update:
+- `VITE_MEDIUM_USERNAME`
+- Optional featured post links
+- Verify `/blog` behavior
 
-## مرحله 5: استايل و انيميشن
+## Step 5: Visual System and Motion
 
-فايل:
+Main file:
 
 - `src/index.css`
 
-کارها:
-- تنظيم رنگ ها
-- تنظيم شدت motion
-- hover states
-- فاصله سکشن ها
+Update:
+- Color tuning
+- Motion intensity
+- Hover states
+- Section spacing
 
-## مرحله 6: تست نهايي قبل ديپلوي
+## Step 6: Pre-Deploy Validation
 
 ```bash
 npm run typecheck
@@ -76,21 +78,21 @@ npm run lint
 npm run build
 ```
 
-سپس:
-- تست desktop/mobile
-- تست anchor navigation
-- تست Blog/Devlog
-- تست لينک هاي خارجي
+Then verify manually:
+- Desktop + mobile
+- Anchor navigation
+- Blog/Devlog page
+- External links
 
-## اشتباهات رايج که بهتر است پيشگيري شوند
+## Common Mistakes to Avoid
 
-1. عوض کردن ID سکشن بدون آپديت navbar/footer
-2. گذاشتن placeholder link در production
-3. فراموشي تنظيم env مربوط به Medium
-4. تغيير CSS global بدون تست در موبايل
+1. Changing section IDs without updating nav/footer anchors
+2. Shipping placeholder social links
+3. Forgetting Medium env configuration
+4. Editing global CSS without mobile regression check
 
-## پيشنهاد نگهداري ماهانه
+## Suggested Maintenance Rhythm
 
-- ماهي يک بار: بروزرسانی About/Projects/Journey
-- ماهي يک بار: چک لينک هاي شبکه اجتماعي
-- بعد از هر تغيیر بزرگ: يک `npm run build` کامل
+- Monthly: refresh About/Projects/Journey content
+- Monthly: audit social/external links
+- After major edits: run full build before deploy

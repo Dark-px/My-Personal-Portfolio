@@ -1,89 +1,89 @@
-# راه اندازي پروژه (Setup)
+# Setup Guide
 
-اين پروژه با `Vite + React + TypeScript` ساخته شده و براي توسعه سريع شخصي کاملا مناسب است.
+Persian version: `docs/fa/01-SETUP.md`
 
-## پيش نيازها
+This project is built with `Vite + React + TypeScript` and is optimized for fast iteration.
 
-- Node.js نسخه 18 يا بالاتر (ترجيحا 20+)
-- npm نسخه 9 يا بالاتر
+## Prerequisites
 
-## نصب و اجرا
+- Node.js 18+ (Node 20+ recommended)
+- npm 9+
+
+## Install and Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-خروجي پيش فرض در حالت توسعه:
+Default dev URL:
 
 - `http://localhost:8080`
 
-## دستورات مهم
+## Available Scripts
 
 ```bash
-npm run dev        # اجراي محيط توسعه
-npm run typecheck  # بررسي TypeScript
-npm run lint       # بررسي کيفيت کد
-npm run build      # ساخت نسخه production
-npm run preview    # پيش نمايش build
+npm run dev        # start development server
+npm run typecheck  # run TypeScript checks
+npm run lint       # run ESLint
+npm run build      # production build
+npm run preview    # preview production build
 ```
 
-## متغيرهاي محيطي
+## Environment Variables
 
-فايل نمونه:
+Template file:
 
 - `.env.example`
 
-فايل واقعي:
-
-- `.env` (خودت مي سازي)
+Create local env file:
 
 ```bash
 cp .env.example .env
 ```
 
-### متغيرهاي اصلي
+### Core variables
 
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_PUBLISHABLE_KEY`
 - `VITE_API_URL`
 - `VITE_PROJECT_ID`
 
-### متغيرهاي مربوط به Medium
+### Medium variables
 
 - `VITE_MEDIUM_USERNAME`
 - `VITE_MEDIUM_FEATURED_POST_1`
 - `VITE_MEDIUM_FEATURED_POST_2`
 - `VITE_MEDIUM_FEATURED_POST_3`
 
-اگر `VITE_MEDIUM_USERNAME` تنظيم نشود، بخش Blog/Featured Posts خطا نشان مي دهد (رفتار فعلي کد به همين شکل طراحي شده).
+If `VITE_MEDIUM_USERNAME` is missing, the blog-related components will show a descriptive error state.
 
-## ديپلوي (Cloudflare Pages)
+## Deploy (Cloudflare Pages)
 
-تنظيمات استاندارد براي اين پروژه:
+Recommended settings:
 
 - Build command: `npm run build`
 - Output directory: `dist`
 
-دامنه فعلي پروژه:
+Current production domain:
 
 - `https://parsaghaei.dev`
 
-## عيب يابي سريع
+## Quick Troubleshooting
 
-### صفحه سفيد يا متن ها لود نمي شوند
+### Blank page or missing content
 
-1. `npm run dev` را دوباره اجرا کن
-2. در مرورگر Hard Refresh بزن (`Ctrl + Shift + R`)
-3. console را چک کن
-4. اگر تازه `.env` را عوض کرده اي، dev server را restart کن
+1. Restart `npm run dev`
+2. Hard refresh browser (`Ctrl + Shift + R`)
+3. Check browser console
+4. Restart dev server after env changes
 
-### خطاي مربوط به Medium
+### Medium feed errors
 
-- اول `VITE_MEDIUM_USERNAME` را در `.env` تنظيم کن
-- سپس صفحه `/blog` را چک کن
+- Verify `VITE_MEDIUM_USERNAME` in `.env`
+- Open `/blog` and read the inline error message
 
-### خطاي مربوط به Supabase
+### Supabase warning in development
 
-- اگر متغيرهاي Supabase تنظيم نشده باشند، در dev فقط هشدار مي بيني
-- تا زماني که از قابليت هاي Supabase استفاده نکني، سايت اصلي بالا مي آيد
+- This is expected if Supabase env variables are not configured yet
+- The main portfolio pages can still render if Supabase-backed features are not used

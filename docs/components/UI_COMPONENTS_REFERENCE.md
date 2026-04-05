@@ -1,13 +1,15 @@
-# رفرنس کامپوننت هاي UI
+# UI Components Reference
 
-اين پروژه مجموعه کامل UI primitives را در `src/components/ui` نگه مي دارد.
+Persian version: `docs/fa/components/UI_COMPONENTS_REFERENCE.md`
 
-هدف اين کار:
-- توسعه سريع فيچرهاي بعدي
-- يکدست بودن ظاهر و الگوهاي تعامل
-- جلوگيري از ساخت UI تکراري
+This project keeps a full UI primitive layer in `src/components/ui`.
 
-## کامپوننت هاي استفاده شده به صورت مستقيم در پروژه فعلي
+Goals:
+- Faster feature development
+- Consistent interaction patterns
+- Fewer one-off component implementations
+
+## Components used directly in current pages
 
 - `button.tsx`
 - `tooltip.tsx`
@@ -15,91 +17,86 @@
 - `sonner.tsx`
 - `card.tsx`
 - `skeleton.tsx`
-- `toast.tsx` (از طريق `hooks/use-toast.ts`)
+- `toast.tsx` (via `hooks/use-toast.ts`)
 
-بقيه کامپوننت ها آماده هستند و هر زمان لازم بود مي تواني وارد featureهاي جديد کني.
+The rest are ready for future features.
 
 ---
 
-## 1) Actions و Inputs
+## 1) Actions and Inputs
 
-- `button.tsx` - دکمه با variantهاي مختلف
-- `input.tsx` - input استاندارد
-- `textarea.tsx` - textarea
-- `label.tsx` - label فرم
-- `checkbox.tsx` - checkbox
-- `radio-group.tsx` - radio group
-- `select.tsx` - select/dropdown
-- `switch.tsx` - toggle switch
-- `slider.tsx` - بازه مقداري (range)
-- `input-otp.tsx` - ورودي OTP
-- `toggle.tsx` - toggle single
-- `toggle-group.tsx` - toggle چندتايي
+- `button.tsx`
+- `input.tsx`
+- `textarea.tsx`
+- `label.tsx`
+- `checkbox.tsx`
+- `radio-group.tsx`
+- `select.tsx`
+- `switch.tsx`
+- `slider.tsx`
+- `input-otp.tsx`
+- `toggle.tsx`
+- `toggle-group.tsx`
 
-## 2) Overlay, Dialog, Navigation Layers
+## 2) Overlays and Menus
 
-- `dialog.tsx` - modal dialog
-- `alert-dialog.tsx` - dialog تاييدي
-- `sheet.tsx` - پنل کشويي
-- `drawer.tsx` - drawer
-- `popover.tsx` - popup مرتبط با عنصر
-- `hover-card.tsx` - کارت hover
-- `tooltip.tsx` - tooltip
-- `dropdown-menu.tsx` - منوي dropdown
-- `context-menu.tsx` - منوي راست کليک
-- `menubar.tsx` - menubar
-- `navigation-menu.tsx` - navigation menu structured
-- `command.tsx` - command palette
+- `dialog.tsx`
+- `alert-dialog.tsx`
+- `sheet.tsx`
+- `drawer.tsx`
+- `popover.tsx`
+- `hover-card.tsx`
+- `tooltip.tsx`
+- `dropdown-menu.tsx`
+- `context-menu.tsx`
+- `menubar.tsx`
+- `navigation-menu.tsx`
+- `command.tsx`
 
-## 3) Layout و Structure
+## 3) Layout and Structure
 
-- `accordion.tsx` - accordion
-- `collapsible.tsx` - collapse container
-- `separator.tsx` - خط جداکننده
-- `resizable.tsx` - layout resizable
-- `scroll-area.tsx` - اسکرول سفارشي
-- `aspect-ratio.tsx` - کنترل نسبت تصوير
-- `sidebar.tsx` - سيستم کامل sidebar
+- `accordion.tsx`
+- `collapsible.tsx`
+- `separator.tsx`
+- `resizable.tsx`
+- `scroll-area.tsx`
+- `aspect-ratio.tsx`
+- `sidebar.tsx`
 
 ## 4) Data Display
 
-- `card.tsx` - کارت محتوا
-- `badge.tsx` - badge/tag
-- `avatar.tsx` - آواتار
-- `table.tsx` - جدول
-- `chart.tsx` - نمودار
-- `carousel.tsx` - اسلايدر/کاروسل
-- `calendar.tsx` - تقويم
-- `pagination.tsx` - صفحه بندي
-- `breadcrumb.tsx` - مسير ناوبري
-- `progress.tsx` - progress
-- `tabs.tsx` - تب ها
+- `card.tsx`
+- `badge.tsx`
+- `avatar.tsx`
+- `table.tsx`
+- `chart.tsx`
+- `carousel.tsx`
+- `calendar.tsx`
+- `pagination.tsx`
+- `breadcrumb.tsx`
+- `progress.tsx`
+- `tabs.tsx`
 
-## 5) Feedback و Notifications
+## 5) Feedback and Notifications
 
-- `alert.tsx` - پيام هشدار
-- `toast.tsx` - primitive toast
-- `toaster.tsx` - renderer براي toast
-- `sonner.tsx` - toast provider مبتني بر sonner
-- `skeleton.tsx` - اسکلت loading
+- `alert.tsx`
+- `toast.tsx`
+- `toaster.tsx`
+- `sonner.tsx`
+- `skeleton.tsx`
 
 ## 6) Form Abstractions
 
-- `form.tsx` - abstraction براي فرم و validation
+- `form.tsx`
 
-## 7) هوک مربوط به UI
+## 7) UI Hook
 
-- `use-toast.ts` - مديريت toast state
+- `use-toast.ts`
 
 ---
 
-## نکته هاي شخصي سازي UI
+## Practical Customization Advice
 
-1. اگر خواستي لحن سايت را حفظ کني:
-   - اول `button.tsx`, `card.tsx`, `badge.tsx` را customize کن
-
-2. اگر feature جديد مي سازي:
-   - اول از primitive آماده استفاده کن، بعد اگر نياز بود کامپوننت سفارشي بساز
-
-3. استايل global:
-   - `src/index.css`
+1. For consistent visual polish, start with primitives like `button`, `card`, and `badge`
+2. Prefer existing primitives before introducing new custom base components
+3. Keep global behavior (motion/theme) in `src/index.css`

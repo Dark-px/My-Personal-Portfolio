@@ -1,89 +1,89 @@
-# مستندات Core App و زيرساخت
+# Core App and Infrastructure Documentation
 
-اين فايل براي بخش هايي است که مستقيم UI سکشن نيستند، اما ستون فقرات پروژه را مي سازند.
+Persian version: `docs/fa/components/CORE_APP_AND_INFRA.md`
+
+This file covers non-section foundations: app shell, pages, hooks, libs, and integrations.
 
 ## App Shell
 
 ### `src/main.tsx`
 
-- نقطه ورود React
-- لود `index.css` و `lenis.css`
-- mount کردن `App`
+- React entry point
+- Imports global styles (`index.css`, `lenis.css`)
+- Mounts `App`
 
 ### `src/App.tsx`
 
-- providerها:
+- Registers global providers:
   - `QueryClientProvider`
   - `TooltipProvider`
   - `Toaster`
   - `Sonner`
-- routeها:
+- Defines routes:
   - `/` -> `Index`
   - `/blog` -> `BlogPage`
   - `*` -> `NotFound`
-- منطق smooth scroll (`Lenis`)
-- مديريت anchor scroll
-- observer براي reveal animation کلاس هاي `.section-enter`
+- Handles smooth scrolling with Lenis
+- Handles anchor navigation
+- Sets reveal behavior for `.section-enter` and `.section-enter-soft`
 
-## Pages
+## Route Pages
 
 ### `src/pages/Index.tsx`
 
-- صفحه اصلي
-- orchestration سکشن هاي portfolio
+- Homepage composition/orchestration
 
 ### `src/pages/BlogPage.tsx`
 
-- صفحه محتواي وبلاگ/دولوگ
-- SEO meta + structured data
+- Blog/Devlog route
+- SEO metadata and structured data management
 
 ### `src/pages/NotFound.tsx`
 
-- صفحه 404
+- 404 page
 
 ## Hooks
 
 ### `src/hooks/use-mobile.tsx`
 
-- تشخيص mobile based on breakpoint
+- Returns mobile state based on breakpoint logic
 
 ### `src/hooks/use-toast.ts`
 
-- مديريت toast state
-- dispatch/update/dismiss
+- Global toast state and actions (add/update/dismiss)
 
 ## Libraries
 
 ### `src/lib/scroll.ts`
 
-- helper اسکرول به anchor با درنظر گرفتن ارتفاع nav
-- سازگار با Lenis
+- Scrolls to section IDs with navbar offset
+- Uses Lenis when available
 
 ### `src/lib/medium.ts`
 
-- منطق fetch/transform مربوط به Medium
+- Medium feed fetch + transform + classification logic
 
 ### `src/lib/utils.ts`
 
-- `cn()` براي merge کلاس ها
-- `toEnDigits()` براي تبديل ارقام فارسي/عربي به انگليسي
+- `cn()` class merge helper
+- `toEnDigits()` Persian/Arabic digit normalization helper
 
 ### `src/lib/types.ts`
 
-- typeهاي عمومي API/User/Menu
+- Shared app/domain type definitions
 
 ## Integrations
 
 ### `src/integrations/supabase/client.ts`
 
-- ساخت Supabase client
-- هشدار در dev اگر env کامل نباشد
+- Creates Supabase client
+- Emits dev warning if env configuration is missing
 
 ### `src/integrations/supabase/types.ts`
 
-- typeهاي database
+- Generated/maintained DB type contracts
 
-## فايل هاي استايل مهم
+## Styling Layers
 
-- `src/index.css` -> global styles + animations + utility classes
-- `src/App.css` -> سبک هاي عمومي محدود
+- `src/index.css` -> global styles, animation utilities, visual system
+- `src/App.css` -> lightweight app-level styles

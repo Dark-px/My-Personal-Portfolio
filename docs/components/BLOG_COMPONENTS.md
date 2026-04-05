@@ -1,79 +1,80 @@
-# مستندات بخش Blog و Devlog
+# Blog and Devlog Documentation
 
-اين بخش براي نمايش محتواي Medium در سايت طراحي شده و دو سطح دارد:
+Persian version: `docs/fa/components/BLOG_COMPONENTS.md`
 
-1. خلاصه در Homepage (`FeaturedBlogs`)
-2. صفحه کامل در `/blog` (`BlogPage`)
+The content system has two layers:
 
-## کامپوننت ها و فايل هاي درگير
+1. **Homepage preview** via `FeaturedBlogs`
+2. **Full page** via `/blog` (`BlogPage.tsx`)
+
+## Files Involved
 
 ### `src/pages/BlogPage.tsx`
 
-**نقش:**
-- دريافت پست ها از Medium
-- تفکيک Blog و Devlog
-- رندر کارت هاي محتوا
-- تنظيم meta/og/canonical
-- تزريق structured data براي SEO
+**Responsibilities**:
+- Fetches Medium posts with React Query
+- Splits data into Blog vs Devlog buckets
+- Renders post cards and loading states
+- Updates SEO meta tags and canonical link
+- Injects structured data (`application/ld+json`)
 
-**قابل شخصي سازي:**
-- متن خطا و skeleton loading
-- الگوي کارت ها (`BlogPostCard`)
-- عنوان هاي صفحه و تيتر سکشن ها
+**Customization points**:
+- Card layout and labels
+- Error messaging and skeleton behavior
+- Section titles and category labels
 
 ---
 
 ### `src/components/portfolio/FeaturedBlogs.tsx`
 
-**نقش:** نمايش 3 پست منتخب در صفحه اصلي
+**Responsibilities**:
+- Renders a curated 3-post preview block on homepage
+- Uses shared Medium data helpers
 
-**قابل شخصي سازي:**
-- متن سکشن
-- رفتار fallback
-- استايل کارت
+**Customization points**:
+- Header copy
+- Featured selection behavior
+- Card sizing/excerpts
 
 ---
 
 ### `src/lib/medium.ts`
 
-**نقش:**
-- typeها (`MediumPost`)
-- fetch از RSS feed Medium
-- پاکسازي HTML
-- تشخيص پست هاي devlog
-- انتخاب پست هاي featured
+**Responsibilities**:
+- Defines `MediumPost` type
+- Fetches Medium RSS feed (via rss2json)
+- Normalizes and sorts posts
+- Detects devlog posts
+- Selects featured posts
 
-**قابل شخصي سازي:**
+**Customization points**:
 - `MEDIUM_CONFIG.devlogTags`
 - `MEDIUM_CONFIG.featuredCount`
-- featured links از طريق env
+- `MEDIUM_CONFIG.featuredPostLinks`
 
-**متغيرهاي env مرتبط:**
+**Environment integration**:
 - `VITE_MEDIUM_USERNAME`
 - `VITE_MEDIUM_FEATURED_POST_1`
 - `VITE_MEDIUM_FEATURED_POST_2`
 - `VITE_MEDIUM_FEATURED_POST_3`
 
----
+## Blog vs Devlog Classification Rules
 
-## منطق تفکيک Blog vs Devlog
+A post is considered a **Devlog** if:
 
-در حال حاضر اگر:
+- The title includes `devlog`, or
+- It has at least one category/tag listed in `devlogTags`
 
-- عنوان شامل `devlog` باشد
-- يا يکي از tagهاي تعريف شده در `devlogTags` را داشته باشد
+Otherwise, it falls under **Blog**.
 
-پست در گروه Devlog قرار مي گيرد.
+## Common Failure Checklist
 
-## اگر Blog بالا نيامد چه کنيم؟
+1. Check `.env` contains a valid `VITE_MEDIUM_USERNAME`
+2. Use username without `@`
+3. Open `/blog` and inspect inline error output
+4. Review `docs/SEO_MEDIUM_FAQ.md` for SEO/feed constraints
 
-1. `.env` را چک کن که `VITE_MEDIUM_USERNAME` درست باشد
-2. يوزرنيم Medium را بدون `@` قرار بده
-3. صفحه `/blog` را باز کن و متن خطا را ببين
-4. فايل `docs/SEO_MEDIUM_FAQ.md` را هم چک کن
+## Future Hardening Suggestions
 
-## پيشنهاد براي آينده
-
-- اگر خواستي بلاگ پايدارتر شود:
-  - کش server-side يا edge cache اضافه کن
-  - در صورت محدوديت RSS provider يک fallback endpoint سمت بک اند بگذار
+- Add edge/server caching for Medium feed response
+- Add fallback backend endpoint if rss2json has rate/availability issues

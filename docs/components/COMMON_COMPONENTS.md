@@ -1,51 +1,53 @@
-# مستندات کامپوننت هاي Common
+# Common Components Documentation
 
-اين دسته براي کامپوننت هايي است که به بخش خاصي از سايت وابسته نيستند و در چند جاي مختلف قابل استفاده اند.
+Persian version: `docs/fa/components/COMMON_COMPONENTS.md`
+
+These components are not tied to a single section and are intended for reuse across pages/features.
 
 ## `src/components/common/EmptyState.tsx`
 
-**کاربرد:** نمايش حالت خالي (وقتي داده اي وجود ندارد)
+**Purpose**: Displays an empty-state block when no content/data exists.
 
-**قابل شخصي سازي:**
-- آيکون
-- عنوان و توضيح
-- دکمه action
+**Customizable**:
+- Icon
+- Title and description
+- Optional action button
 
 ---
 
 ## `src/components/common/ErrorBoundary.tsx`
 
-**کاربرد:** گرفتن خطاي runtime در subtree و جلوگيري از crash کامل UI
+**Purpose**: Prevents full UI crashes by catching runtime errors in a component subtree.
 
-**قابل شخصي سازي:**
-- UI fallback
-- متن خطا
-- دکمه retry
+**Customizable**:
+- Fallback UI
+- Retry UX
+- Error copy
 
-**نکته:** در حالت dev، `error.message` را نمايش مي دهد.
+**Note**: In development mode, it can show `error.message` for faster debugging.
 
 ---
 
 ## `src/components/common/Loading.tsx`
 
-شامل 3 ابزار سبک:
+Contains lightweight loading helpers:
 
 1. `Spinner`
 2. `LoadingSkeleton`
 3. `FullPageLoading`
 
-**کاربرد:** نمايش loading state در سطح component يا page
+**Purpose**: Standardized loading states for component-level and page-level usage.
 
 ---
 
 ## `src/components/common/ScrollIndicator.tsx`
 
-**کاربرد:** نشانگر اسکرول ثابت در پايين صفحه
+**Purpose**: Fixed visual scroll indicator near the bottom center.
 
-**وضعيت فعلي:** در رندر اصلي صفحه استفاده مستقيم ندارد، اما آماده استفاده است.
+**Current status**: Present and reusable, not actively mounted in the main page flow.
 
 ---
 
 ## `src/components/common/index.ts`
 
-فايل barrel براي export کردن `common`ها از يک نقطه.
+Barrel exports for the `common` group.

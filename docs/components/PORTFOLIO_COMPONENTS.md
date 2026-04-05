@@ -1,10 +1,10 @@
-# مستندات کامپوننت هاي Portfolio
+# Portfolio Components Documentation
 
-اين فايل مخصوص بخش هاي اصلي سايت است؛ يعني همان چيزي که کاربر در صفحه اصلي مي بيند.
+Persian version: `docs/fa/components/PORTFOLIO_COMPONENTS.md`
 
-## نقشه سريع صفحه اصلي
+This file documents all section-level components used to build the homepage experience.
 
-ترتيب رندر در `src/pages/Index.tsx`:
+## Homepage Render Order (`src/pages/Index.tsx`)
 
 1. `CustomCursor`
 2. `ScrollProgress`
@@ -19,154 +19,152 @@
 
 ---
 
-## 1) `src/components/portfolio/Navigation.tsx`
+## `Navigation.tsx`
 
-**نقش:** ناوبري بالا (Desktop + Mobile menu)
+**Purpose**: Top navigation (desktop + mobile menu)
 
-**کجا استفاده مي شود:** صفحه اصلي
+**Used in**: Homepage
 
-**قابل شخصي سازي:**
-- آيتم هاي منو داخل `navItems`
-- متن دکمه `GO TO BLOG PAGE`
-- استايل حالت اسکرول شده (`isScrolled`)
+**Customize**:
+- `navItems` list
+- Blog button label and destination
+- Scrolled-state styling (`isScrolled`)
 
-**نکته:** anchorها به ID سکشن ها وابسته هستند؛ اگر ID سکشن را عوض کني، href منو هم بايد آپديت شود.
-
----
-
-## 2) `src/components/portfolio/Hero.tsx`
-
-**نقش:** هدر اصلي، معرفي سريع، CTAها
-
-**کجا استفاده مي شود:** بالاي صفحه اصلي
-
-**قابل شخصي سازي:**
-- نام نمايشي (`fullName`)
-- متن معرفي
-- CTAها و مقصد اسکرول
-- لينک GitHub
-
-**نکته:** تايپ افکت با `setInterval` انجام مي شود و در تب inactive متوقف مي شود.
+**Note**: Anchor targets depend on section IDs.
 
 ---
 
-## 3) `src/components/portfolio/Projects.tsx`
+## `Hero.tsx`
 
-**نقش:** نمايش پروژه ها به صورت کارت
+**Purpose**: Primary intro, headline, CTA controls
 
-**کجا استفاده مي شود:** سکشن `projects`
+**Used in**: Homepage top section
 
-**قابل شخصي سازي:**
-- آرايه `projects` (title, subtitle, description, technologies, media, links)
-- تعداد پروژه ها
-- متن CTA پايين سکشن
+**Customize**:
+- Typing name (`fullName`)
+- Intro copy
+- CTA labels and target sections
+- GitHub profile URL
 
-**نکته:** براي هر پروژه تصوير از `public/` مي آيد؛ مسير فايل ها را درست نگه دار.
-
----
-
-## 4) `src/components/portfolio/LearningJourney.tsx`
-
-**نقش:** نمايش مراحل يادگيري و چشم انداز
-
-**کجا استفاده مي شود:** سکشن `journey`
-
-**قابل شخصي سازي:**
-- آرايه `stages`
-- متن Future Vision (4 بلوک)
-- عنوان ها و برچسب ها
-
-**نکته:** اين بخش براي پرسونال برند خيلي مهم است؛ بهتر است هر 1-2 ماه آپديت شود.
+**Note**: Typing animation pauses when tab is inactive.
 
 ---
 
-## 5) `src/components/portfolio/About.tsx`
+## `Projects.tsx`
 
-**نقش:** داستان شخصي، مسير و هدف ها
+**Purpose**: Project cards grid
 
-**کجا استفاده مي شود:** سکشن `about`
+**Used in**: `projects` section
 
-**قابل شخصي سازي:**
-- پاراگراف هاي متن اصلي
-- QUICK_FACTS (سن، تحصيل، تمرکز)
-- TECH_STACK
+**Customize**:
+- `projects` array (title, subtitle, description, tech, image, links)
+- Number of cards
+- Bottom CTA text
 
----
-
-## 6) `src/components/portfolio/FeaturedBlogs.tsx`
-
-**نقش:** نمايش 3 پست منتخب از Medium
-
-**کجا استفاده مي شود:** سکشن `featured_blogs`
-
-**قابل شخصي سازي:**
-- عنوان ها و متن سکشن
-- تعداد/لینک پست هاي منتخب از `MEDIUM_CONFIG`
-- رفتار fallback در صورت نبود پست
-
-**وابستگي:** `src/lib/medium.ts`
+**Note**: Images should exist in `public/`.
 
 ---
 
-## 7) `src/components/portfolio/Contact.tsx`
+## `LearningJourney.tsx`
 
-**نقش:** کارت هاي ارتباطي + دکمه ارسال ايميل
+**Purpose**: Skill phases and long-term vision
 
-**کجا استفاده مي شود:** سکشن `contact`
+**Used in**: `journey` section
 
-**قابل شخصي سازي:**
-- آرايه `contacts`
-- ايميل (`mailto:contact@parsaghaei.dev`)
-- متن CTA انتهاي سکشن
+**Customize**:
+- `stages` array
+- Future vision content blocks
+- Section labels/titles
 
 ---
 
-## 8) `src/components/portfolio/Footer.tsx`
+## `About.tsx`
 
-**نقش:** لينک هاي سريع، لينک هاي اجتماعي، کپي رايت
+**Purpose**: Personal story and profile summary
 
-**کجا استفاده مي شود:** انتهاي صفحه اصلي و صفحه blog
+**Used in**: `about` section
 
-**قابل شخصي سازي:**
+**Customize**:
+- Main paragraphs
+- `QUICK_FACTS`
+- `TECH_STACK`
+
+---
+
+## `FeaturedBlogs.tsx`
+
+**Purpose**: Featured Medium posts preview on homepage
+
+**Used in**: `featured_blogs` section
+
+**Customize**:
+- Header text
+- Featured post selection behavior
+- Card style/text excerpts
+
+**Depends on**: `src/lib/medium.ts`
+
+---
+
+## `Contact.tsx`
+
+**Purpose**: Contact methods + primary email CTA
+
+**Used in**: `contact` section
+
+**Customize**:
+- `contacts` array (links and labels)
+- Email address (`mailto:`)
+- CTA headline and supporting text
+
+---
+
+## `Footer.tsx`
+
+**Purpose**: Quick links, social links, copyright
+
+**Used in**: Homepage + Blog page
+
+**Customize**:
 - `socialLinks`
-- متن برند و کپي رايت
-- Quick Links
+- Branding copy
+- Quick links list
 
-**نکته:** چون در صفحه blog هم استفاده مي شود، لينک هاي سکشني با `pathname` هماهنگ شده اند.
-
----
-
-## 9) `src/components/portfolio/CustomCursor.tsx`
-
-**نقش:** کرسر سفارشي + tooltip preview روي لينک ها
-
-**کجا استفاده مي شود:** صفحه اصلي
-
-**قابل شخصي سازي:**
-- اندازه کرسر
-- استايل preview box
-- شرط هاي interactive element
-
-**نکته فني:** فقط براي دستگاه هاي `pointer: fine` فعال است.
+**Note**: Footer handles homepage/blog route differences for anchor links.
 
 ---
 
-## 10) `src/components/portfolio/ScrollProgress.tsx`
+## `CustomCursor.tsx`
 
-**نقش:** نوار پيشرفت اسکرول بالا
+**Purpose**: Custom cursor with contextual preview tooltip
 
-**کجا استفاده مي شود:** صفحه اصلي + صفحه blog
+**Used in**: Homepage
 
-**قابل شخصي سازي:**
-- ضخامت و رنگ progress bar
-- threshold آپديت progress
+**Customize**:
+- Cursor size and style
+- Preview styling
+- Interactive element detection
+
+**Note**: Enabled only for fine pointers (desktop-like devices).
 
 ---
 
-## 11) `src/components/portfolio/Devlog.tsx`
+## `ScrollProgress.tsx`
 
-**نقش:** کامپوننت مستقل براي نمايش Devlog/Blog در يک سکشن
+**Purpose**: Top progress indicator for page scroll
 
-**وضعيت فعلي:** در مسير اصلي صفحه استفاده نمي شود (صفحه اختصاصي blog جايگزين آن است)
+**Used in**: Homepage and Blog page
 
-**زمان استفاده:** اگر بخواهي Blog را دوباره داخل homepage ادغام کني.
+**Customize**:
+- Height, color, transition speed
+- Progress update threshold
+
+---
+
+## `Devlog.tsx`
+
+**Purpose**: Combined Devlog/Blog section component
+
+**Current status**: Not mounted in main homepage flow (dedicated `/blog` page is used).
+
+**Use case**: Re-enable when embedding blog content directly into homepage.
