@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 export const Contact = () => {
   const contacts = [
-    { icon: Mail, label: 'Email', handle: 'Get In Touch', href: 'mailto:contact@parsaghaei.com' },
+    { icon: Mail, label: 'Email', handle: 'Get In Touch', href: 'mailto:contact@parsaghaei.dev' },
     { icon: Github, label: 'GitHub', handle: 'Open Profile', href: 'https://github.com' },
     { icon: Gamepad2, label: 'Itch.io', handle: 'Play Games', href: 'https://itch.io' },
     { icon: Linkedin, label: 'LinkedIn', handle: 'Connect', href: 'https://www.linkedin.com' },
@@ -72,7 +72,7 @@ export const Contact = () => {
               size="lg"
               data-cursor-preview="Send Email"
               className="button-glow-hover bg-white text-black hover:bg-white/90 font-bold px-12 py-8 text-xl rounded-sm border-2 border-white transition-all hover:scale-105"
-              onClick={() => (window.location.href = 'mailto:contact@parsaghaei.com')}
+              onClick={() => (window.location.href = 'mailto:contact@parsaghaei.dev')}
             >
               Send Message
               <Send className="w-6 h-6 ml-3" />

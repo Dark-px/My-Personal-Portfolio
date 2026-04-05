@@ -117,7 +117,7 @@ Production settings:
 ## Connect
 
 - GitHub: `https://github.com/Dark-px`
-- Email: `your-email@example.com`
+- Email: `contact@parsaghaei.dev`
 
 ---
 
