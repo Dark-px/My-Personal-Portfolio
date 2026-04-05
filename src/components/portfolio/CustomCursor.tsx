@@ -10,6 +10,15 @@ export const CustomCursor = () => {
   const previewHideTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    if (!mediaQuery.matches) {
+      return;
+    }
+
+    let latestX = 0;
+    let latestY = 0;
+    let moveRafId: number | null = null;
+
     const clearPreviewHideTimeout = () => {
       if (previewHideTimeoutRef.current !== null) {
         window.clearTimeout(previewHideTimeoutRef.current);
@@ -25,9 +34,19 @@ export const CustomCursor = () => {
       }, 140);
     };
 
-    const moveCursor = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+    const flushCursorPosition = () => {
+      setPosition({ x: latestX, y: latestY });
       setIsVisible(true);
+      moveRafId = null;
+    };
+
+    const moveCursor = (e: MouseEvent) => {
+      latestX = e.clientX;
+      latestY = e.clientY;
+      if (moveRafId !== null) {
+        return;
+      }
+      moveRafId = window.requestAnimationFrame(flushCursorPosition);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -79,14 +98,25 @@ export const CustomCursor = () => {
       }
     };
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setIsVisible(false);
+      }
+    };
+
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('mouseover', handleMouseOver);
     window.addEventListener('mouseout', hideCursor);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mouseout', hideCursor);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (moveRafId !== null) {
+        window.cancelAnimationFrame(moveRafId);
+      }
       clearPreviewHideTimeout();
     };
   }, []);

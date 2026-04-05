@@ -24,7 +24,7 @@ export const Projects = () => {
       status: 'PLANNING',
       media: '/coding-1.jpg',
       actionLabel: 'GitHub',
-      actionHref: 'https://github.com',
+      actionHref: 'https://github.com/Dark-px',
     },
     {
       number: '03',
@@ -36,7 +36,7 @@ export const Projects = () => {
       status: 'CONCEPT',
       media: '/tech-1.jpg',
       actionLabel: 'GitHub',
-      actionHref: 'https://github.com',
+      actionHref: 'https://github.com/Dark-px',
     },
   ];
 

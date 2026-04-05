@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 export const Contact = () => {
   const contacts = [
     { icon: Mail, label: 'Email', handle: 'Get In Touch', href: 'mailto:contact@parsaghaei.dev' },
-    { icon: Github, label: 'GitHub', handle: 'Open Profile', href: 'https://github.com' },
-    { icon: Gamepad2, label: 'Itch.io', handle: 'Play Games', href: 'https://itch.io' },
+    { icon: Github, label: 'GitHub', handle: 'Open Profile', href: 'https://github.com/Dark-px' },
+    { icon: Gamepad2, label: 'Itch.io', handle: 'Play Games', href: 'https://parsaghaei.itch.io' },
     { icon: Linkedin, label: 'LinkedIn', handle: 'Connect', href: 'https://www.linkedin.com' },
     { icon: Palette, label: 'ArtStation', handle: 'View Portfolio', href: 'https://www.artstation.com' },
     { icon: Send, label: 'Telegram', handle: 'Send Message', href: 'https://t.me' },
@@ -26,25 +26,29 @@ export const Contact = () => {
 
         {/* Contact Grid */}
         <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 mb-16">
-          {contacts.map((contact, index) => (
-            <a
-              key={index}
-              href={contact.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor-preview={`Open ${contact.label}`}
-              className="section-enter-soft modern-card sheen-hover group bg-[#050506] p-8 hover:bg-white/[0.02] transition-colors"
-              style={{ animationDelay: `${index * 90}ms` }}
-            >
-              <div className="w-14 h-14 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <contact.icon className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">{contact.label}</h3>
-              <p className="text-sm text-white/40 group-hover:text-white/60 transition-colors">
-                {contact.handle}
-              </p>
-            </a>
-          ))}
+          {contacts.map((contact, index) => {
+            const opensInNewTab = contact.href.startsWith('http');
+
+            return (
+              <a
+                key={index}
+                href={contact.href}
+                target={opensInNewTab ? "_blank" : undefined}
+                rel={opensInNewTab ? "noopener noreferrer" : undefined}
+                data-cursor-preview={`Open ${contact.label}`}
+                className="section-enter-soft modern-card sheen-hover group bg-[#050506] p-8 hover:bg-white/[0.02] transition-colors"
+                style={{ animationDelay: `${index * 90}ms` }}
+              >
+                <div className="w-14 h-14 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <contact.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">{contact.label}</h3>
+                <p className="text-sm text-white/40 group-hover:text-white/60 transition-colors">
+                  {contact.handle}
+                </p>
+              </a>
+            );
+          })}
         </div>
 
         {/* CTA */}

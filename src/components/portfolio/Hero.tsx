@@ -113,7 +113,7 @@ export const Hero = () => {
 
           {/* Social */}
           <a
-            href="https://github.com"
+            href="https://github.com/Dark-px"
             target="_blank"
             rel="noopener noreferrer"
             data-cursor-preview="Open GitHub"

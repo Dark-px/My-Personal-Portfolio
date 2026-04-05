@@ -7,14 +7,25 @@ export type MediumPost = {
   thumbnail?: string;
 };
 
+const envFeaturedPostLinks = [
+  import.meta.env.VITE_MEDIUM_FEATURED_POST_1,
+  import.meta.env.VITE_MEDIUM_FEATURED_POST_2,
+  import.meta.env.VITE_MEDIUM_FEATURED_POST_3,
+]
+  .map((link) => (typeof link === "string" ? link.trim() : ""))
+  .filter((link): link is string => Boolean(link));
+
 // select featured posts and username
 export const MEDIUM_CONFIG = {
-  username: "yourusername",
-  featuredPostLinks: [
-    "https://medium.com/@yourusername/first-post-slug",
-    "https://medium.com/@yourusername/second-post-slug",
-    "https://medium.com/@yourusername/third-post-slug",
-  ],
+  username: (import.meta.env.VITE_MEDIUM_USERNAME || "yourusername").trim(),
+  featuredPostLinks:
+    envFeaturedPostLinks.length > 0
+      ? envFeaturedPostLinks
+      : [
+          "https://medium.com/@yourusername/first-post-slug",
+          "https://medium.com/@yourusername/second-post-slug",
+          "https://medium.com/@yourusername/third-post-slug",
+        ],
   featuredCount: 3,
   devlogTags: ["devlog", "development-log", "logbook", "journey"],
 };
@@ -74,7 +85,7 @@ export const isDevlogPost = (post: MediumPost) => {
 export const fetchMediumPosts = async (username: string) => {
   if (!username || username.trim() === "" || username === "yourusername") {
     throw new Error(
-      "Medium username is not configured. Set MEDIUM_CONFIG.username in src/lib/medium.ts."
+      "Medium username is not configured. Set VITE_MEDIUM_USERNAME in .env or MEDIUM_CONFIG.username in src/lib/medium.ts."
     );
   }
 
