@@ -24,6 +24,10 @@ export const scrollToHashTarget = (hashOrId: string, offset?: number) => {
       easing: (value: number) => 1 - Math.pow(1 - value, 3),
     });
   } else {
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    const targetTop =
+      target.getBoundingClientRect().top +
+      window.scrollY +
+      (typeof offset === "number" ? offset : finalOffset);
+    window.scrollTo({ top: targetTop, behavior: "smooth" });
   }
 };

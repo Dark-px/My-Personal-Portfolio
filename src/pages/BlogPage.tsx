@@ -180,7 +180,7 @@ const BlogPage = () => {
   return (
     <div className="min-h-screen bg-[#050506] text-white">
       <ScrollProgress />
-      <header className="sticky top-0 z-40 bg-[#050506]/80 backdrop-blur-lg border-b border-white/10">
+      <header className="sticky top-0 z-40 bg-[#050506]/90 md:bg-[#050506]/80 md:backdrop-blur-lg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-16 md:h-20 flex items-center justify-between">
           <a
             href="/"

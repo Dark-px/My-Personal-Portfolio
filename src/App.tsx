@@ -18,13 +18,18 @@ const App = () => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
+    if (prefersReducedMotion || isTouchDevice) {
+      delete window.__lenis;
+      return;
+    }
+
     const lenis = new Lenis({
-      duration: prefersReducedMotion ? 0.7 : isTouchDevice ? 0.92 : 0.95,
+      duration: 0.95,
       smoothWheel: true,
-      wheelMultiplier: prefersReducedMotion ? 0.88 : isTouchDevice ? 0.92 : 1.0,
-      touchMultiplier: prefersReducedMotion ? 0.92 : 0.96,
-      syncTouch: !prefersReducedMotion,
-      lerp: prefersReducedMotion ? 0.2 : isTouchDevice ? 0.16 : 0.13,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1,
+      syncTouch: false,
+      lerp: 0.13,
     });
     window.__lenis = lenis;
 

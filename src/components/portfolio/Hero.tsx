@@ -47,8 +47,8 @@ export const Hero = () => {
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
       }} />
-      <div className="pointer-events-none absolute -top-14 left-[12%] h-44 w-44 rounded-full bg-white/10 blur-3xl animate-float-soft" />
-      <div className="pointer-events-none absolute bottom-20 right-[10%] h-40 w-40 rounded-full bg-white/5 blur-3xl animate-float-soft animation-delay-2000" />
+      <div className="pointer-events-none absolute -top-14 left-[12%] h-44 w-44 rounded-full bg-white/10 blur-3xl animate-float-soft hidden md:block" />
+      <div className="pointer-events-none absolute bottom-20 right-[10%] h-40 w-40 rounded-full bg-white/5 blur-3xl animate-float-soft animation-delay-2000 hidden md:block" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20 pb-8 md:pt-24 md:pb-10">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-end">

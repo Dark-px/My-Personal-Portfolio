@@ -433,6 +433,29 @@ All colors MUST be HSL.
   }
 }
 
+/* Mobile performance mode: reduce costly perpetual effects on touch devices */
+@media (max-width: 900px), (pointer: coarse) {
+  .animate-breathe,
+  .animate-float-soft,
+  .future-grid-pan,
+  .future-orb-a,
+  .future-ring-a,
+  .future-ring-b,
+  .future-node,
+  .future-node-strong,
+  .future-scan-beam,
+  .particle-bg::before {
+    animation: none !important;
+  }
+
+  .modern-card,
+  .button-glow-hover,
+  .section-enter,
+  .section-enter-soft {
+    will-change: auto;
+  }
+}
+
 /* Pause CSS animations while the tab is not visible */
 html.tab-inactive *,
 html.tab-inactive *::before,
