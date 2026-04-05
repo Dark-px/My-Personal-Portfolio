@@ -121,13 +121,23 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
     const observedElements = Array.from(
       document.querySelectorAll<HTMLElement>(".section-enter, .section-enter-soft")
     );
 
     observedElements.forEach((element) => {
       if (element.style.animationDelay) {
-        element.style.transitionDelay = element.style.animationDelay;
+        element.style.transitionDelay =
+          isTouchDevice || prefersReducedMotion ? "0ms" : element.style.animationDelay;
+      }
+
+      // Make first-screen content visible immediately to avoid perceived lag.
+      const rect = element.getBoundingClientRect();
+      const immediateRevealLimit = isTouchDevice ? window.innerHeight * 1.06 : window.innerHeight * 0.92;
+      if (rect.top <= immediateRevealLimit) {
+        element.classList.add("is-visible");
       }
     });
 
@@ -140,10 +150,18 @@ const App = () => {
           }
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      {
+        threshold: isTouchDevice ? 0.06 : 0.18,
+        rootMargin: isTouchDevice ? "0px 0px 14% 0px" : "0px 0px -8% 0px",
+      }
     );
 
-    observedElements.forEach((element) => observer.observe(element));
+    observedElements.forEach((element) => {
+      if (!element.classList.contains("is-visible")) {
+        observer.observe(element);
+      }
+    });
+
     return () => observer.disconnect();
   }, []);
 
