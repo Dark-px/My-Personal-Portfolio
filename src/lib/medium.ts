@@ -68,18 +68,33 @@ export const stripHtml = (value: string) => {
 };
 
 export const isDevlogPost = (post: MediumPost) => {
-  const title = post.title.toLowerCase();
-  if (title.includes("devlog")) {
+  const normalizeTag = (value: string) =>
+    value
+      .toLowerCase()
+      .replace(/^#/, "")
+      .replace(/[\s_-]+/g, "")
+      .trim();
+
+  const normalizedTitle = normalizeTag(post.title);
+  if (normalizedTitle.includes("devlog")) {
     return true;
   }
 
-  const configuredDevlogTags = MEDIUM_CONFIG.devlogTags.map((tag) =>
-    tag.toLowerCase().trim()
-  );
+  const configuredDevlogTags = MEDIUM_CONFIG.devlogTags.map((tag) => normalizeTag(tag));
 
-  return post.categories.some((category) =>
-    configuredDevlogTags.includes(category)
-  );
+  const hasMatchingDevlogCategory = post.categories.some((category) => {
+    const normalizedCategory = normalizeTag(category);
+    return configuredDevlogTags.some(
+      (devlogTag) =>
+        normalizedCategory === devlogTag || normalizedCategory.includes(devlogTag)
+    );
+  });
+
+  if (hasMatchingDevlogCategory) {
+    return true;
+  }
+
+  return post.link.toLowerCase().includes("devlog");
 };
 
 export const fetchMediumPosts = async (username: string) => {

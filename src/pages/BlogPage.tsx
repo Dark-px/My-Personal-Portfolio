@@ -219,6 +219,14 @@ const BlogPage = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-14 md:py-20">
+        <div className="section-enter-soft mb-12 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/65">
+          This page is split into two clear sections:
+          <span className="text-white/85"> Blog </span>
+          for general writing and
+          <span className="text-white/85"> Devlog </span>
+          for development updates.
+        </div>
+
         {isError && (
           <div className="mb-8 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/70">
             Could not load Medium posts.
@@ -234,6 +242,9 @@ const BlogPage = () => {
             <h1 className="text-5xl md:text-7xl font-black text-white">
               Blog
             </h1>
+            <p className="mt-4 text-sm text-white/50 max-w-2xl">
+              Articles, thoughts, and general notes from my learning path.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
@@ -249,6 +260,11 @@ const BlogPage = () => {
               )
             )}
           </div>
+          {!isLoading && blogPosts.length === 0 && (
+            <div className="mt-4 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/60">
+              No Blog posts found yet. New posts will appear here automatically.
+            </div>
+          )}
         </section>
 
         <section id="Devlog">
@@ -257,6 +273,9 @@ const BlogPage = () => {
             <h2 className="text-5xl md:text-7xl font-black text-white">
               Devlog
             </h2>
+            <p className="mt-4 text-sm text-white/50 max-w-2xl">
+              Build updates, progress logs, and development milestones.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
@@ -272,6 +291,11 @@ const BlogPage = () => {
               )
             )}
           </div>
+          {!isLoading && devlogPosts.length === 0 && (
+            <div className="mt-4 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/60">
+              No Devlog posts detected. Add a devlog tag/title keyword and they will be grouped here.
+            </div>
+          )}
         </section>
       </main>
 
