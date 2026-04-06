@@ -46,16 +46,35 @@ type Rss2JsonResponse = {
   message?: string;
 };
 
+const htmlToPlainText = (value: string) => {
+  return value
+    .replace(/<img[^>]*>/gi, " ")
+    .replace(/<figure[^>]*>[\s\S]*?<\/figure>/gi, " ")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+};
+
 const normalizePost = (item: Rss2JsonItem): MediumPost | null => {
   if (!item.title || !item.link || !item.pubDate) {
     return null;
   }
 
+  const contentHtml = item.content || "";
+  const descriptionHtml = item.description || "";
+  const contentText = htmlToPlainText(contentHtml);
+  const descriptionText = htmlToPlainText(descriptionHtml);
+  const shouldUseDescription = contentText.length < 80 && descriptionText.length > contentText.length;
+
   return {
     title: item.title,
     link: item.link,
     pubDate: item.pubDate,
-    content: item.content || item.description || "",
+    content: shouldUseDescription ? descriptionHtml : contentHtml || descriptionHtml,
     categories: (item.categories || []).map((category) =>
       category.toLowerCase().trim()
     ),
@@ -64,7 +83,20 @@ const normalizePost = (item: Rss2JsonItem): MediumPost | null => {
 };
 
 export const stripHtml = (value: string) => {
-  return value.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return htmlToPlainText(value);
+};
+
+export const getPostExcerpt = (value: string, maxLength = 180) => {
+  const plainText = stripHtml(value);
+  if (!plainText) {
+    return "Summary unavailable for this post.";
+  }
+
+  if (plainText.length <= maxLength) {
+    return plainText;
+  }
+
+  return `${plainText.slice(0, maxLength).trimEnd()}...`;
 };
 
 export const isDevlogPost = (post: MediumPost) => {

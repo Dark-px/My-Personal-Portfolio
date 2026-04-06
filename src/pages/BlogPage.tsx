@@ -3,9 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import { ExternalLink } from "lucide-react";
 import {
   fetchMediumPosts,
+  getPostExcerpt,
   isDevlogPost,
   MEDIUM_CONFIG,
-  stripHtml,
   type MediumPost,
 } from "@/lib/medium";
 import { ScrollProgress } from "@/components/portfolio/ScrollProgress";
@@ -27,6 +27,10 @@ const BlogPostCard = ({
             alt={post.title}
             className="h-40 w-full object-cover opacity-90"
             loading="lazy"
+            referrerPolicy="no-referrer"
+            onError={(event) => {
+              event.currentTarget.style.display = "none";
+            }}
           />
         </div>
       )}
@@ -47,7 +51,7 @@ const BlogPostCard = ({
       <h3 className="text-xl font-bold text-white mb-4 leading-snug">{post.title}</h3>
 
       <p className="text-sm text-white/55 mb-7 line-clamp-4 leading-relaxed">
-        {stripHtml(post.content).slice(0, 190)}...
+        {getPostExcerpt(post.content, 190)}
       </p>
 
       <div className="pt-6 border-t border-white/5 flex items-center justify-between">

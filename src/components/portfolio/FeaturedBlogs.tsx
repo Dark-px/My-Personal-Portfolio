@@ -2,9 +2,9 @@ import { Calendar, ExternalLink, Newspaper } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import {
   fetchMediumPosts,
+  getPostExcerpt,
   getFeaturedPosts,
   MEDIUM_CONFIG,
-  stripHtml,
 } from "@/lib/medium";
 
 export const FeaturedBlogs = () => {
@@ -66,6 +66,10 @@ export const FeaturedBlogs = () => {
                         alt={post.title}
                         className="h-40 w-full object-cover opacity-90"
                         loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(event) => {
+                          event.currentTarget.style.display = "none";
+                        }}
                       />
                     </div>
                   )}
@@ -82,7 +86,7 @@ export const FeaturedBlogs = () => {
                   </h3>
 
                   <p className="text-sm text-white/55 mb-7 line-clamp-4 leading-relaxed">
-                    {stripHtml(post.content).slice(0, 160)}...
+                    {getPostExcerpt(post.content, 160)}
                   </p>
 
                   <div className="pt-6 border-t border-white/5 flex items-center justify-between">
