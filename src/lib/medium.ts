@@ -17,7 +17,7 @@ const envFeaturedPostLinks = [
 
 // select featured posts and username
 export const MEDIUM_CONFIG = {
-  username: (import.meta.env.VITE_MEDIUM_USERNAME || "yourusername").trim(),
+  username: (import.meta.env.VITE_MEDIUM_USERNAME || "parsaghaei").trim(),
   featuredPostLinks:
     envFeaturedPostLinks.length > 0
       ? envFeaturedPostLinks
