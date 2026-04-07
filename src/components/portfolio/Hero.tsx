@@ -50,18 +50,13 @@ export const Hero = () => {
       <div className="pointer-events-none absolute -top-14 left-[12%] h-44 w-44 rounded-full bg-white/10 blur-3xl animate-float-soft hidden md:block" />
       <div className="pointer-events-none absolute bottom-20 right-[10%] h-40 w-40 rounded-full bg-white/5 blur-3xl animate-float-soft animation-delay-2000 hidden md:block" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20 pb-8 md:pt-24 md:pb-10">
-        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-end">
-          <div className="space-y-4 md:space-y-5 section-enter-soft">
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 border border-white/10 rounded-sm animate-breathe">
-            <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-            <span className="text-xs font-mono-display text-white/60">SYSTEM_ONLINE // V1.0.0</span>
-          </div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 max-[430px]:px-4 pt-20 max-[430px]:pt-16 pb-8 md:pt-24 md:pb-10">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-end">
+          <div className="section-enter-soft min-h-0 md:min-h-[62svh] lg:min-h-[70svh] flex flex-col justify-end space-y-4 max-[430px]:space-y-3 md:space-y-5">
 
           {/* Name with Brutalist Style */}
           <div className="space-y-2">
-            <h1 className="text-[clamp(2.4rem,9vw,6.8rem)] lg:text-[clamp(4.1rem,7.4vw,7.7rem)] font-black leading-[0.85] tracking-tighter text-white brutalist-text">
+            <h1 className="text-[clamp(2rem,11vw,4.3rem)] max-[430px]:text-[clamp(1.72rem,10.6vw,2.25rem)] md:text-[clamp(2.52rem,9vw,6.48rem)] lg:text-[clamp(3.96rem,7.02vw,7.38rem)] font-black leading-[0.88] max-[430px]:leading-[0.94] md:leading-[0.84] tracking-tighter text-white brutalist-text lg:whitespace-nowrap">
               {text}
               {!isTypingDone && <span className="animate-pulse">|</span>}
             </h1>
@@ -70,17 +65,17 @@ export const Hero = () => {
 
           {/* Subtitle */}
           <div className="space-y-3">
-            <div className="space-y-1.5">
-              <p className="text-xs md:text-sm text-white/45 font-mono-display tracking-wide">
+            <div className="space-y-1.5 md:space-y-2">
+              <p className="text-sm md:text-base text-white/45 font-mono-display tracking-wide">
                 Eager to become a
               </p>
-              <h2 className="text-xl md:text-4xl font-bold text-white/90">
+              <h2 className="text-[clamp(1.35rem,6.3vw,2.2rem)] max-[430px]:text-[clamp(1.16rem,5.4vw,1.52rem)] md:text-5xl font-bold text-white/90 leading-tight">
                 Game Developer
                 <span className="text-white/40 mx-3">/</span>
                 Designer
               </h2>
             </div>
-            <p className="text-sm md:text-base text-white/50 max-w-2xl leading-relaxed text-justify">
+            <p className="text-sm sm:text-base md:text-lg max-[430px]:text-[13px] text-white/50 max-w-2xl leading-relaxed max-[430px]:leading-6 md:leading-7 text-left md:text-justify">
               Hi, I’m Parsa — a 16-year-old game developer studying computer science in
               technical high school, currently learning Unity and C#. I enjoy building
               gameplay mechanics, experimenting with new ideas, documenting my journey
@@ -89,11 +84,11 @@ export const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 max-[430px]:gap-2.5 pt-1">
             <Button
               size="lg"
               data-cursor-preview="View Projects"
-              className="button-glow-hover bg-white text-black hover:bg-white/90 font-bold px-5 py-4 md:px-7 md:py-5 text-sm md:text-base rounded-sm border-2 border-white transition-all hover:scale-105"
+              className="button-glow-hover w-full sm:w-auto justify-center bg-white text-black hover:bg-white/90 font-bold px-6 max-[430px]:px-4 py-4 max-[430px]:py-3.5 md:px-8 md:py-6 text-base max-[430px]:text-sm md:text-lg rounded-sm border-2 border-white transition-all hover:scale-105"
               onClick={() => scrollToHashTarget('#projects_title')}
             >
               View Projects
@@ -103,7 +98,7 @@ export const Hero = () => {
               size="lg"
               variant="outline"
               data-cursor-preview="Go To Contact"
-              className="button-glow-hover border-2 border-white/20 text-white hover:bg-white/5 font-bold px-5 py-4 md:px-7 md:py-5 text-sm md:text-base rounded-sm transition-all"
+              className="button-glow-hover w-full sm:w-auto justify-center border-2 border-white/20 text-white hover:bg-white/5 font-bold px-6 max-[430px]:px-4 py-4 max-[430px]:py-3.5 md:px-8 md:py-6 text-base max-[430px]:text-sm md:text-lg rounded-sm transition-all"
               onClick={() => scrollToHashTarget('#contact_title')}
             >
               <Mail className="w-5 h-5 mr-2" />
@@ -128,7 +123,7 @@ export const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-float-soft">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-float-soft hidden sm:block">
         <div className="flex flex-col items-center gap-2">
           <span className="text-[10px] font-mono-display text-white/30 tracking-widest">SCROLL</span>
           <div className="w-px h-12 bg-gradient-to-b from-white/30 to-transparent" />

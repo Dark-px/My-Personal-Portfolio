@@ -50,8 +50,11 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#hero" className="text-xl font-black text-white tracking-tighter">
-            PG
+          <a href="#hero" className="inline-flex flex-col leading-none">
+            <span className="text-xl font-black text-white tracking-tighter">PG</span>
+            <span className="mt-1 text-[9px] font-mono-display text-white/45 tracking-[0.08em]">
+              SYSTEM_ONLINE // V1.0.0
+            </span>
           </a>
 
           {/* Desktop Navigation */}
