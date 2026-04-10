@@ -31,12 +31,12 @@ const DEFAULT_SEO = {
   twitterImage: "https://parsaghaei.dev/hero-bg.png",
 };
 
-class TextContentRewriter {
+class ElementContentRewriter {
   constructor(content) {
     this.content = content;
   }
 
-  text(element) {
+  element(element) {
     element.setInnerContent(this.content);
   }
 }
@@ -60,20 +60,25 @@ export async function onRequest(context) {
     return response;
   }
 
-  const hostname = new URL(context.request.url).hostname.toLowerCase();
-  const seo = SEO_BY_HOST[hostname] || DEFAULT_SEO;
+  try {
+    const hostname = new URL(context.request.url).hostname.toLowerCase();
+    const seo = SEO_BY_HOST[hostname] || DEFAULT_SEO;
 
-  return new HTMLRewriter()
-    .on("title", new TextContentRewriter(seo.title))
-    .on('meta[name="description"]', new AttrRewriter("content", seo.description))
-    .on('meta[name="keywords"]', new AttrRewriter("content", seo.keywords))
-    .on('link[rel="canonical"]', new AttrRewriter("href", seo.canonical))
-    .on('meta[property="og:title"]', new AttrRewriter("content", seo.ogTitle))
-    .on('meta[property="og:description"]', new AttrRewriter("content", seo.ogDescription))
-    .on('meta[property="og:url"]', new AttrRewriter("content", seo.canonical))
-    .on('meta[property="og:image"]', new AttrRewriter("content", seo.ogImage))
-    .on('meta[name="twitter:title"]', new AttrRewriter("content", seo.twitterTitle))
-    .on('meta[name="twitter:description"]', new AttrRewriter("content", seo.twitterDescription))
-    .on('meta[name="twitter:image"]', new AttrRewriter("content", seo.twitterImage))
-    .transform(response);
+    return new HTMLRewriter()
+      .on("title", new ElementContentRewriter(seo.title))
+      .on('meta[name="description"]', new AttrRewriter("content", seo.description))
+      .on('meta[name="keywords"]', new AttrRewriter("content", seo.keywords))
+      .on('link[rel="canonical"]', new AttrRewriter("href", seo.canonical))
+      .on('meta[property="og:title"]', new AttrRewriter("content", seo.ogTitle))
+      .on('meta[property="og:description"]', new AttrRewriter("content", seo.ogDescription))
+      .on('meta[property="og:url"]', new AttrRewriter("content", seo.canonical))
+      .on('meta[property="og:image"]', new AttrRewriter("content", seo.ogImage))
+      .on('meta[name="twitter:title"]', new AttrRewriter("content", seo.twitterTitle))
+      .on('meta[name="twitter:description"]', new AttrRewriter("content", seo.twitterDescription))
+      .on('meta[name="twitter:image"]', new AttrRewriter("content", seo.twitterImage))
+      .transform(response);
+  } catch (error) {
+    // Never break page rendering because of SEO rewrite issues.
+    return response;
+  }
 }
