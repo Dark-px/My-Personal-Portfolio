@@ -64,7 +64,7 @@ export const Navigation = () => {
                 key={item.href}
                 href={item.href}
                 data-cursor-preview={`Go To ${item.label.replace(/_/g, " ")}`}
-                className="nav-link-animated text-xs font-mono-display text-white/50 hover:text-white transition-colors tracking-wider"
+                className="nav-link-animated relative inline-block text-xs font-mono-display text-white/50 hover:text-white transition-colors tracking-wider before:absolute before:-inset-x-2 before:-inset-y-2 before:content-['']"
               >
                 {item.label}
               </a>
@@ -104,7 +104,7 @@ export const Navigation = () => {
                 key={item.href}
                 href={item.href}
                 data-cursor-preview={`Go To ${item.label.replace(/_/g, " ")}`}
-                className="text-white/50 hover:text-white transition-colors text-sm font-mono-display py-2"
+                className="relative inline-block py-2 text-sm font-mono-display text-white/50 transition-colors hover:text-white before:absolute before:-inset-x-2 before:-inset-y-2 before:content-['']"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}

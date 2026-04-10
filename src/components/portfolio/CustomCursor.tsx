@@ -203,8 +203,8 @@ export const CustomCursor = () => {
       <div
         className="fixed pointer-events-none z-[9999]"
         style={{
-          left: `${position.x - 17}px`,
-          top: `${position.y - 17}px`,
+          left: 0,
+          top: 0,
           width: '34px',
           height: '34px',
           border: '2px solid rgb(255, 255, 255)',
@@ -214,9 +214,11 @@ export const CustomCursor = () => {
           alignItems: 'center',
           justifyContent: 'center',
           transition: 'transform 0.12s ease-out, background-color 0.12s ease-out',
-          transform: isHovering ? 'scale(1.5)' : 'scale(1)',
+          transform: `translate3d(${position.x - 17}px, ${position.y - 17}px, 0) scale(${
+            isHovering ? 1.5 : 1
+          })`,
           backgroundColor: isHovering ? 'rgba(255,255,255,0.1)' : 'transparent',
-          willChange: 'transform',
+          willChange: 'transform, background-color',
         }}
       >
         <div
