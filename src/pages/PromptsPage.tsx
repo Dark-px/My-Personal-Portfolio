@@ -1241,7 +1241,7 @@ const PromptsPage = () => {
               rel="noreferrer"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass}`}
+              className="group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80"
             >
               <ExternalLink className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
               <span className="hidden sm:inline" dir="ltr">
@@ -1258,7 +1258,7 @@ const PromptsPage = () => {
               rel="noreferrer"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass}`}
+              className="group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80"
             >
               <Github className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
               <span className="hidden sm:inline" dir="ltr">
@@ -1276,7 +1276,7 @@ const PromptsPage = () => {
               onClick={toggleTheme}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative rounded-2xl border border-zinc-200 bg-white/60 p-3 text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass} ${
+              className={`group relative rounded-2xl border border-zinc-200 bg-white/60 p-3 text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${
                 isAnimatingTheme ? "scale-75 rotate-180 opacity-50" : "scale-100 rotate-0 opacity-100"
               }`}
             >
@@ -1291,7 +1291,7 @@ const PromptsPage = () => {
               onClick={toggleLang}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-5 py-3 text-sm font-bold text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass} ${
+              className={`group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-5 py-3 text-sm font-bold text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${
                 isAnimatingLang ? "scale-90 opacity-80" : "scale-100 opacity-100"
               }`}
             >
