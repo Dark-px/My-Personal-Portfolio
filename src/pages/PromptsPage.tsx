@@ -916,6 +916,13 @@ const getSystemTheme = () => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
 
+const PROMPTS_SEO = {
+  title: "AI Prompt Library | Parsa Ghaei",
+  description:
+    "A curated AI Prompt Library by Parsa Ghaei with structured prompts for writing, research, visual design, and coding workflows.",
+  imageAlt: "AI Prompt Library by Parsa Ghaei",
+};
+
 const PromptsPage = () => {
   const [copiedId, setCopiedId] = useState<number | null>(null);
   const [expandedId, setExpandedId] = useState<number | null>(null);
@@ -945,6 +952,114 @@ const PromptsPage = () => {
 
     mediaQuery.addEventListener("change", handleThemeChange);
     return () => mediaQuery.removeEventListener("change", handleThemeChange);
+  }, []);
+
+  useEffect(() => {
+    const previous = {
+      title: document.title,
+      description: document.querySelector<HTMLMetaElement>('meta[name="description"]')?.content ?? "",
+      ogTitle: document.querySelector<HTMLMetaElement>('meta[property="og:title"]')?.content ?? "",
+      ogDescription:
+        document.querySelector<HTMLMetaElement>('meta[property="og:description"]')?.content ?? "",
+      ogType: document.querySelector<HTMLMetaElement>('meta[property="og:type"]')?.content ?? "",
+      ogUrl: document.querySelector<HTMLMetaElement>('meta[property="og:url"]')?.content ?? "",
+      ogImage: document.querySelector<HTMLMetaElement>('meta[property="og:image"]')?.content ?? "",
+      ogImageAlt:
+        document.querySelector<HTMLMetaElement>('meta[property="og:image:alt"]')?.content ?? "",
+      ogImageWidth:
+        document.querySelector<HTMLMetaElement>('meta[property="og:image:width"]')?.content ?? "",
+      ogImageHeight:
+        document.querySelector<HTMLMetaElement>('meta[property="og:image:height"]')?.content ?? "",
+      ogSiteName:
+        document.querySelector<HTMLMetaElement>('meta[property="og:site_name"]')?.content ?? "",
+      twitterCard: document.querySelector<HTMLMetaElement>('meta[name="twitter:card"]')?.content ?? "",
+      twitterTitle: document.querySelector<HTMLMetaElement>('meta[name="twitter:title"]')?.content ?? "",
+      twitterDescription:
+        document.querySelector<HTMLMetaElement>('meta[name="twitter:description"]')?.content ?? "",
+      twitterImage: document.querySelector<HTMLMetaElement>('meta[name="twitter:image"]')?.content ?? "",
+      twitterImageAlt:
+        document.querySelector<HTMLMetaElement>('meta[name="twitter:image:alt"]')?.content ?? "",
+      twitterSite: document.querySelector<HTMLMetaElement>('meta[name="twitter:site"]')?.content ?? "",
+      canonical: document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href ?? "",
+    };
+
+    const setMetaByName = (name: string, content: string) => {
+      let element = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute("name", name);
+        document.head.appendChild(element);
+      }
+      element.setAttribute("content", content);
+    };
+
+    const setMetaByProperty = (property: string, content: string) => {
+      let element = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
+      if (!element) {
+        element = document.createElement("meta");
+        element.setAttribute("property", property);
+        document.head.appendChild(element);
+      }
+      element.setAttribute("content", content);
+    };
+
+    const setCanonical = (href: string) => {
+      let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement("link");
+        canonical.setAttribute("rel", "canonical");
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute("href", href);
+    };
+
+    const canonicalUrl = window.location.hostname === "prompts.parsaghaei.dev"
+      ? "https://prompts.parsaghaei.dev/"
+      : "https://parsaghaei.dev/prompts";
+    const socialUrl = window.location.hostname === "prompts.parsaghaei.dev"
+      ? "https://prompts.parsaghaei.dev/"
+      : window.location.href;
+    const ogImageUrl = `${window.location.origin}/og-prompts.svg`;
+
+    document.title = PROMPTS_SEO.title;
+    setMetaByName("description", PROMPTS_SEO.description);
+    setMetaByProperty("og:title", PROMPTS_SEO.title);
+    setMetaByProperty("og:description", PROMPTS_SEO.description);
+    setMetaByProperty("og:type", "website");
+    setMetaByProperty("og:site_name", "Parsa Ghaei");
+    setMetaByProperty("og:url", socialUrl);
+    setMetaByProperty("og:image", ogImageUrl);
+    setMetaByProperty("og:image:alt", PROMPTS_SEO.imageAlt);
+    setMetaByProperty("og:image:width", "1200");
+    setMetaByProperty("og:image:height", "630");
+    setMetaByName("twitter:card", "summary_large_image");
+    setMetaByName("twitter:site", "@Dark_px");
+    setMetaByName("twitter:title", PROMPTS_SEO.title);
+    setMetaByName("twitter:description", PROMPTS_SEO.description);
+    setMetaByName("twitter:image", ogImageUrl);
+    setMetaByName("twitter:image:alt", PROMPTS_SEO.imageAlt);
+    setCanonical(canonicalUrl);
+
+    return () => {
+      document.title = previous.title;
+      setMetaByName("description", previous.description);
+      setMetaByProperty("og:title", previous.ogTitle);
+      setMetaByProperty("og:description", previous.ogDescription);
+      setMetaByProperty("og:type", previous.ogType);
+      setMetaByProperty("og:site_name", previous.ogSiteName);
+      setMetaByProperty("og:url", previous.ogUrl);
+      setMetaByProperty("og:image", previous.ogImage);
+      setMetaByProperty("og:image:alt", previous.ogImageAlt);
+      setMetaByProperty("og:image:width", previous.ogImageWidth);
+      setMetaByProperty("og:image:height", previous.ogImageHeight);
+      setMetaByName("twitter:card", previous.twitterCard);
+      setMetaByName("twitter:site", previous.twitterSite);
+      setMetaByName("twitter:title", previous.twitterTitle);
+      setMetaByName("twitter:description", previous.twitterDescription);
+      setMetaByName("twitter:image", previous.twitterImage);
+      setMetaByName("twitter:image:alt", previous.twitterImageAlt);
+      setCanonical(previous.canonical);
+    };
   }, []);
 
   const categoriesEnList = useMemo(
