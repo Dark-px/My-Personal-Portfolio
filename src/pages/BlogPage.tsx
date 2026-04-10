@@ -222,13 +222,26 @@ const BlogPage = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-14 md:py-20">
-        <div className="section-enter-soft mb-12 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/65">
-          This page is split into two clear sections:
-          <span className="text-white/85"> Blog </span>
-          for general writing and
-          <span className="text-white/85"> Devlog </span>
-          for development updates.
+      <main className="max-w-7xl mx-auto px-6 pt-9 pb-14 md:pt-[3.25rem] md:pb-20">
+        <div className="section-enter-soft mb-10 rounded-2xl border border-white/10 bg-gradient-to-r from-white/[0.03] via-white/[0.01] to-transparent px-5 py-4 md:px-6 md:py-5">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-[11px] font-mono-display tracking-[0.18em] text-white/45">
+                WRITING HUB // BLOG + DEVLOG
+              </p>
+              <h1 className="mt-2 text-2xl font-black tracking-tight text-white md:text-3xl">
+                Split View Reading
+              </h1>
+            </div>
+            <div className="flex flex-wrap gap-2 text-xs font-mono-display tracking-wide">
+              <span className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 text-white/85">
+                BLOG: {isLoading ? "..." : `${blogPosts.length} POSTS`}
+              </span>
+              <span className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 text-white/85">
+                DEVLOG: {isLoading ? "..." : `${devlogPosts.length} POSTS`}
+              </span>
+            </div>
+          </div>
         </div>
 
         {isError && (
@@ -240,67 +253,83 @@ const BlogPage = () => {
           </div>
         )}
 
-        <section id="Blog" className="mb-16">
-          <div className="section-enter-soft mb-8 pb-6 border-b border-white/10">
-            <span className="text-xs font-mono-display text-white/40 mb-3 block">BLOG CATEGORY</span>
-            <h1 className="text-5xl md:text-7xl font-black text-white">
-              Blog
-            </h1>
-            <p className="mt-4 text-sm text-white/50 max-w-2xl">
-              Articles, thoughts, and general notes from my learning path.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
-            {(isLoading ? [0, 1, 2] : blogPosts).map((post, index) =>
-              typeof post === "number" ? (
-                <div key={index} className="bg-[#050506] p-8 space-y-4">
-                  <div className="h-3 w-24 bg-white/10 rounded animate-pulse" />
-                  <div className="h-7 w-4/5 bg-white/10 rounded animate-pulse" />
-                  <div className="h-4 w-full bg-white/5 rounded animate-pulse" />
-                </div>
-              ) : (
-                <BlogPostCard key={post.link} post={post} typeLabel="BLOG" />
-              )
-            )}
-          </div>
-          {!isLoading && blogPosts.length === 0 && (
-            <div className="mt-4 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/60">
-              No Blog posts found yet. New posts will appear here automatically.
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-0 lg:divide-x lg:divide-white/10">
+          <section id="Blog" className="lg:pr-6 xl:pr-8">
+            <div className="section-enter-soft mb-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:p-6">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[10px] font-mono-display tracking-[0.16em] text-white/85">
+                  BLOG CATEGORY
+                </span>
+                <span className="text-[10px] font-mono-display tracking-[0.14em] text-white/60">
+                  {isLoading ? "LOADING..." : `${blogPosts.length} POSTS`}
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-white">
+                Blog
+              </h2>
+              <p className="mt-3 text-sm text-white/55 max-w-2xl">
+                Articles, thoughts, and general notes from my learning path.
+              </p>
             </div>
-          )}
-        </section>
 
-        <section id="Devlog">
-          <div className="section-enter-soft mb-8 pb-6 border-b border-white/10">
-            <span className="text-xs font-mono-display text-white/40 mb-3 block">DEVLOG CATEGORY</span>
-            <h2 className="text-5xl md:text-7xl font-black text-white">
-              Devlog
-            </h2>
-            <p className="mt-4 text-sm text-white/50 max-w-2xl">
-              Build updates, progress logs, and development milestones.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
-            {(isLoading ? [0, 1, 2] : devlogPosts).map((post, index) =>
-              typeof post === "number" ? (
-                <div key={index} className="bg-[#050506] p-8 space-y-4">
-                  <div className="h-3 w-24 bg-white/10 rounded animate-pulse" />
-                  <div className="h-7 w-4/5 bg-white/10 rounded animate-pulse" />
-                  <div className="h-4 w-full bg-white/5 rounded animate-pulse" />
-                </div>
-              ) : (
-                <BlogPostCard key={post.link} post={post} typeLabel="DEVLOG" />
-              )
-            )}
-          </div>
-          {!isLoading && devlogPosts.length === 0 && (
-            <div className="mt-4 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/60">
-              No Devlog posts detected. Add a devlog tag/title keyword and they will be grouped here.
+            <div className="grid grid-cols-1 gap-px bg-white/10 border border-white/10">
+              {(isLoading ? [0, 1, 2] : blogPosts).map((post, index) =>
+                typeof post === "number" ? (
+                  <div key={index} className="bg-[#050506] p-8 space-y-4">
+                    <div className="h-3 w-24 bg-white/10 rounded animate-pulse" />
+                    <div className="h-7 w-4/5 bg-white/10 rounded animate-pulse" />
+                    <div className="h-4 w-full bg-white/5 rounded animate-pulse" />
+                  </div>
+                ) : (
+                  <BlogPostCard key={post.link} post={post} typeLabel="BLOG" />
+                )
+              )}
             </div>
-          )}
-        </section>
+            {!isLoading && blogPosts.length === 0 && (
+              <div className="mt-4 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/60">
+                No Blog posts found yet. New posts will appear here automatically.
+              </div>
+            )}
+          </section>
+
+          <section id="Devlog" className="lg:pl-6 xl:pl-8">
+            <div className="section-enter-soft mb-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:p-6">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-[10px] font-mono-display tracking-[0.16em] text-white/85">
+                  DEVLOG CATEGORY
+                </span>
+                <span className="text-[10px] font-mono-display tracking-[0.14em] text-white/60">
+                  {isLoading ? "LOADING..." : `${devlogPosts.length} POSTS`}
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-white">
+                Devlog
+              </h2>
+              <p className="mt-3 text-sm text-white/55 max-w-2xl">
+                Build updates, progress logs, and development milestones.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-px bg-white/10 border border-white/10">
+              {(isLoading ? [0, 1, 2] : devlogPosts).map((post, index) =>
+                typeof post === "number" ? (
+                  <div key={index} className="bg-[#050506] p-8 space-y-4">
+                    <div className="h-3 w-24 bg-white/10 rounded animate-pulse" />
+                    <div className="h-7 w-4/5 bg-white/10 rounded animate-pulse" />
+                    <div className="h-4 w-full bg-white/5 rounded animate-pulse" />
+                  </div>
+                ) : (
+                  <BlogPostCard key={post.link} post={post} typeLabel="DEVLOG" />
+                )
+              )}
+            </div>
+            {!isLoading && devlogPosts.length === 0 && (
+              <div className="mt-4 border border-white/10 bg-white/[0.02] px-6 py-5 text-sm text-white/60">
+                No Devlog posts detected. Add a devlog tag/title keyword and they will be grouped here.
+              </div>
+            )}
+          </section>
+        </div>
       </main>
 
       <Footer />

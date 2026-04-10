@@ -128,23 +128,22 @@ const App = () => {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
-    const observedElements = Array.from(
-      document.querySelectorAll<HTMLElement>(".section-enter, .section-enter-soft")
-    );
+    const targetSelector = ".section-enter, .section-enter-soft";
 
-    observedElements.forEach((element) => {
+    const prepareElement = (element: HTMLElement) => {
       if (element.style.animationDelay) {
         element.style.transitionDelay =
           isTouchDevice || prefersReducedMotion ? "0ms" : element.style.animationDelay;
       }
+    };
 
-      // Make first-screen content visible immediately to avoid perceived lag.
+    const revealIfInViewport = (element: HTMLElement) => {
       const rect = element.getBoundingClientRect();
       const immediateRevealLimit = isTouchDevice ? window.innerHeight * 1.06 : window.innerHeight * 0.92;
       if (rect.top <= immediateRevealLimit) {
         element.classList.add("is-visible");
       }
-    });
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -161,13 +160,40 @@ const App = () => {
       }
     );
 
-    observedElements.forEach((element) => {
+    const registerElement = (element: HTMLElement) => {
+      prepareElement(element);
+      revealIfInViewport(element);
       if (!element.classList.contains("is-visible")) {
         observer.observe(element);
       }
+    };
+
+    const observedElements = Array.from(document.querySelectorAll<HTMLElement>(targetSelector));
+    observedElements.forEach(registerElement);
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (!(node instanceof HTMLElement)) {
+            return;
+          }
+
+          if (node.matches(targetSelector)) {
+            registerElement(node);
+          }
+
+          const nestedTargets = Array.from(node.querySelectorAll<HTMLElement>(targetSelector));
+          nestedTargets.forEach(registerElement);
+        });
+      });
     });
 
-    return () => observer.disconnect();
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 
   return (

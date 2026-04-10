@@ -59,6 +59,20 @@ const htmlToPlainText = (value: string) => {
     .trim();
 };
 
+const extractFirstImageUrl = (value: string) => {
+  if (!value) {
+    return undefined;
+  }
+
+  const match = value.match(/<img[^>]+src=["']([^"']+)["']/i);
+  if (!match?.[1]) {
+    return undefined;
+  }
+
+  const src = match[1].trim();
+  return src.length > 0 ? src : undefined;
+};
+
 const normalizePost = (item: Rss2JsonItem): MediumPost | null => {
   if (!item.title || !item.link || !item.pubDate) {
     return null;
@@ -69,6 +83,8 @@ const normalizePost = (item: Rss2JsonItem): MediumPost | null => {
   const contentText = htmlToPlainText(contentHtml);
   const descriptionText = htmlToPlainText(descriptionHtml);
   const shouldUseDescription = contentText.length < 80 && descriptionText.length > contentText.length;
+  const fallbackThumbnail =
+    extractFirstImageUrl(contentHtml) || extractFirstImageUrl(descriptionHtml);
 
   return {
     title: item.title,
@@ -78,7 +94,7 @@ const normalizePost = (item: Rss2JsonItem): MediumPost | null => {
     categories: (item.categories || []).map((category) =>
       category.toLowerCase().trim()
     ),
-    thumbnail: item.thumbnail,
+    thumbnail: item.thumbnail || fallbackThumbnail,
   };
 };
 

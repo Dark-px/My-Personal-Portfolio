@@ -364,12 +364,19 @@ All colors MUST be HSL.
 .sheen-hover {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.sheen-hover > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sheen-hover::after {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
   background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
   transform: translateX(-130%);
   pointer-events: none;
