@@ -16,7 +16,7 @@ export const Footer = () => {
   return (
     <footer className="py-12 border-t border-white/10 bg-[#050506]">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="text-xl font-black text-white mb-4">PARSA GHAEI</h3>
             <p className="text-white/40 text-sm leading-relaxed">
@@ -110,6 +110,23 @@ export const Footer = () => {
                 </a>
               ))}
             </div>
+          </div>
+
+          <div>
+            <h4 className="text-white font-semibold mb-4">Side Projects</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://prompts.parsaghaei.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor-preview="Open AI Prompt Library"
+                  className="text-white/40 hover:text-white transition-colors"
+                >
+                  AI Prompt Library
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
