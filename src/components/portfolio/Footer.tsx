@@ -94,6 +94,23 @@ export const Footer = () => {
           </div>
 
           <div>
+            <h4 className="text-white font-semibold mb-4">Side Projects</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a
+                  href="https://prompts.parsaghaei.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor-preview="Open AI Prompt Library"
+                  className="text-white/40 hover:text-white transition-colors"
+                >
+                  AI Prompt Library
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
             <h4 className="text-white font-semibold mb-4">Connect</h4>
             <div className="flex gap-3">
               {socialLinks.map((link, index) => (
@@ -110,23 +127,6 @@ export const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-4">Side Projects</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="https://prompts.parsaghaei.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cursor-preview="Open AI Prompt Library"
-                  className="text-white/40 hover:text-white transition-colors"
-                >
-                  AI Prompt Library
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
 
