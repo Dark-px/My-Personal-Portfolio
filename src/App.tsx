@@ -16,7 +16,8 @@ const queryClient = new QueryClient();
 
 const App = () => {
   const hostname = typeof window !== "undefined" ? window.location.hostname.toLowerCase() : "";
-  const isPromptsHost = hostname === "prompts.parsaghaei.dev";
+  const isPromptsVariant = import.meta.env.VITE_SITE_VARIANT === "prompts";
+  const isPromptsHost = hostname === "prompts.parsaghaei.dev" || isPromptsVariant;
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

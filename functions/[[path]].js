@@ -1,0 +1,79 @@
+const SEO_BY_HOST = {
+  "prompts.parsaghaei.dev": {
+    title: "AI Prompt Library | Parsa Ghaei",
+    description:
+      "A curated AI Prompt Library by Parsa Ghaei with structured prompts for writing, research, visual design, and coding workflows.",
+    keywords:
+      "AI prompts, Prompt library, ChatGPT prompts, Claude prompts, Gemini prompts, Parsa Ghaei",
+    canonical: "https://prompts.parsaghaei.dev/",
+    ogTitle: "AI Prompt Library | Parsa Ghaei",
+    ogDescription: "Structured prompts for writing, research, visual design, and coding workflows.",
+    ogImage: "https://prompts.parsaghaei.dev/og-prompts.svg",
+    twitterTitle: "AI Prompt Library | Parsa Ghaei",
+    twitterDescription: "Structured prompts for writing, research, visual design, and coding workflows.",
+    twitterImage: "https://prompts.parsaghaei.dev/og-prompts.svg",
+  },
+};
+
+const DEFAULT_SEO = {
+  title: "Parsa Ghaei | Game Developer & Designer",
+  description:
+    "Parsa Ghaei - aspiring Game Developer and Game Designer studying Unity and C#. Building gameplay mechanics and documenting the journey into game development.",
+  keywords: "Game Developer, Game Designer, Unity, C#, Game Development, Portfolio, Parsa Ghaei",
+  canonical: "https://parsaghaei.dev/",
+  ogTitle: "Parsa Ghaei | Game Developer & Designer",
+  ogDescription:
+    "Aspiring Game Developer and Game Designer studying Unity and C#. Building gameplay mechanics and documenting the journey.",
+  ogImage: "https://parsaghaei.dev/hero-bg.png",
+  twitterTitle: "Parsa Ghaei | Game Developer & Designer",
+  twitterDescription:
+    "Aspiring Game Developer and Game Designer studying Unity and C#. Building gameplay mechanics and documenting the journey.",
+  twitterImage: "https://parsaghaei.dev/hero-bg.png",
+};
+
+class TextContentRewriter {
+  constructor(content) {
+    this.content = content;
+  }
+
+  text(element) {
+    element.setInnerContent(this.content);
+  }
+}
+
+class AttrRewriter {
+  constructor(attribute, value) {
+    this.attribute = attribute;
+    this.value = value;
+  }
+
+  element(element) {
+    element.setAttribute(this.attribute, this.value);
+  }
+}
+
+export async function onRequest(context) {
+  const response = await context.env.ASSETS.fetch(context.request);
+  const contentType = response.headers.get("content-type") || "";
+
+  if (!contentType.includes("text/html")) {
+    return response;
+  }
+
+  const hostname = new URL(context.request.url).hostname.toLowerCase();
+  const seo = SEO_BY_HOST[hostname] || DEFAULT_SEO;
+
+  return new HTMLRewriter()
+    .on("title", new TextContentRewriter(seo.title))
+    .on('meta[name="description"]', new AttrRewriter("content", seo.description))
+    .on('meta[name="keywords"]', new AttrRewriter("content", seo.keywords))
+    .on('link[rel="canonical"]', new AttrRewriter("href", seo.canonical))
+    .on('meta[property="og:title"]', new AttrRewriter("content", seo.ogTitle))
+    .on('meta[property="og:description"]', new AttrRewriter("content", seo.ogDescription))
+    .on('meta[property="og:url"]', new AttrRewriter("content", seo.canonical))
+    .on('meta[property="og:image"]', new AttrRewriter("content", seo.ogImage))
+    .on('meta[name="twitter:title"]', new AttrRewriter("content", seo.twitterTitle))
+    .on('meta[name="twitter:description"]', new AttrRewriter("content", seo.twitterDescription))
+    .on('meta[name="twitter:image"]', new AttrRewriter("content", seo.twitterImage))
+    .transform(response);
+}
