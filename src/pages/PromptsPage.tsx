@@ -936,6 +936,7 @@ const PromptsPage = () => {
   );
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [hoverLabel, setHoverLabel] = useState<string | null>(null);
 
   useEffect(() => {
     if (isTouchDevice) {
@@ -1202,6 +1203,11 @@ const PromptsPage = () => {
                 : "h-8 w-8 opacity-40"
             }`}
           />
+          {hoverLabel ? (
+            <div className="absolute left-6 top-6 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white shadow-lg dark:bg-zinc-100 dark:text-zinc-900">
+              {hoverLabel}
+            </div>
+          ) : null}
         </div>
       ) : null}
 
@@ -1239,16 +1245,19 @@ const PromptsPage = () => {
               href="https://parsaghaei.dev"
               target="_blank"
               rel="noreferrer"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
+              onMouseEnter={() => {
+                setIsHovering(true);
+                setHoverLabel(t.ttWebsite);
+              }}
+              onMouseLeave={() => {
+                setIsHovering(false);
+                setHoverLabel(null);
+              }}
               className="group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80"
             >
               <ExternalLink className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
               <span className="hidden sm:inline" dir="ltr">
                 parsaghaei.dev
-              </span>
-              <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
-                {t.ttWebsite}
               </span>
             </a>
 
@@ -1256,17 +1265,17 @@ const PromptsPage = () => {
               href="https://github.com/Dark-px"
               target="_blank"
               rel="noreferrer"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
+              onMouseEnter={() => {
+                setIsHovering(true);
+                setHoverLabel(t.ttGithub);
+              }}
+              onMouseLeave={() => {
+                setIsHovering(false);
+                setHoverLabel(null);
+              }}
               className="group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80"
             >
               <Github className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
-              <span className="hidden sm:inline" dir="ltr">
-                Dark-px
-              </span>
-              <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
-                {t.ttGithub}
-              </span>
             </a>
           </div>
 
@@ -1274,23 +1283,32 @@ const PromptsPage = () => {
             <button
               type="button"
               onClick={toggleTheme}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
+              onMouseEnter={() => {
+                setIsHovering(true);
+                setHoverLabel(t.ttTheme);
+              }}
+              onMouseLeave={() => {
+                setIsHovering(false);
+                setHoverLabel(null);
+              }}
               className={`group relative rounded-2xl border border-zinc-200 bg-white/60 p-3 text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${
                 isAnimatingTheme ? "scale-75 rotate-180 opacity-50" : "scale-100 rotate-0 opacity-100"
               }`}
             >
               {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
-              <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
-                {t.ttTheme}
-              </span>
             </button>
 
             <button
               type="button"
               onClick={toggleLang}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
+              onMouseEnter={() => {
+                setIsHovering(true);
+                setHoverLabel(t.ttLang);
+              }}
+              onMouseLeave={() => {
+                setIsHovering(false);
+                setHoverLabel(null);
+              }}
               className={`group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-5 py-3 text-sm font-bold text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${
                 isAnimatingLang ? "scale-90 opacity-80" : "scale-100 opacity-100"
               }`}
@@ -1301,9 +1319,6 @@ const PromptsPage = () => {
                 }`}
               />
               <span className="min-w-[50px] text-center">{lang === "en" ? "فارسی" : "English"}</span>
-              <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
-                {t.ttLang}
-              </span>
             </button>
           </div>
         </div>
