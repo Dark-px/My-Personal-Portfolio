@@ -47,8 +47,8 @@ export const Navigation = () => {
         isScrolled ? 'bg-[#050506]/90 md:bg-[#050506]/80 md:backdrop-blur-lg border-b border-white/10' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-7xl mx-auto px-[clamp(1rem,2.2vw,1.5rem)]">
+        <div className="flex items-center justify-between h-[clamp(3.75rem,5.4vw,5rem)]">
           {/* Logo */}
           <a href="#hero" className="inline-flex flex-col leading-none">
             <span className="text-xl font-black text-white tracking-tighter">PG</span>
@@ -58,7 +58,7 @@ export const Navigation = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-[clamp(1rem,1.9vw,2rem)]">
             {navItems.map((item) => (
               <a
                 key={item.href}

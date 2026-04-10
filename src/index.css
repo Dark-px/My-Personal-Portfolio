@@ -472,7 +472,20 @@ html.tab-inactive *::after {
 
 /* Smooth scroll behavior */
 html {
+  font-size: clamp(14px, 0.28vw + 13px, 18px);
   scroll-behavior: auto;
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: clamp(13px, 1.9vw + 9px, 15px);
+  }
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: clamp(16px, 0.22vw + 12px, 19px);
+  }
 }
 
 /* Mild section snapping for anchor navigation */
