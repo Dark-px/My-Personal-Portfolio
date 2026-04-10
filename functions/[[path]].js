@@ -53,7 +53,7 @@ class AttrRewriter {
 }
 
 export async function onRequest(context) {
-  const response = await context.env.ASSETS.fetch(context.request);
+  const response = await context.next();
   const contentType = response.headers.get("content-type") || "";
 
   if (!contentType.includes("text/html")) {
