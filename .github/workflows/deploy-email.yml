@@ -6,10 +6,23 @@ on:
       - main
 
 jobs:
-  send-email:
+  deploy-email:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Start timer
+        run: echo "START_TIME=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Simulate deploy step
+        run: sleep 5
+
+      - name: End timer
+        run: |
+          END_TIME=$(date +%s)
+          DURATION=$((END_TIME - START_TIME))
+          echo "DURATION=$DURATION seconds" >> $GITHUB_ENV
+          echo "DEPLOY_DATE=$(date)" >> $GITHUB_ENV
+
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
         with:
@@ -19,101 +32,96 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
 
-          subject: "✅ Portfolio Deploy Successful"
+          subject: "🚀 Portfolio Deploy Successful"
 
           to: ${{ secrets.EMAIL_USERNAME }}
           from: Portfolio CI <${{ secrets.EMAIL_USERNAME }}>
 
           html_body: |
-  <div style="background:#020617;padding:40px 20px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+            <div style="background:#020617;padding:40px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto">
 
-    <div style="max-width:620px;margin:auto;background:#020617;border:1px solid #1e293b;border-radius:14px;overflow:hidden">
+              <div style="max-width:620px;margin:auto;background:#020617;border:1px solid #1e293b;border-radius:14px;overflow:hidden">
 
-      <!-- header -->
-      <div style="padding:24px 28px;border-bottom:1px solid #1e293b">
+                <div style="padding:26px;border-bottom:1px solid #1e293b">
 
-        <h1 style="margin:0;color:#38bdf8;font-size:22px">
-          🚀 Deploy Successful
-        </h1>
+                  <h1 style="margin:0;color:#38bdf8;font-size:22px">
+                    🚀 Deploy Successful
+                  </h1>
 
-        <p style="margin:6px 0 0 0;color:#94a3b8;font-size:14px">
-          Your portfolio has been successfully deployed.
-        </p>
+                  <p style="color:#94a3b8;margin-top:6px;font-size:14px">
+                    Your portfolio is now live.
+                  </p>
 
-      </div>
+                </div>
 
-      <!-- info card -->
-      <div style="padding:28px">
+                <div style="padding:28px">
 
-        <table style="width:100%;border-collapse:collapse;font-size:14px">
+                  <table style="width:100%;border-collapse:collapse;font-size:14px">
 
-          <tr>
-            <td style="padding:10px 0;color:#64748b">Repository</td>
-            <td style="padding:10px 0;color:white;text-align:right">
-              ${{ github.repository }}
-            </td>
-          </tr>
+                    <tr>
+                      <td style="padding:10px;color:#64748b">Repository</td>
+                      <td style="padding:10px;color:white;text-align:right">
+                        ${{ github.repository }}
+                      </td>
+                    </tr>
 
-          <tr>
-            <td style="padding:10px 0;color:#64748b">Branch</td>
-            <td style="padding:10px 0;color:white;text-align:right">
-              ${{ github.ref_name }}
-            </td>
-          </tr>
+                    <tr>
+                      <td style="padding:10px;color:#64748b">Branch</td>
+                      <td style="padding:10px;color:white;text-align:right">
+                        ${{ github.ref_name }}
+                      </td>
+                    </tr>
 
-          <tr>
-            <td style="padding:10px 0;color:#64748b">Commit</td>
-            <td style="padding:10px 0;color:white;text-align:right">
-              ${{ github.event.head_commit.message }}
-            </td>
-          </tr>
+                    <tr>
+                      <td style="padding:10px;color:#64748b">Commit</td>
+                      <td style="padding:10px;color:white;text-align:right">
+                        ${{ github.sha }}
+                      </td>
+                    </tr>
 
-          <tr>
-            <td style="padding:10px 0;color:#64748b">Author</td>
-            <td style="padding:10px 0;color:white;text-align:right">
-              ${{ github.event.head_commit.author.name }}
-            </td>
-          </tr>
+                    <tr>
+                      <td style="padding:10px;color:#64748b">Deploy Date</td>
+                      <td style="padding:10px;color:white;text-align:right">
+                        ${{ env.DEPLOY_DATE }}
+                      </td>
+                    </tr>
 
-          <tr>
-            <td style="padding:10px 0;color:#64748b">Deploy Duration</td>
-            <td style="padding:10px 0;color:#22c55e;text-align:right;font-weight:600">
-              ${{ job.status }}
-            </td>
-          </tr>
+                    <tr>
+                      <td style="padding:10px;color:#64748b">Deploy Duration</td>
+                      <td style="padding:10px;color:#22c55e;text-align:right;font-weight:600">
+                        ${{ env.DURATION }}
+                      </td>
+                    </tr>
 
-        </table>
+                  </table>
 
-      </div>
+                </div>
 
-      <!-- buttons -->
-      <div style="padding:0 28px 28px 28px;text-align:center">
+                <div style="padding:0 28px 28px 28px;text-align:center">
 
-        <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
-        style="display:inline-block;background:#38bdf8;color:#020617;
-        padding:12px 26px;border-radius:8px;text-decoration:none;
-        font-weight:600;margin-right:10px">
-        View Commit
-        </a>
+                  <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+                  style="display:inline-block;background:#38bdf8;color:#020617;
+                  padding:12px 24px;border-radius:8px;text-decoration:none;
+                  font-weight:600;margin-right:10px">
+                  View Commit
+                  </a>
 
-        <a href="https://parsaghaei.dev"
-        style="display:inline-block;background:#1e293b;color:white;
-        padding:12px 26px;border-radius:8px;text-decoration:none;
-        font-weight:600">
-        Live Website
-        </a>
+                  <a href="https://your-site.pages.dev"
+                  style="display:inline-block;background:#1e293b;color:white;
+                  padding:12px 24px;border-radius:8px;text-decoration:none;
+                  font-weight:600">
+                  Live Website
+                  </a>
 
-      </div>
+                </div>
 
-      <!-- footer -->
-      <div style="border-top:1px solid #1e293b;padding:18px;text-align:center">
+                <div style="border-top:1px solid #1e293b;padding:18px;text-align:center">
+                <p style="margin:0;color:#64748b;font-size:12px">
+                    CI/CD Notification • GitHub Actions
+                  </p>
 
-        <p style="margin:0;color:#64748b;font-size:12px">
-          CI/CD Notification • GitHub Actions
-        </p>
+                </div>
 
-      </div>
+              </div>
 
-    </div>
-
-  </div>
+            </div>
