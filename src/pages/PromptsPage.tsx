@@ -1233,18 +1233,18 @@ const PromptsPage = () => {
         className="relative z-10 flex min-h-screen flex-col items-center p-4 text-zinc-900 dark:text-zinc-100 md:p-8"
         dir={isRtl ? "rtl" : "ltr"}
       >
-        <nav className="mb-8 w-full max-w-6xl rounded-2xl border border-zinc-200/80 bg-white/75 p-2 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-zinc-900/55">
-          <div className="flex items-center justify-between gap-2 overflow-x-auto">
+        <div className="mb-8 flex w-full max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
+          <div className="flex gap-3">
             <a
               href="https://parsaghaei.dev"
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative flex min-w-fit items-center gap-2 rounded-xl border border-zinc-200 bg-white/70 px-3 py-2 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass}`}
+              className={`group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass}`}
             >
               <ExternalLink className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
-              <span className="hidden md:inline" dir="ltr">
+              <span className="hidden sm:inline" dir="ltr">
                 parsaghaei.dev
               </span>
               <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
@@ -1258,23 +1258,25 @@ const PromptsPage = () => {
               rel="noreferrer"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative flex min-w-fit items-center gap-2 rounded-xl border border-zinc-200 bg-white/70 px-3 py-2 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass}`}
+              className={`group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass}`}
             >
               <Github className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
-              <span className="hidden md:inline" dir="ltr">
+              <span className="hidden sm:inline" dir="ltr">
                 Dark-px
               </span>
               <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
                 {t.ttGithub}
               </span>
             </a>
+          </div>
 
+          <div className="flex gap-3">
             <button
               type="button"
               onClick={toggleTheme}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative min-w-fit rounded-xl border border-zinc-200 bg-white/70 p-2.5 text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass} ${
+              className={`group relative rounded-2xl border border-zinc-200 bg-white/60 p-3 text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass} ${
                 isAnimatingTheme ? "scale-75 rotate-180 opacity-50" : "scale-100 rotate-0 opacity-100"
               }`}
             >
@@ -1289,7 +1291,7 @@ const PromptsPage = () => {
               onClick={toggleLang}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative flex min-w-fit items-center gap-2 rounded-xl border border-zinc-200 bg-white/70 px-3 py-2.5 text-sm font-bold text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass} ${
+              className={`group relative flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-5 py-3 text-sm font-bold text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass} ${
                 isAnimatingLang ? "scale-90 opacity-80" : "scale-100 opacity-100"
               }`}
             >
@@ -1298,15 +1300,13 @@ const PromptsPage = () => {
                   isAnimatingLang ? "rotate-180" : "rotate-0"
                 }`}
               />
-              <span className="hidden min-w-[50px] text-center md:inline">
-                {lang === "en" ? "فارسی" : "English"}
-              </span>
+              <span className="min-w-[50px] text-center">{lang === "en" ? "فارسی" : "English"}</span>
               <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
                 {t.ttLang}
               </span>
             </button>
           </div>
-        </nav>
+        </div>
 
         <header
           className={`mb-12 flex w-full max-w-6xl flex-col items-center justify-between gap-6 text-center transition-all duration-500 md:flex-row ${
