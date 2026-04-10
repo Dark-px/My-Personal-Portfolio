@@ -931,16 +931,39 @@ const PromptsPage = () => {
   const [theme, setTheme] = useState<"dark" | "light">(getSystemTheme);
   const [isAnimatingTheme, setIsAnimatingTheme] = useState(false);
   const [isAnimatingLang, setIsAnimatingLang] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches
+  );
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
+    if (isTouchDevice) {
+      return undefined;
+    }
+
     const handleMouseMove = (event: MouseEvent) => {
       setMousePos({ x: event.clientX, y: event.clientY });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [isTouchDevice]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(pointer: coarse)");
+    const handlePointerChange = (event: MediaQueryListEvent) => setIsTouchDevice(event.matches);
+    setIsTouchDevice(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handlePointerChange);
+    return () => mediaQuery.removeEventListener("change", handlePointerChange);
+  }, []);
+
+  useEffect(() => {
+    const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = "smooth";
+    return () => {
+      document.documentElement.style.scrollBehavior = previousScrollBehavior;
+    };
   }, []);
 
   useEffect(() => {
@@ -1134,10 +1157,12 @@ const PromptsPage = () => {
   const textAnimClass = `transition-all duration-300 ease-in-out inline-block w-full ${
     isAnimatingLang ? "opacity-0 translate-y-2 blur-sm" : "opacity-100 translate-y-0 blur-0"
   }`;
+  const cursorClass = isTouchDevice ? "" : "cursor-none";
+  const ambientAnimationClass = isTouchDevice ? "" : "animate-pulse";
 
   return (
     <div
-      className={`${theme} min-h-screen w-full cursor-none transition-colors duration-700 ease-in-out`}
+      className={`${theme} min-h-screen w-full transition-colors duration-700 ease-in-out ${cursorClass}`}
       style={{
         fontFamily:
           lang === "fa"
@@ -1160,23 +1185,25 @@ const PromptsPage = () => {
         }
       `}</style>
 
-      <div
-        className="pointer-events-none fixed left-0 top-0 z-[100] flex items-center justify-center transition-transform duration-150 ease-out mix-blend-difference"
-        style={{ transform: `translate(${mousePos.x}px, ${mousePos.y}px)` }}
-      >
+      {!isTouchDevice ? (
         <div
-          className={`h-3 w-3 rounded-full bg-zinc-300 shadow-[0_0_15px_#d4d4d8] transition-transform duration-300 ${
-            isHovering ? "scale-0 opacity-0" : "scale-100 opacity-100"
-          }`}
-        />
-        <div
-          className={`absolute rounded-full border-2 border-zinc-400 transition-all duration-300 ${
-            isHovering
-              ? "h-12 w-12 opacity-80 shadow-[0_0_20px_rgba(161,161,170,0.6)]"
-              : "h-8 w-8 opacity-40"
-          }`}
-        />
-      </div>
+          className="pointer-events-none fixed left-0 top-0 z-[100] flex items-center justify-center transition-transform duration-150 ease-out mix-blend-difference"
+          style={{ transform: `translate(${mousePos.x}px, ${mousePos.y}px)` }}
+        >
+          <div
+            className={`h-3 w-3 rounded-full bg-zinc-300 shadow-[0_0_15px_#d4d4d8] transition-transform duration-300 ${
+              isHovering ? "scale-0 opacity-0" : "scale-100 opacity-100"
+            }`}
+          />
+          <div
+            className={`absolute rounded-full border-2 border-zinc-400 transition-all duration-300 ${
+              isHovering
+                ? "h-12 w-12 opacity-80 shadow-[0_0_20px_rgba(161,161,170,0.6)]"
+                : "h-8 w-8 opacity-40"
+            }`}
+          />
+        </div>
+      ) : null}
 
       <div
         className={`fixed inset-0 z-0 overflow-hidden transition-colors duration-700 ease-in-out ${
@@ -1184,18 +1211,18 @@ const PromptsPage = () => {
         }`}
       >
         <div
-          className={`absolute left-[-10%] top-[-10%] h-[40%] w-[40%] animate-pulse rounded-full blur-[100px] transition-all duration-[2000ms] ease-in-out ${
+          className={`absolute left-[-10%] top-[-10%] h-[40%] w-[40%] ${ambientAnimationClass} rounded-full blur-[100px] transition-all duration-[2000ms] ease-in-out ${
             theme === "dark" ? "bg-zinc-800/40" : "bg-zinc-300/50"
           }`}
         />
         <div
-          className={`absolute right-[-10%] top-[20%] h-[50%] w-[50%] animate-pulse rounded-full blur-[120px] transition-all duration-[2000ms] ease-in-out ${
+          className={`absolute right-[-10%] top-[20%] h-[50%] w-[50%] ${ambientAnimationClass} rounded-full blur-[120px] transition-all duration-[2000ms] ease-in-out ${
             theme === "dark" ? "bg-zinc-900/50" : "bg-zinc-200/60"
           }`}
           style={{ animationDelay: "1s" }}
         />
         <div
-          className={`absolute bottom-[-10%] left-[20%] h-[40%] w-[60%] animate-pulse rounded-full blur-[100px] transition-all duration-[2000ms] ease-in-out ${
+          className={`absolute bottom-[-10%] left-[20%] h-[40%] w-[60%] ${ambientAnimationClass} rounded-full blur-[100px] transition-all duration-[2000ms] ease-in-out ${
             theme === "dark" ? "bg-zinc-800/30" : "bg-zinc-300/40"
           }`}
           style={{ animationDelay: "2s" }}
@@ -1206,18 +1233,18 @@ const PromptsPage = () => {
         className="relative z-10 flex min-h-screen flex-col items-center p-4 text-zinc-900 dark:text-zinc-100 md:p-8"
         dir={isRtl ? "rtl" : "ltr"}
       >
-        <div className="mb-8 flex w-full max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
-          <div className="flex gap-3">
+        <nav className="mb-8 w-full max-w-6xl rounded-2xl border border-zinc-200/80 bg-white/75 p-2 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-zinc-900/55">
+          <div className="flex items-center justify-between gap-2 overflow-x-auto">
             <a
               href="https://parsaghaei.dev"
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className="group relative flex cursor-none items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80"
+              className={`group relative flex min-w-fit items-center gap-2 rounded-xl border border-zinc-200 bg-white/70 px-3 py-2 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass}`}
             >
               <ExternalLink className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
-              <span className="hidden sm:inline" dir="ltr">
+              <span className="hidden md:inline" dir="ltr">
                 parsaghaei.dev
               </span>
               <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
@@ -1231,25 +1258,23 @@ const PromptsPage = () => {
               rel="noreferrer"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className="group relative flex cursor-none items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-4 py-2.5 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80"
+              className={`group relative flex min-w-fit items-center gap-2 rounded-xl border border-zinc-200 bg-white/70 px-3 py-2 text-sm font-medium text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass}`}
             >
               <Github className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
-              <span className="hidden sm:inline" dir="ltr">
+              <span className="hidden md:inline" dir="ltr">
                 Dark-px
               </span>
               <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
                 {t.ttGithub}
               </span>
             </a>
-          </div>
 
-          <div className="flex gap-3">
             <button
               type="button"
               onClick={toggleTheme}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative cursor-none rounded-2xl border border-zinc-200 bg-white/60 p-3 text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${
+              className={`group relative min-w-fit rounded-xl border border-zinc-200 bg-white/70 p-2.5 text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass} ${
                 isAnimatingTheme ? "scale-75 rotate-180 opacity-50" : "scale-100 rotate-0 opacity-100"
               }`}
             >
@@ -1264,7 +1289,7 @@ const PromptsPage = () => {
               onClick={toggleLang}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
-              className={`group relative flex cursor-none items-center gap-2 rounded-2xl border border-zinc-200 bg-white/60 px-5 py-3 text-sm font-bold text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${
+              className={`group relative flex min-w-fit items-center gap-2 rounded-xl border border-zinc-200 bg-white/70 px-3 py-2.5 text-sm font-bold text-zinc-700 shadow-sm backdrop-blur-xl transition-all duration-300 hover:bg-white dark:border-white/10 dark:bg-zinc-900/50 dark:text-zinc-300 dark:shadow-none dark:hover:bg-zinc-800/80 ${cursorClass} ${
                 isAnimatingLang ? "scale-90 opacity-80" : "scale-100 opacity-100"
               }`}
             >
@@ -1273,13 +1298,15 @@ const PromptsPage = () => {
                   isAnimatingLang ? "rotate-180" : "rotate-0"
                 }`}
               />
-              <span className="min-w-[50px] text-center">{lang === "en" ? "فارسی" : "English"}</span>
+              <span className="hidden min-w-[50px] text-center md:inline">
+                {lang === "en" ? "فارسی" : "English"}
+              </span>
               <span className="pointer-events-none absolute left-1/2 top-full z-[110] mt-3 -translate-x-1/2 whitespace-nowrap rounded-lg bg-zinc-900 px-3 py-1.5 text-xs font-bold text-white opacity-0 shadow-lg transition-all duration-300 group-hover:opacity-100 dark:bg-zinc-100 dark:text-zinc-900">
                 {t.ttLang}
               </span>
             </button>
           </div>
-        </div>
+        </nav>
 
         <header
           className={`mb-12 flex w-full max-w-6xl flex-col items-center justify-between gap-6 text-center transition-all duration-500 md:flex-row ${
@@ -1335,7 +1362,7 @@ const PromptsPage = () => {
                       onClick={() => setSelectedCategoryEn(categoryEn)}
                       onMouseEnter={() => setIsHovering(true)}
                       onMouseLeave={() => setIsHovering(false)}
-                      className={`w-full cursor-none rounded-2xl border px-4 py-3.5 text-sm font-bold transition-all duration-300 ${
+                      className={`w-full rounded-2xl border px-4 py-3.5 text-sm font-bold transition-all duration-300 ${cursorClass} ${
                         isActive
                           ? "scale-[1.02] bg-zinc-900 text-white shadow-md dark:bg-white dark:text-zinc-900"
                           : "border-transparent text-zinc-600 hover:scale-[1.01] hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800/50"
@@ -1395,7 +1422,7 @@ const PromptsPage = () => {
                         onClick={() => void handleCopy(skill.prompt, skill.id)}
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
-                        className={`shrink-0 rounded-2xl p-3.5 shadow-sm transition-all duration-300 cursor-none ${
+                        className={`shrink-0 rounded-2xl p-3.5 shadow-sm transition-all duration-300 ${cursorClass} ${
                           copiedId === skill.id
                             ? "scale-110 bg-green-600 text-white shadow-green-500/20 dark:bg-green-500"
                             : "bg-zinc-900 text-white hover:scale-105 hover:shadow-lg active:scale-95 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
@@ -1443,7 +1470,7 @@ const PromptsPage = () => {
                         onClick={() => toggleExpand(skill.id)}
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
-                        className="mt-3 self-center rounded-xl border border-zinc-200 bg-white/60 px-4 py-2 text-sm font-bold text-zinc-800 backdrop-blur-md transition-all hover:scale-105 hover:bg-white active:scale-95 dark:border-white/10 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 cursor-none"
+                        className={`mt-3 self-center rounded-xl border border-zinc-200 bg-white/60 px-4 py-2 text-sm font-bold text-zinc-800 backdrop-blur-md transition-all hover:scale-105 hover:bg-white active:scale-95 dark:border-white/10 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 ${cursorClass}`}
                       >
                         <span className="flex items-center justify-center gap-1.5">
                           <span className={textAnimClass}>{isExpanded ? t.showLess : t.showMore}</span>

@@ -2,10 +2,12 @@
 
 ## High Priority
 
-- [ ] تنظیم `MEDIUM_CONFIG.username` در `src/lib/medium.ts`
+- [x] تنظیم `MEDIUM_CONFIG.username` در `src/lib/medium.ts`
 - [ ] جایگذاری ۳ لینک پست منتخب در `MEDIUM_CONFIG.featuredPostLinks`
 - [ ] تست کامل مسیر `/blog` و `#Devlog` در دسکتاپ و موبایل
 - [ ] بازبینی محتوای Hero/Projects/About/Contact با متن نهایی
+- [ ] ساخت Open Graph/Twitter card اختصاصی برای دامنه اصلی `parsaghaei.dev` (portfolio preview card مستقل)
+- [ ] ساخت Open Graph/Twitter card اختصاصی برای ساب‌دامین `prompts.parsaghaei.dev` (prompts preview card مستقل)
 
 ## Cursor Hover Preview
 
