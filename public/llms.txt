@@ -1,0 +1,18 @@
+# Parsa Ghaei - Site Guide for AI Assistants
+
+Site: https://parsaghaei.dev
+Prompts: https://prompts.parsaghaei.dev
+
+## Primary Pages
+- Home: https://parsaghaei.dev/
+- Blog and Devlog: https://parsaghaei.dev/blog
+- Prompt Library: https://prompts.parsaghaei.dev/
+
+## Scope
+- Personal portfolio content
+- Blog and devlog posts pulled from Medium
+- Curated AI prompt library
+
+## Canonical URLs
+- Use https://parsaghaei.dev for main portfolio pages
+- Use https://prompts.parsaghaei.dev for prompt library pages
