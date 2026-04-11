@@ -1,6 +1,17 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PG logo">
-  <rect x="16" y="16" width="480" height="480" rx="96" fill="#050506"/>
-  <rect x="44" y="44" width="424" height="424" rx="80" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="10"/>
-  <path d="M146 148H286V188H190V240H268V280H190V364H146V148Z" fill="#FFFFFF"/>
-  <path d="M346 148C389 148 422 182 422 224C422 264 391 296 350 299H322V260H345C365 260 380 246 380 226C380 205 364 188 343 188C321 188 305 205 305 226V364H261V224C261 182 294 148 346 148Z" fill="#FFFFFF"/>
+  <rect width="512" height="512" rx="64" fill="#020307"/>
+  <rect x="49" y="49" width="414" height="414" rx="72" stroke="#383B42" stroke-width="8"/>
+
+  <!-- P -->
+  <rect x="143" y="148" width="44" height="216" fill="#E8E8E8"/>
+  <rect x="143" y="148" width="160" height="36" fill="#E8E8E8"/>
+  <rect x="143" y="259" width="130" height="36" fill="#E8E8E8"/>
+  <rect x="229" y="184" width="44" height="75" fill="#E8E8E8"/>
+
+  <!-- G -->
+  <rect x="249" y="148" width="44" height="216" fill="#E8E8E8"/>
+  <rect x="249" y="148" width="134" height="36" fill="#E8E8E8"/>
+  <rect x="339" y="282" width="44" height="82" fill="#E8E8E8"/>
+  <rect x="330" y="282" width="53" height="32" fill="#E8E8E8"/>
+  <rect x="249" y="332" width="134" height="32" fill="#E8E8E8"/>
 </svg>

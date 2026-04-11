@@ -50,8 +50,8 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-[clamp(1rem,2.2vw,1.5rem)]">
         <div className="flex items-center justify-between h-[clamp(3.75rem,5.4vw,5rem)]">
           {/* Logo */}
-          <a href="#hero" className="inline-flex flex-col leading-none">
-            <span className="text-xl font-black text-white tracking-tighter">PG</span>
+          <a href="#hero" className="inline-flex items-center gap-2.5 leading-none">
+            <img src="/logo-mark.svg" alt="PG logo" className="h-8 w-8 rounded-md" />
             <span className="mt-1 text-[9px] font-mono-display text-white/45 tracking-[0.08em]">
               SYSTEM_ONLINE // V1.0.0
             </span>
