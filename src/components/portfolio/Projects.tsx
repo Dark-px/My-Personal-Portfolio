@@ -70,7 +70,7 @@ export const Projects = () => {
                 <img
                   src={project.media}
                   alt={project.title}
-                  className="h-40 w-full object-contain object-center opacity-90"
+                  className="h-40 w-full object-cover object-center opacity-90"
                   loading="lazy"
                 />
               </div>
