@@ -10,7 +10,7 @@ export const Projects = () => {
         'Currently in development. Follow my journey as I build my first playable prototype.',
       technologies: 'UNITY / C#',
       status: 'IN_DEVELOPMENT',
-      media: '/coming-soon.svg',
+      media: '/coming-soon.png',
       actionLabel: 'Play',
       actionHref: 'https://parsaghaei.itch.io',
     },
@@ -22,7 +22,7 @@ export const Projects = () => {
         'A sandbox for testing interaction ideas, movement feel, and core gameplay loops.',
       technologies: 'UNITY / C# / PROTOTYPING',
       status: 'PLANNING',
-      media: '/coming-soon.svg',
+      media: '/coming-soon.png',
       actionLabel: 'GitHub',
       actionHref: 'https://github.com/Dark-px',
     },
@@ -34,7 +34,7 @@ export const Projects = () => {
         'Preparing the next game concept while improving systems-driven design skills.',
       technologies: 'UNITY / C#',
       status: 'CONCEPT',
-      media: '/coming-soon.svg',
+      media: '/coming-soon.png',
       actionLabel: 'GitHub',
       actionHref: 'https://github.com/Dark-px',
     },
@@ -70,7 +70,7 @@ export const Projects = () => {
                 <img
                   src={project.media}
                   alt={project.title}
-                  className="h-40 w-full object-cover opacity-90"
+                  className="h-40 w-full object-contain object-center opacity-90"
                   loading="lazy"
                 />
               </div>
