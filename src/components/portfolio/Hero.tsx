@@ -52,7 +52,7 @@ export const Hero = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 max-[430px]:px-4 pt-20 max-[430px]:pt-16 pb-8 md:pt-24 md:pb-10">
         {/* Mobile/Tablet Image - Above Name */}
-        <div className="lg:hidden w-full max-w-[14rem] sm:max-w-xs mx-auto mb-4 sm:mb-6">
+        <div className="lg:hidden w-full max-w-[17rem] sm:max-w-[22rem] mx-auto mb-4 sm:mb-6">
           <img
             src="/Untitled-1@2x.webp"
             alt="Parsa portrait"
