@@ -52,21 +52,21 @@ export const Hero = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 max-[430px]:px-4 pt-20 max-[430px]:pt-16 pb-8 md:pt-24 md:pb-10">
         {/* Mobile/Tablet Image - Above Name */}
-        <div className="lg:hidden w-full max-w-sm mx-auto mb-8 sm:mb-10">
+        <div className="lg:hidden w-full max-w-[14rem] sm:max-w-xs mx-auto mb-4 sm:mb-6">
           <img
             src="/Untitled-1@2x.webp"
             alt="Parsa portrait"
-            className="hero-portrait-image w-full h-auto object-contain"
+            className="w-full h-auto object-contain opacity-90"
             loading="eager"
             fetchPriority="high"
           />
         </div>
         
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-end">
-          <div className="min-h-0 md:min-h-[62svh] lg:min-h-[70svh] flex flex-col justify-end space-y-4 max-[430px]:space-y-3 md:space-y-5">
+          <div className="min-h-0 md:min-h-[62svh] lg:min-h-[70svh] flex flex-col justify-end space-y-3 max-[430px]:space-y-2 sm:space-y-4 md:space-y-5">
 
           {/* Name with Brutalist Style */}
-          <div className="space-y-2">
+          <div className="space-y-1 sm:space-y-2">
             <h1 className="title-glow-loop animate-text-reveal text-[clamp(2rem,11vw,4.3rem)] max-[430px]:text-[clamp(1.72rem,10.6vw,2.25rem)] md:text-[clamp(2.52rem,9vw,6.48rem)] lg:text-[clamp(3.96rem,7.02vw,7.38rem)] font-black leading-[0.88] max-[430px]:leading-[0.94] md:leading-[0.84] tracking-tighter text-white brutalist-text lg:whitespace-nowrap">
               {text}
               {!isTypingDone && <span className="animate-pulse">|</span>}
@@ -75,7 +75,7 @@ export const Hero = () => {
           </div>
 
           {/* Subtitle */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <div className="space-y-1.5 md:space-y-2">
               <p className="text-sm md:text-base text-white/45 font-mono-display tracking-wide">
                 Eager to become a
@@ -86,8 +86,8 @@ export const Hero = () => {
                 Designer
               </h2>
             </div>
-            <p className="text-sm sm:text-base md:text-lg max-[430px]:text-[13px] text-white/50 max-w-2xl leading-relaxed max-[430px]:leading-6 md:leading-7 text-left md:text-justify">
-              Hi, I’m Parsa — a 16-year-old game developer studying computer science in
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg max-[430px]:text-[12px] text-white/50 max-w-2xl leading-relaxed max-[430px]:leading-5 sm:leading-6 md:leading-7 text-left md:text-justify line-clamp-4 sm:line-clamp-none">
+              Hi, I'm Parsa — a 16-year-old game developer studying computer science in
               technical high school, currently learning Unity and C#. I enjoy building
               gameplay mechanics, experimenting with new ideas, documenting my journey
               in game development, and learning about the video game industry.
@@ -95,7 +95,7 @@ export const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 max-[430px]:gap-2.5 pt-1">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 max-[430px]:gap-2 sm:gap-3">
             <Button
               size="lg"
               data-cursor-preview="View Projects"
