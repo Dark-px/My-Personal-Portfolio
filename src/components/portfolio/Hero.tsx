@@ -42,21 +42,21 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] flex items-center bg-[#050506] overflow-hidden">
+    <section className="hero-cinematic relative min-h-[100svh] flex items-center bg-[#050506] overflow-hidden">
       {/* Subtle noise texture */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
       }} />
-      <div className="pointer-events-none absolute -top-14 left-[12%] h-44 w-44 rounded-full bg-white/10 blur-3xl animate-float-soft hidden md:block" />
-      <div className="pointer-events-none absolute bottom-20 right-[10%] h-40 w-40 rounded-full bg-white/5 blur-3xl animate-float-soft animation-delay-2000 hidden md:block" />
+      <div className="pointer-events-none absolute -top-14 left-[12%] h-44 w-44 rounded-full bg-white/10 blur-3xl animate-parallax hidden md:block" />
+      <div className="pointer-events-none absolute bottom-20 right-[10%] h-40 w-40 rounded-full bg-white/5 blur-3xl animate-parallax animation-delay-2000 hidden md:block" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 max-[430px]:px-4 pt-20 max-[430px]:pt-16 pb-8 md:pt-24 md:pb-10">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-end">
           <div className="section-enter-soft min-h-0 md:min-h-[62svh] lg:min-h-[70svh] flex flex-col justify-end space-y-4 max-[430px]:space-y-3 md:space-y-5">
 
           {/* Name with Brutalist Style */}
-          <div className="space-y-2">
-            <h1 className="text-[clamp(2rem,11vw,4.3rem)] max-[430px]:text-[clamp(1.72rem,10.6vw,2.25rem)] md:text-[clamp(2.52rem,9vw,6.48rem)] lg:text-[clamp(3.96rem,7.02vw,7.38rem)] font-black leading-[0.88] max-[430px]:leading-[0.94] md:leading-[0.84] tracking-tighter text-white brutalist-text lg:whitespace-nowrap">
+          <div className="space-y-2 section-enter-soft">
+            <h1 className="title-glow-loop animate-text-reveal text-[clamp(2rem,11vw,4.3rem)] max-[430px]:text-[clamp(1.72rem,10.6vw,2.25rem)] md:text-[clamp(2.52rem,9vw,6.48rem)] lg:text-[clamp(3.96rem,7.02vw,7.38rem)] font-black leading-[0.88] max-[430px]:leading-[0.94] md:leading-[0.84] tracking-tighter text-white brutalist-text lg:whitespace-nowrap">
               {text}
               {!isTypingDone && <span className="animate-pulse">|</span>}
             </h1>
@@ -64,7 +64,7 @@ export const Hero = () => {
           </div>
 
           {/* Subtitle */}
-          <div className="space-y-3">
+          <div className="space-y-3 section-enter-soft">
             <div className="space-y-1.5 md:space-y-2">
               <p className="text-sm md:text-base text-white/45 font-mono-display tracking-wide">
                 Eager to become a
@@ -84,7 +84,7 @@ export const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 max-[430px]:gap-2.5 pt-1">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 max-[430px]:gap-2.5 pt-1 section-enter-soft">
             <Button
               size="lg"
               data-cursor-preview="View Projects"
@@ -107,7 +107,7 @@ export const Hero = () => {
           </div>
 
           {/* Social */}
-          <a
+          <a className="section-enter-soft"
             href="https://github.com/Dark-px"
             target="_blank"
             rel="noopener noreferrer"

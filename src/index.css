@@ -156,10 +156,10 @@ All colors MUST be HSL.
 
 .section-enter {
   opacity: 0;
-  transform: translate3d(0, 14px, 0);
+  transform: translate3d(0, 30px, 0);
   transition:
-    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
   backface-visibility: hidden;
 }
@@ -172,8 +172,8 @@ All colors MUST be HSL.
 @keyframes enter-up-soft {
   0% {
     opacity: 0;
-    transform: translateY(14px) scale(0.985);
-    filter: blur(3px);
+    transform: translateY(40px) scale(0.95);
+    filter: blur(8px);
   }
   100% {
     opacity: 1;
@@ -184,17 +184,74 @@ All colors MUST be HSL.
 
 .section-enter-soft {
   opacity: 0;
-  transform: translate3d(0, 10px, 0);
+  transform: translate3d(0, 40px, 0) scale(0.95);
+  filter: blur(8px);
   transition:
-    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
   backface-visibility: hidden;
 }
 
 .section-enter-soft.is-visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* Stagger animation delays for children */
+.section-enter-soft:nth-child(1) { transition-delay: 0ms; }
+.section-enter-soft:nth-child(2) { transition-delay: 100ms; }
+.section-enter-soft:nth-child(3) { transition-delay: 200ms; }
+.section-enter-soft:nth-child(4) { transition-delay: 300ms; }
+.section-enter-soft:nth-child(5) { transition-delay: 400ms; }
+.section-enter-soft:nth-child(6) { transition-delay: 500ms; }
+
+/* Parallax scroll effect */
+@keyframes parallax-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+}
+
+.animate-parallax {
+  animation: parallax-float 8s ease-in-out infinite;
+}
+
+/* Smooth fade in from bottom */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scale in animation */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes breathe {
@@ -225,6 +282,43 @@ All colors MUST be HSL.
   animation: float-soft 7s ease-in-out infinite;
 }
 
+@keyframes hero-aurora-drift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+    opacity: 0.24;
+  }
+  50% {
+    transform: translate3d(5%, 3%, 0) scale(1.08);
+    opacity: 0.34;
+  }
+  100% {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+    opacity: 0.24;
+  }
+}
+
+@keyframes title-glow-loop {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    text-shadow:
+      0 0 18px rgba(255, 255, 255, 0.16),
+      0 0 36px rgba(255, 255, 255, 0.08);
+  }
+}
+
+@keyframes nav-rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @keyframes shimmer-slide {
   0% {
     transform: translateX(-130%);
@@ -232,6 +326,144 @@ All colors MUST be HSL.
   100% {
     transform: translateX(130%);
   }
+}
+
+@keyframes magnetic-pull {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes card-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2), 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-magnetic-pull {
+  animation: magnetic-pull 3s ease-in-out infinite;
+}
+
+.animate-text-reveal {
+  animation: text-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-card-float {
+  animation: card-float 4s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes future-grid-pan {
@@ -355,10 +587,19 @@ All colors MUST be HSL.
 }
 
 .modern-card:hover {
-  transform: translate3d(0, -4px, 0);
+  transform: translate3d(0, -6px, 0) scale(1.008);
   box-shadow:
-    0 10px 24px rgba(255, 255, 255, 0.05),
+    0 12px 32px rgba(255, 255, 255, 0.08),
     0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+
+.card-media-zoom {
+  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1), opacity 260ms ease;
+  transform: translateZ(0) scale(1);
+}
+
+.modern-card:hover .card-media-zoom {
+  transform: translateZ(0) scale(1.08);
 }
 
 .sheen-hover {
@@ -412,9 +653,45 @@ All colors MUST be HSL.
 }
 
 .button-glow-hover:hover {
-  box-shadow: 0 10px 28px rgba(255, 255, 255, 0.18);
-  transform: translateY(-1px);
+  box-shadow: 0 12px 36px rgba(255, 255, 255, 0.24), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transform: translateY(-1px) scale(1.015);
 }
+
+.hero-cinematic {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-cinematic::before {
+  content: '';
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 62%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(65% 55% at 50% 20%, rgba(255, 255, 255, 0.09), transparent 72%),
+    radial-gradient(55% 45% at 20% 40%, rgba(255, 255, 255, 0.06), transparent 74%);
+  filter: blur(28px);
+  animation: hero-aurora-drift 12s ease-in-out infinite;
+}
+
+.title-glow-loop {
+  animation: title-glow-loop 5.2s ease-in-out infinite;
+}
+
+.stagger-links > a {
+  opacity: 0;
+  animation: nav-rise-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.stagger-links > a:nth-child(1) { animation-delay: 70ms; }
+.stagger-links > a:nth-child(2) { animation-delay: 120ms; }
+.stagger-links > a:nth-child(3) { animation-delay: 170ms; }
+.stagger-links > a:nth-child(4) { animation-delay: 220ms; }
+.stagger-links > a:nth-child(5) { animation-delay: 270ms; }
+.stagger-links > a:nth-child(6) { animation-delay: 320ms; }
+.stagger-links > a:nth-child(7) { animation-delay: 380ms; }
 
 @media (prefers-reduced-motion: reduce) {
   .section-enter,
@@ -430,9 +707,13 @@ All colors MUST be HSL.
   .future-scan-beam,
   .modern-card,
   .modern-card:hover,
+  .modern-card:hover .card-media-zoom,
   .sheen-hover:hover::after,
   .nav-link-animated::after,
-  .button-glow-hover:hover {
+  .button-glow-hover:hover,
+  .hero-cinematic::before,
+  .title-glow-loop,
+  .stagger-links > a {
     animation: none !important;
     transition: none !important;
     transform: none !important;
@@ -451,12 +732,14 @@ All colors MUST be HSL.
   .future-node,
   .future-node-strong,
   .future-scan-beam,
-  .particle-bg::before {
+  .particle-bg::before,
+  .hero-cinematic::before {
     animation: none !important;
   }
 
   .modern-card,
   .button-glow-hover,
+  .card-media-zoom,
   .section-enter,
   .section-enter-soft {
     will-change: auto;

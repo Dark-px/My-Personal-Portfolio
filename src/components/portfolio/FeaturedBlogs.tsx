@@ -47,7 +47,7 @@ export const FeaturedBlogs = () => {
           {(isLoading ? [0, 1, 2] : featuredPosts).map((post, index) => (
             <article
               key={typeof post === "number" ? post : post.link}
-              className="section-enter-soft modern-card sheen-hover bg-[#050506] p-8 transition-all duration-500"
+              className="section-enter-soft modern-card sheen-hover bg-[#050506] p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ animationDelay: `${index * 120}ms` }}
             >
               {typeof post === "number" ? (
@@ -64,7 +64,7 @@ export const FeaturedBlogs = () => {
                       <img
                         src={post.thumbnail}
                         alt={post.title}
-                        className="h-40 w-full object-cover opacity-90"
+                        className="card-media-zoom h-40 w-full object-cover opacity-90"
                         loading="lazy"
                         referrerPolicy="no-referrer"
                         onError={(event) => {

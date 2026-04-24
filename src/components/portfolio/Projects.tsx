@@ -63,14 +63,14 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="section-enter-soft modern-card sheen-hover group bg-[#050506] p-8 hover:bg-white/[0.02] transition-colors duration-500"
+              className="section-enter-soft modern-card sheen-hover group bg-[#050506] p-8 hover:bg-white/[0.02] transition-all duration-500 hover:scale-[1.02]"
               style={{ animationDelay: `${index * 90}ms` }}
             >
               <div className="mb-6 overflow-hidden border border-white/10 bg-black/30">
                 <img
                   src={project.media}
                   alt={project.title}
-                  className="h-40 w-full object-cover object-center opacity-90"
+                  className="card-media-zoom h-40 w-full object-cover object-center opacity-90"
                   loading="lazy"
                 />
               </div>

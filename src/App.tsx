@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import Lenis from "lenis";
 import { scrollToHashTarget } from "./lib/scroll";
 
@@ -19,7 +19,7 @@ const App = () => {
   const isPromptsVariant = import.meta.env.VITE_SITE_VARIANT === "prompts";
   const isPromptsHost = hostname === "prompts.parsaghaei.dev" || isPromptsVariant;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
@@ -125,47 +125,76 @@ const App = () => {
     return () => document.removeEventListener("click", handleAnchorClick);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
     const targetSelector = ".section-enter, .section-enter-soft";
+    const shouldDisableRevealAnimation = prefersReducedMotion || isTouchDevice;
 
     const prepareElement = (element: HTMLElement) => {
+      if (shouldDisableRevealAnimation) {
+        element.style.transitionDelay = "0ms";
+        element.classList.add("is-visible");
+        return;
+      }
+
       if (element.style.animationDelay) {
+        const parsedDelay = Number.parseInt(element.style.animationDelay, 10);
+        const safeDelay = Number.isNaN(parsedDelay) ? 0 : Math.min(parsedDelay, 140);
         element.style.transitionDelay =
-          isTouchDevice || prefersReducedMotion ? "0ms" : element.style.animationDelay;
+          safeDelay > 0 ? `${safeDelay}ms` : element.style.animationDelay;
+      }
+    };
+
+    const setVisibleState = (element: HTMLElement, isVisible: boolean) => {
+      if (isVisible) {
+        element.classList.remove("reveal-pending");
+        element.classList.add("is-visible");
+      } else {
+        // Allow re-triggering: remove is-visible when out of view
+        element.classList.remove("is-visible");
+        element.classList.add("reveal-pending");
       }
     };
 
     const revealIfInViewport = (element: HTMLElement) => {
       const rect = element.getBoundingClientRect();
-      const immediateRevealLimit = isTouchDevice ? window.innerHeight * 1.06 : window.innerHeight * 0.92;
-      if (rect.top <= immediateRevealLimit) {
-        element.classList.add("is-visible");
-      }
+      const viewportHeight = window.innerHeight;
+      // Use a wider "preload" band so elements are visible before the user reaches them.
+      const isInPreloadBand = rect.top < viewportHeight * 1.2 && rect.bottom > viewportHeight * -0.2;
+      setVisibleState(element, isInPreloadBand);
+      return isInPreloadBand;
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+    const observer = shouldDisableRevealAnimation
+      ? null
+      : new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!(entry.target instanceof HTMLElement)) {
+                return;
+              }
+              setVisibleState(entry.target, entry.isIntersecting);
+            });
+          },
+          {
+            threshold: 0.001,
+            rootMargin: "100px 0px 100px 0px",
           }
-        });
-      },
-      {
-        threshold: isTouchDevice ? 0.06 : 0.18,
-        rootMargin: isTouchDevice ? "0px 0px 14% 0px" : "0px 0px -8% 0px",
-      }
-    );
+        );
 
     const registerElement = (element: HTMLElement) => {
-      prepareElement(element);
-      revealIfInViewport(element);
-      if (!element.classList.contains("is-visible")) {
-        observer.observe(element);
+      if (element.dataset.revealRegistered === "true") {
+        return;
       }
+      element.dataset.revealRegistered = "true";
+      prepareElement(element);
+      if (shouldDisableRevealAnimation) {
+        setVisibleState(element, true);
+        return;
+      }
+      revealIfInViewport(element);
+      observer?.observe(element);
     };
 
     const observedElements = Array.from(document.querySelectorAll<HTMLElement>(targetSelector));
@@ -190,9 +219,29 @@ const App = () => {
 
     mutationObserver.observe(document.body, { childList: true, subtree: true });
 
+    const revealVisibleNow = () => {
+      document.querySelectorAll<HTMLElement>(targetSelector).forEach((element) => {
+        revealIfInViewport(element);
+      });
+    };
+
+    // Run immediately; relying only on "load" can miss already-fired page load events.
+    revealVisibleNow();
+    const rafId = window.requestAnimationFrame(revealVisibleNow);
+    const settleTimer = window.setTimeout(revealVisibleNow, 180);
+
+    window.addEventListener("load", revealVisibleNow);
+    window.addEventListener("resize", revealVisibleNow);
+
     return () => {
-      observer.disconnect();
+      if (observer) {
+        observer.disconnect();
+      }
       mutationObserver.disconnect();
+      window.cancelAnimationFrame(rafId);
+      window.clearTimeout(settleTimer);
+      window.removeEventListener("load", revealVisibleNow);
+      window.removeEventListener("resize", revealVisibleNow);
     };
   }, []);
 

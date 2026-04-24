@@ -28,7 +28,7 @@ const BlogPostCard = ({
           <img
             src={post.thumbnail}
             alt={post.title}
-            className="aspect-video w-full object-cover opacity-90"
+            className="card-media-zoom aspect-video w-full object-cover opacity-90"
             loading="lazy"
             referrerPolicy="no-referrer"
             onError={(event) => {
@@ -410,7 +410,7 @@ const BlogPage = () => {
                 <img
                   src={previewPost.thumbnail}
                   alt={previewPost.title}
-                  className="h-36 w-full object-cover md:h-40"
+                  className="card-media-zoom h-36 w-full object-cover md:h-40"
                   loading="lazy"
                   referrerPolicy="no-referrer"
                 />

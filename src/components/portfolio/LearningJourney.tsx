@@ -49,7 +49,7 @@ export const LearningJourney = () => {
           {stages.map((stage, index) => (
             <div
               key={index}
-              className="section-enter-soft modern-card sheen-hover bg-[#050506] p-8"
+              className="section-enter-soft modern-card sheen-hover bg-[#050506] p-8 hover:scale-[1.02] transition-all duration-500"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center gap-3 mb-8">

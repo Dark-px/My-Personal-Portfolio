@@ -58,7 +58,7 @@ export const Navigation = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-[clamp(1rem,1.9vw,2rem)]">
+          <div className="stagger-links hidden md:flex items-center gap-[clamp(1rem,1.9vw,2rem)] animate-fade-in-up">
             {navItems.map((item) => (
               <a
                 key={item.href}

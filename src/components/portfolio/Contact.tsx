@@ -36,7 +36,7 @@ export const Contact = () => {
                 target={opensInNewTab ? "_blank" : undefined}
                 rel={opensInNewTab ? "noopener noreferrer" : undefined}
                 data-cursor-preview={`Open ${contact.label}`}
-                className="section-enter-soft modern-card sheen-hover group bg-[#050506] p-8 hover:bg-white/[0.02] transition-colors"
+                className="section-enter-soft modern-card sheen-hover group bg-[#050506] p-8 hover:bg-white/[0.02] transition-all duration-500 hover:scale-[1.02]"
                 style={{ animationDelay: `${index * 90}ms` }}
               >
                 <div className="w-14 h-14 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
