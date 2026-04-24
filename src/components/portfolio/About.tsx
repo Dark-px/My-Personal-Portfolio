@@ -63,20 +63,6 @@ export const About = () => {
                 </div>
               </div>
             </div>
-
-            <div className="section-enter-soft border border-white/10 p-8" style={{ animationDelay: '140ms' }}>
-              <h3 className="text-sm font-mono-display tracking-wider text-white/40 mb-4">TECH_STACK</h3>
-              <div className="flex flex-wrap gap-2">
-                {['Unity', 'C#', 'Git', 'VS Code', 'Blender'].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 border border-white/10 text-sm text-white/60"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
