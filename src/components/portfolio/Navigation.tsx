@@ -53,7 +53,7 @@ export const Navigation = () => {
           <a href="#hero" className="inline-flex items-center gap-2.5 leading-none">
             <img src="/logo-mark.svg" alt="PG logo" className="h-8 w-8 rounded-md" />
             <span className="mt-1 text-[9px] font-mono-display text-white/45 tracking-[0.08em]">
-              SYSTEM_ONLINE // V1.0.0
+              SYSTEM_ONLINE // IN DEVELOPMENT
             </span>
           </a>
 
