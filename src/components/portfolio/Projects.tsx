@@ -44,7 +44,7 @@ export const Projects = () => {
     <section id="projects" className="py-12 sm:py-16 md:py-[4.4rem] bg-[#050506]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="section-enter-soft flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 sm:gap-0 mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 sm:gap-0 mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
           <div>
             <span id="projects_title" className="text-xs font-mono-display text-white/40 mb-4 block">001 // PROJECTS</span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white brutalist-text">
@@ -63,7 +63,7 @@ export const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="section-enter-soft modern-card sheen-hover group bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 hover:bg-white/[0.02] transition-all duration-500 hover:scale-[1.02]"
+              className="modern-card sheen-hover group bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 hover:bg-white/[0.02] transition-all duration-500 hover:scale-[1.02]"
               style={{ animationDelay: `${index * 90}ms` }}
             >
               <div className="mb-6 overflow-hidden border border-white/10 bg-black/30">

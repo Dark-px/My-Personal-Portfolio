@@ -3,7 +3,7 @@ export const About = () => {
     <section id="about" className="py-12 sm:py-16 md:py-[4.4rem] bg-[#050506]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="section-enter-soft mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
+        <div className="mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
           <span id="about_title" className="text-xs font-mono-display text-white/40 mb-4 block">003 // ABOUT</span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white brutalist-text">
             About
@@ -15,7 +15,7 @@ export const About = () => {
         {/* Main Content */}
         <div className="grid md:grid-cols-5 gap-6 sm:gap-8 md:gap-12 mb-8 sm:mb-12 md:mb-16">
           <div className="md:col-span-3 space-y-4 sm:space-y-6">
-            <div className="section-enter-soft border border-white/10 p-6 sm:p-8 md:p-10">
+            <div className="border border-white/10 p-6 sm:p-8 md:p-10">
               <div className="space-y-6 text-lg text-white/70 leading-relaxed">
                 <p>
                   Hi, I’m Parsa — an aspiring game developer who started his journey with curiosity
@@ -42,7 +42,7 @@ export const About = () => {
           </div>
 
           <div className="md:col-span-2 space-y-6">
-            <div className="section-enter-soft border border-white/10 p-8" style={{ animationDelay: '80ms' }}>
+            <div className="border border-white/10 p-8">
               <h3 className="text-sm font-mono-display tracking-wider text-white/40 mb-6">QUICK_FACTS</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center pb-4 border-b border-white/5">

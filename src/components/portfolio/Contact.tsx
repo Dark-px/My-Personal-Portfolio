@@ -15,7 +15,7 @@ export const Contact = () => {
     <section id="contact" className="py-12 sm:py-16 md:py-[4.4rem] bg-[#050506]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="section-enter-soft mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
+        <div className="mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
           <span id="contact_title" className="text-xs font-mono-display text-white/40 mb-4 block">004 // CONTACT</span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white brutalist-text">
             Get In
@@ -36,7 +36,7 @@ export const Contact = () => {
                 target={opensInNewTab ? "_blank" : undefined}
                 rel={opensInNewTab ? "noopener noreferrer" : undefined}
                 data-cursor-preview={`Open ${contact.label}`}
-                className="section-enter-soft modern-card sheen-hover group bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 hover:bg-white/[0.02] transition-all duration-500 hover:scale-[1.02]"
+                className="modern-card sheen-hover group bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 hover:bg-white/[0.02] transition-all duration-500 hover:scale-[1.02]"
                 style={{ animationDelay: `${index * 90}ms` }}
               >
                 <div className="w-14 h-14 border border-white/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -52,7 +52,7 @@ export const Contact = () => {
         </div>
 
         {/* CTA */}
-        <div className="section-enter-soft border border-white/10 p-8 sm:p-12 md:p-16 text-center relative overflow-hidden" style={{ animationDelay: '120ms' }}>
+        <div className="border border-white/10 p-8 sm:p-12 md:p-16 text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 

@@ -35,7 +35,7 @@ export const LearningJourney = () => {
     <section id="journey" className="py-12 sm:py-16 md:py-[4.4rem] bg-[#050506]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="section-enter-soft mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
+        <div className="mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
           <span id="journey_title" className="text-xs font-mono-display text-white/40 mb-4 block">002 // JOURNEY</span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white brutalist-text">
             Learning
@@ -49,7 +49,7 @@ export const LearningJourney = () => {
           {stages.map((stage, index) => (
             <div
               key={index}
-              className="section-enter-soft modern-card sheen-hover bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 hover:scale-[1.02] transition-all duration-500"
+              className="modern-card sheen-hover bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 hover:scale-[1.02] transition-all duration-500"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center gap-3 mb-8">
@@ -73,7 +73,7 @@ export const LearningJourney = () => {
 
         {/* Vision Card */}
         <div
-          className="section-enter-soft modern-card border border-white/15 bg-[#070708] p-6 sm:p-8 md:p-12 relative overflow-hidden"
+          className="modern-card border border-white/15 bg-[#070708] p-6 sm:p-8 md:p-12 relative overflow-hidden"
           style={{ animationDelay: '120ms' }}
         >
           <div className="future-orb-a absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.08),transparent_34%),radial-gradient(circle_at_82%_76%,rgba(255,255,255,0.06),transparent_36%)]" />

@@ -19,7 +19,7 @@ export const FeaturedBlogs = () => {
   return (
     <section id="featured_blogs" className="py-12 sm:py-16 md:py-[3.3rem] bg-[#050506]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="mb-8 sm:mb-12 md:mb-14 pb-6 sm:pb-8 border-b border-white/10 section-enter-soft flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6">
+        <div className="mb-8 sm:mb-12 md:mb-14 pb-6 sm:pb-8 border-b border-white/10 flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6">
           <div>
           <span id="featured_blogs_title" className="text-xs font-mono-display text-white/40 mb-4 block">
             001A // FEATURED_BLOGS
@@ -47,7 +47,7 @@ export const FeaturedBlogs = () => {
           {(isLoading ? [0, 1, 2] : featuredPosts).map((post, index) => (
             <article
               key={typeof post === "number" ? post : post.link}
-              className="section-enter-soft modern-card sheen-hover bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 transition-all duration-500 hover:scale-[1.02]"
+              className="modern-card sheen-hover bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ animationDelay: `${index * 120}ms` }}
             >
               {typeof post === "number" ? (

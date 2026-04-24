@@ -51,11 +51,22 @@ export const Hero = () => {
       <div className="pointer-events-none absolute bottom-20 right-[10%] h-40 w-40 rounded-full bg-white/5 blur-3xl animate-parallax animation-delay-2000 hidden md:block" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 max-[430px]:px-4 pt-20 max-[430px]:pt-16 pb-8 md:pt-24 md:pb-10">
+        {/* Mobile/Tablet Image - Above Name */}
+        <div className="lg:hidden w-full max-w-sm mx-auto mb-8 sm:mb-10">
+          <img
+            src="/Untitled-1@2x.webp"
+            alt="Parsa portrait"
+            className="hero-portrait-image w-full h-auto object-contain"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </div>
+        
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-end">
-          <div className="section-enter-soft min-h-0 md:min-h-[62svh] lg:min-h-[70svh] flex flex-col justify-end space-y-4 max-[430px]:space-y-3 md:space-y-5">
+          <div className="min-h-0 md:min-h-[62svh] lg:min-h-[70svh] flex flex-col justify-end space-y-4 max-[430px]:space-y-3 md:space-y-5">
 
           {/* Name with Brutalist Style */}
-          <div className="space-y-2 section-enter-soft">
+          <div className="space-y-2">
             <h1 className="title-glow-loop animate-text-reveal text-[clamp(2rem,11vw,4.3rem)] max-[430px]:text-[clamp(1.72rem,10.6vw,2.25rem)] md:text-[clamp(2.52rem,9vw,6.48rem)] lg:text-[clamp(3.96rem,7.02vw,7.38rem)] font-black leading-[0.88] max-[430px]:leading-[0.94] md:leading-[0.84] tracking-tighter text-white brutalist-text lg:whitespace-nowrap">
               {text}
               {!isTypingDone && <span className="animate-pulse">|</span>}
@@ -64,7 +75,7 @@ export const Hero = () => {
           </div>
 
           {/* Subtitle */}
-          <div className="space-y-3 section-enter-soft">
+          <div className="space-y-3">
             <div className="space-y-1.5 md:space-y-2">
               <p className="text-sm md:text-base text-white/45 font-mono-display tracking-wide">
                 Eager to become a
@@ -84,7 +95,7 @@ export const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 max-[430px]:gap-2.5 pt-1 section-enter-soft">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 max-[430px]:gap-2.5 pt-1">
             <Button
               size="lg"
               data-cursor-preview="View Projects"
@@ -112,7 +123,7 @@ export const Hero = () => {
             target="_blank"
             rel="noopener noreferrer"
             data-cursor-preview="Open GitHub"
-            className="section-enter-soft inline-flex items-center gap-3 text-sm text-white/40 hover:text-white transition-colors font-mono-display"
+            className="inline-flex items-center gap-3 text-sm text-white/40 hover:text-white transition-colors font-mono-display"
           >
             <Github className="w-4 h-4" />
             @parsaghaei
@@ -120,7 +131,7 @@ export const Hero = () => {
           </div>
           
           {/* Desktop Image */}
-          <div className="section-enter-soft relative hidden lg:flex min-h-[70svh] items-end justify-end">
+          <div className="relative hidden lg:flex min-h-[70svh] items-end justify-end">
             <div className="relative h-[70svh] min-h-[34rem] w-full max-w-[42rem]">
               <div className="absolute bottom-[-12%] right-[2%] z-20 flex h-[114%] w-[94%] items-end justify-end">
                 <img
@@ -132,17 +143,6 @@ export const Hero = () => {
                 />
               </div>
             </div>
-          </div>
-          
-          {/* Mobile/Tablet Image */}
-          <div className="section-enter-soft relative lg:hidden w-full max-w-md mx-auto mt-12 sm:mt-16">
-            <img
-              src="/Untitled-1@2x.webp"
-              alt="Parsa portrait"
-              className="hero-portrait-image w-full h-auto object-contain"
-              loading="eager"
-              fetchPriority="high"
-            />
           </div>
         </div>
       </div>
