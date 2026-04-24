@@ -1,11 +1,11 @@
 export const About = () => {
   return (
-    <section id="about" className="py-[4.4rem] bg-[#050506]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="py-12 sm:py-16 md:py-[4.4rem] bg-[#050506]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="section-enter-soft mb-16 pb-8 border-b border-white/10">
+        <div className="section-enter-soft mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
           <span id="about_title" className="text-xs font-mono-display text-white/40 mb-4 block">003 // ABOUT</span>
-          <h2 className="text-6xl md:text-8xl font-black text-white brutalist-text">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white brutalist-text">
             About
             <br />
             <span className="text-white/30">Me</span>
@@ -13,9 +13,9 @@ export const About = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid md:grid-cols-5 gap-12 mb-16">
-          <div className="md:col-span-3 space-y-6">
-            <div className="section-enter-soft border border-white/10 p-10">
+        <div className="grid md:grid-cols-5 gap-6 sm:gap-8 md:gap-12 mb-8 sm:mb-12 md:mb-16">
+          <div className="md:col-span-3 space-y-4 sm:space-y-6">
+            <div className="section-enter-soft border border-white/10 p-6 sm:p-8 md:p-10">
               <div className="space-y-6 text-lg text-white/70 leading-relaxed">
                 <p>
                   Hi, I’m Parsa — an aspiring game developer who started his journey with curiosity

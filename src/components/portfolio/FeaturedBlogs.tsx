@@ -17,19 +17,19 @@ export const FeaturedBlogs = () => {
   const featuredPosts = getFeaturedPosts(posts);
 
   return (
-    <section id="featured_blogs" className="py-[3.3rem] bg-[#050506]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-14 pb-8 border-b border-white/10 section-enter-soft flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+    <section id="featured_blogs" className="py-12 sm:py-16 md:py-[3.3rem] bg-[#050506]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="mb-8 sm:mb-12 md:mb-14 pb-6 sm:pb-8 border-b border-white/10 section-enter-soft flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6">
           <div>
           <span id="featured_blogs_title" className="text-xs font-mono-display text-white/40 mb-4 block">
             001A // FEATURED_BLOGS
           </span>
-          <h2 className="text-5xl md:text-7xl font-black text-white brutalist-text">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white brutalist-text">
             Top
             <br />
             <span className="text-white/35">Writings</span>
           </h2>
-          <p className="text-white/50 text-sm md:text-base mt-6 max-w-2xl">
+          <p className="text-white/50 text-xs sm:text-sm md:text-base mt-4 sm:mt-6 max-w-2xl">
             Three curated posts from Medium. You can choose them by updating{" "}
             <code className="text-white/80">MEDIUM_CONFIG.featuredPostLinks</code>.
           </p>
@@ -37,17 +37,17 @@ export const FeaturedBlogs = () => {
           <a
             href="/blog"
             data-cursor-preview="Go To Blog Page"
-            className="button-glow-hover inline-flex items-center justify-center bg-white text-black font-bold text-sm px-6 py-3 rounded-sm border-2 border-white hover:bg-white/90 transition-all"
+            className="button-glow-hover inline-flex items-center justify-center bg-white text-black font-bold text-xs sm:text-sm px-5 sm:px-6 py-2.5 sm:py-3 rounded-sm border-2 border-white hover:bg-white/90 transition-all"
           >
             SEE MORE
           </a>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-px sm:bg-white/10 sm:border sm:border-white/10">
           {(isLoading ? [0, 1, 2] : featuredPosts).map((post, index) => (
             <article
               key={typeof post === "number" ? post : post.link}
-              className="section-enter-soft modern-card sheen-hover bg-[#050506] p-8 transition-all duration-500 hover:scale-[1.02]"
+              className="section-enter-soft modern-card sheen-hover bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 transition-all duration-500 hover:scale-[1.02]"
               style={{ animationDelay: `${index * 120}ms` }}
             >
               {typeof post === "number" ? (

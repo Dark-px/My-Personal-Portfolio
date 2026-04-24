@@ -51,7 +51,7 @@ export const Hero = () => {
       <div className="pointer-events-none absolute bottom-20 right-[10%] h-40 w-40 rounded-full bg-white/5 blur-3xl animate-parallax animation-delay-2000 hidden md:block" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 max-[430px]:px-4 pt-20 max-[430px]:pt-16 pb-8 md:pt-24 md:pb-10">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-end">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-end">
           <div className="section-enter-soft min-h-0 md:min-h-[62svh] lg:min-h-[70svh] flex flex-col justify-end space-y-4 max-[430px]:space-y-3 md:space-y-5">
 
           {/* Name with Brutalist Style */}
@@ -120,7 +120,7 @@ export const Hero = () => {
           </div>
           <div className="section-enter-soft relative hidden lg:flex min-h-[70svh] items-end justify-end">
             <div className="relative h-[70svh] min-h-[34rem] w-full max-w-[42rem]">
-              <div className="absolute bottom-[-12%] right-[-4%] z-20 flex h-[114%] w-[94%] items-end justify-end">
+              <div className="absolute bottom-[-12%] right-[2%] z-20 flex h-[114%] w-[94%] items-end justify-end">
                 <img
                   src="/Untitled-1@2x.webp"
                   alt="Parsa portrait"

@@ -41,29 +41,29 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-[4.4rem] bg-[#050506]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="projects" className="py-12 sm:py-16 md:py-[4.4rem] bg-[#050506]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="section-enter-soft flex items-end justify-between mb-16 pb-8 border-b border-white/10">
+        <div className="section-enter-soft flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 sm:gap-0 mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
           <div>
             <span id="projects_title" className="text-xs font-mono-display text-white/40 mb-4 block">001 // PROJECTS</span>
-            <h2 className="text-6xl md:text-8xl font-black text-white brutalist-text">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white brutalist-text">
               Selected
               <br />
               <span className="text-white/30">Work</span>
             </h2>
           </div>
-          <p className="hidden md:block text-right text-sm text-white/50 max-w-xs">
+          <p className="text-sm sm:text-right text-white/50 max-w-xs sm:max-w-[14rem] md:max-w-xs">
             Games, experiments, and creative endeavors. Each project teaches something new.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-px sm:bg-white/10 sm:border sm:border-white/10">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="section-enter-soft modern-card sheen-hover group bg-[#050506] p-8 hover:bg-white/[0.02] transition-all duration-500 hover:scale-[1.02]"
+              className="section-enter-soft modern-card sheen-hover group bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 hover:bg-white/[0.02] transition-all duration-500 hover:scale-[1.02]"
               style={{ animationDelay: `${index * 90}ms` }}
             >
               <div className="mb-6 overflow-hidden border border-white/10 bg-black/30">

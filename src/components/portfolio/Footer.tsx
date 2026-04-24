@@ -14,12 +14,12 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="py-12 border-t border-white/10 bg-[#050506]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+    <footer className="py-8 sm:py-10 md:py-12 border-t border-white/10 bg-[#050506]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
-            <h3 className="text-xl font-black text-white mb-4">PARSA GHAEI</h3>
-            <p className="text-white/40 text-sm leading-relaxed">
+            <h3 className="text-lg sm:text-xl font-black text-white mb-3 sm:mb-4">PARSA GHAEI</h3>
+            <p className="text-white/40 text-xs sm:text-sm leading-relaxed">
               Aspiring Game Developer & Designer, documenting the journey.
             </p>
           </div>

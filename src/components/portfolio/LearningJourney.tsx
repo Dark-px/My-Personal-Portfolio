@@ -32,12 +32,12 @@ export const LearningJourney = () => {
   ];
 
   return (
-    <section id="journey" className="py-[4.4rem] bg-[#050506]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="journey" className="py-12 sm:py-16 md:py-[4.4rem] bg-[#050506]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="section-enter-soft mb-16 pb-8 border-b border-white/10">
+        <div className="section-enter-soft mb-8 sm:mb-12 md:mb-16 pb-6 sm:pb-8 border-b border-white/10">
           <span id="journey_title" className="text-xs font-mono-display text-white/40 mb-4 block">002 // JOURNEY</span>
-          <h2 className="text-6xl md:text-8xl font-black text-white brutalist-text">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white brutalist-text">
             Learning
             <br />
             <span className="text-white/30">Path</span>
@@ -45,11 +45,11 @@ export const LearningJourney = () => {
         </div>
 
         {/* Stages Grid */}
-        <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-px sm:bg-white/10 sm:border sm:border-white/10 mb-8 sm:mb-12 md:mb-16">
           {stages.map((stage, index) => (
             <div
               key={index}
-              className="section-enter-soft modern-card sheen-hover bg-[#050506] p-8 hover:scale-[1.02] transition-all duration-500"
+              className="section-enter-soft modern-card sheen-hover bg-[#050506] border border-white/10 sm:border-0 p-6 sm:p-8 hover:scale-[1.02] transition-all duration-500"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-center gap-3 mb-8">
@@ -73,7 +73,7 @@ export const LearningJourney = () => {
 
         {/* Vision Card */}
         <div
-          className="section-enter-soft modern-card border border-white/15 bg-[#070708] p-8 md:p-12 relative overflow-hidden"
+          className="section-enter-soft modern-card border border-white/15 bg-[#070708] p-6 sm:p-8 md:p-12 relative overflow-hidden"
           style={{ animationDelay: '120ms' }}
         >
           <div className="future-orb-a absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(255,255,255,0.08),transparent_34%),radial-gradient(circle_at_82%_76%,rgba(255,255,255,0.06),transparent_36%)]" />
