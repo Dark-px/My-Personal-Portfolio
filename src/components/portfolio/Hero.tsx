@@ -118,7 +118,19 @@ export const Hero = () => {
             @parsaghaei
           </a>
           </div>
-          <div className="hidden lg:block" aria-hidden="true" />
+          <div className="section-enter-soft relative hidden lg:flex min-h-[70svh] items-end justify-end">
+            <div className="relative h-[70svh] min-h-[34rem] w-full max-w-[42rem]">
+              <div className="absolute bottom-[-12%] right-[-4%] z-20 flex h-[114%] w-[94%] items-end justify-end">
+                <img
+                  src="/Untitled-1@2x.webp"
+                  alt="Parsa portrait"
+                  className="hero-portrait-image h-full w-full object-contain object-bottom object-right"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
