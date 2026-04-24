@@ -107,12 +107,12 @@ export const Hero = () => {
           </div>
 
           {/* Social */}
-          <a className="section-enter-soft"
+          <a
             href="https://github.com/Dark-px"
             target="_blank"
             rel="noopener noreferrer"
             data-cursor-preview="Open GitHub"
-            className="inline-flex items-center gap-3 text-sm text-white/40 hover:text-white transition-colors font-mono-display"
+            className="section-enter-soft inline-flex items-center gap-3 text-sm text-white/40 hover:text-white transition-colors font-mono-display"
           >
             <Github className="w-4 h-4" />
             @parsaghaei
