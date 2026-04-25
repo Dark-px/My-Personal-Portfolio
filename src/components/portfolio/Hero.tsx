@@ -133,6 +133,8 @@ export const Hero = () => {
           {/* Desktop Image */}
           <div className="relative hidden lg:flex min-h-[70svh] items-end justify-end">
             <div className="relative h-[70svh] min-h-[34rem] w-full max-w-[42rem]">
+              
+              
               <div className="absolute bottom-[-12%] right-[2%] z-20 flex h-[114%] w-[94%] items-end justify-end">
                 <img
                   src="/Untitled-1@2x.webp"
